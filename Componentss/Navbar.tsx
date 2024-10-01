@@ -16,14 +16,18 @@ const Navbar = () => {
   return (
     <>
       <div className="container border-b Navbar font-[family-name:var(--font-geist-sans)] flex justify-between items-center px-4 py-8">
-        <h1 className="text-2xl italic"> <Link href={"/"}>Pak Edu Career</Link> </h1>
+        <h1 className="text-2xl italic">
+          <Link href={"/"}>Pak Edu Career</Link>{" "}
+        </h1>
         <AlignJustify
           className="cursor-pointer md:hidden"
           onClick={() => setopen(!open)}
         />
         <div className="links  gap-6 hidden md:flex">
           <DropdownMenu>
-            <DropdownMenuTrigger className="text-lg">Admissions</DropdownMenuTrigger>
+            <DropdownMenuTrigger className="text-lg">
+              Admissions
+            </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuLabel>BS Admissions</DropdownMenuLabel>
               <DropdownMenuSeparator />
@@ -36,7 +40,9 @@ const Navbar = () => {
             </DropdownMenuContent>
           </DropdownMenu>
           <DropdownMenu>
-            <DropdownMenuTrigger className="text-lg">Universities</DropdownMenuTrigger>
+            <DropdownMenuTrigger className="text-lg">
+              Universities
+            </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuLabel>Government Universities</DropdownMenuLabel>
               <DropdownMenuSeparator />
@@ -47,7 +53,9 @@ const Navbar = () => {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        <Button variant={"secondary"} className="hidden md:block">Contact Us</Button>
+        <Button variant={"secondary"} className="hidden md:block">
+          Contact Us
+        </Button>
       </div>
 
       <div
