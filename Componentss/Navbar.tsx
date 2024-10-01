@@ -9,16 +9,21 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { AlignJustify } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+
 const Navbar = () => {
   const [open, setopen] = useState(false);
   return (
     <>
       <div className="container border-b Navbar font-[family-name:var(--font-geist-sans)] flex justify-between items-center px-4 py-8">
-        <h1 className="text-2xl italic">
-          <Link href={"/"}>Pak Edu Career</Link>{" "}
-        </h1>
+        <div className="flex  items-center justify-center gap-4">
+        <Image src={'/logo.png'} alt="Logo" width={50} height={50}/>
+          <h1 className="text-2xl ">
+            <Link href={"/"}>Pak Edu Career</Link>{" "}
+          </h1>
+        </div>
         <AlignJustify
           className="cursor-pointer md:hidden"
           onClick={() => setopen(!open)}
