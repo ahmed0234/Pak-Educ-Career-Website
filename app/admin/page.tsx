@@ -102,7 +102,7 @@ const page = () => {
             <textarea
               id="bsPrograms"
               name="bsPrograms"
-              placeholder="Enter BS programs, separated by commas"
+              placeholder="Enter MPhil programs, separated by commas"
               className="border text-black border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
@@ -134,7 +134,7 @@ const page = () => {
             <textarea
               id="bsPrograms"
               name="bsPrograms"
-              placeholder="Enter BS programs, separated by commas"
+              placeholder="Enter PhD programs, separated by commas"
               className="border text-black border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
