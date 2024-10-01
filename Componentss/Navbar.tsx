@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <>
       <div className="container border-b Navbar font-[family-name:var(--font-geist-sans)] flex justify-between items-center px-4 py-8">
-        <h1 className="text-2xl italic">Pak Edu Career</h1>
+        <h1 className="text-2xl italic"> <Link href={"/"}>Pak Edu Career</Link> </h1>
         <AlignJustify
           className="cursor-pointer md:hidden"
           onClick={() => setopen(!open)}
