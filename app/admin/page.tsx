@@ -8,13 +8,13 @@ const page = () => {
         <form className="space-y-6">
           {/* University Name */}
           <div className="flex flex-col">
-            <label htmlFor="name" className="mb-2 font-semibold">
+            <label htmlFor="university_name" className="mb-2 font-semibold">
               University Name
             </label>
             <input
               type="text"
-              id="name"
-              name="university name"
+              id="university_name"
+              name="university_name"
               required
               className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -36,11 +36,11 @@ const page = () => {
 
           {/* Admission Status */}
           <div className="flex flex-col">
-            <label htmlFor="admissionStatus" className="mb-2 font-semibold">
+            <label htmlFor="sector" className="mb-2 font-semibold">
               Sector
             </label>
             <select
-              id="admissionStatus"
+              id="sector"
               name="sector"
               className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
@@ -84,14 +84,14 @@ const page = () => {
           </div>
           {/* MPhil Programs */}
           <div className="flex flex-col">
-            <label htmlFor="bsPrograms" className="mb-2 font-semibold">
+            <label htmlFor="MphilProgramsOpen" className="mb-2 font-semibold">
               MPhil Programs
             </label>
             <div className="flex items-center gap-2 mb-2">
               <input
                 type="checkbox"
-                id="bsOpen"
-                name="bsProgramsOpen"
+                id="MphilProgramsOpen"
+                name="MphilProgramsOpen"
                 className="focus:ring-2 focus:ring-blue-500"
               />
               <label htmlFor="bsOpen" className="font-semibold">
@@ -101,8 +101,8 @@ const page = () => {
 
             {/* Textarea for Adding Programs */}
             <textarea
-              id="bsPrograms"
-              name="bsPrograms"
+              id="MphilPrograms"
+              name="MphilPrograms"
               placeholder="Enter MPhil programs, separated by commas"
               className="border text-black border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -116,25 +116,25 @@ const page = () => {
 
           {/* PhD Programs */}
           <div className="flex flex-col">
-            <label htmlFor="bsPrograms" className="mb-2 font-semibold">
+            <label htmlFor="PhDprogramopen" className="mb-2 font-semibold">
               PhD Programs
             </label>
             <div className="flex items-center gap-2 mb-2">
               <input
                 type="checkbox"
-                id="bsOpen"
-                name="bsProgramsOpen"
+                id="PhDprogramsopen"
+                name="PhDprogramsopen"
                 className="focus:ring-2 focus:ring-blue-500"
               />
-              <label htmlFor="bsOpen" className="font-semibold">
+              <label htmlFor="PhDprogramsopen" className="font-semibold">
                 PhD Programs Open
               </label>
             </div>
 
             {/* Textarea for Adding Programs */}
             <textarea
-              id="bsPrograms"
-              name="bsPrograms"
+              id="PhDprograms"
+              name="PhDprograms"
               placeholder="Enter PhD programs, separated by commas"
               className="border text-black border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -146,24 +146,20 @@ const page = () => {
             </p>
           </div>
 
-
-           
-
-
           {/* ADP Programs */}
           <div className="flex flex-col">
-            <label htmlFor="bsPrograms" className="mb-2 font-semibold">
-            ADP Programs
+            <label htmlFor="ADP_programs" className="mb-2 font-semibold">
+              ADP Programs
             </label>
             <div className="flex items-center gap-2 mb-2">
               <input
                 type="checkbox"
-                id="adp_programs_open"
-                name="adp_programs_open"
+                id="ADP_programs_open"
+                name="ADP_programs_open"
                 className="focus:ring-2 focus:ring-blue-500"
               />
               <label htmlFor="adp_programs_open" className="font-semibold">
-              ADP Programs Open
+                ADP Programs Open
               </label>
             </div>
 
@@ -181,30 +177,29 @@ const page = () => {
               Agriculture, Business Administration).
             </p>
           </div>
-             {/* ADP Programs */}
+          {/* ADP Programs */}
 
-
-             {/* BS 5th Semester */}
+          {/* BS 5th Semester */}
           <div className="flex flex-col">
-            <label htmlFor="bsPrograms" className="mb-2 font-semibold">
-            BS 5th Semester Programs
+            <label htmlFor="bs5th_programs_open" className="mb-2 font-semibold">
+              BS 5th Semester Programs
             </label>
             <div className="flex items-center gap-2 mb-2">
               <input
                 type="checkbox"
-                id="bs_5th_semester"
-                name="bs_5th_semester"
+                id="bs5th_programs_open"
+                name="bs5th_programs_open"
                 className="focus:ring-2 focus:ring-blue-500"
               />
-              <label htmlFor="bs_5th_semester" className="font-semibold">
-              BS 5th Semester Programs Open
+              <label htmlFor="bs5th_programs_open" className="font-semibold">
+                BS 5th Semester Programs Open
               </label>
             </div>
 
             {/* Textarea for Adding Programs */}
             <textarea
-              id="bs_5th_semester_programs"
-              name="bs_5th_semester_programs"
+              id="bs5th_programs"
+              name="bs5th_programs"
               placeholder="Enter BS 5th Semester programs, separated by commas"
               className="border text-black border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -215,30 +210,29 @@ const page = () => {
               Agriculture, Business Administration).
             </p>
           </div>
-             {/* BS 5th Semester */}
+          {/* BS 5th Semester */}
 
-
-             {/* Diploma  */}
+          {/* Diploma  */}
           <div className="flex flex-col">
-            <label htmlFor="bsPrograms" className="mb-2 font-semibold">
-            Diploma  Programs
+            <label htmlFor="Diploma" className="mb-2 font-semibold">
+              Diploma Programs
             </label>
             <div className="flex items-center gap-2 mb-2">
               <input
                 type="checkbox"
-                id="diploma_programs_open"
-                name="diploma_programs_open"
+                id="Diplomaopen"
+                name="Diplomaopen"
                 className="focus:ring-2 focus:ring-blue-500"
               />
               <label htmlFor="diploma_programs_open" className="font-semibold">
-              Diploma  Programs
+                Diploma Programs
               </label>
             </div>
 
             {/* Textarea for Adding Programs */}
             <textarea
               id="diploma_programs"
-              name="diploma_programs"
+              name="Diplomaprograms"
               placeholder="Enter Diploma  programs, separated by commas"
               className="border text-black border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -249,9 +243,7 @@ const page = () => {
               Agriculture, Business Administration).
             </p>
           </div>
-             {/* Diploma  */}
-
-
+          {/* Diploma  */}
 
           {/* Priority */}
           <div className="flex flex-col">
@@ -266,16 +258,14 @@ const page = () => {
             />
           </div>
 
-          
-
           {/* ImportantAdmission or Not */}
           <div className="flex flex-col">
             <label htmlFor="admissionStatus" className="mb-2 font-semibold">
-            Important Admission
+              Important Admission
             </label>
             <select
               id="admissionStatus"
-              name="ImportantAdmission"
+              name="importantadmission"
               className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="true">Yes</option>
@@ -283,79 +273,77 @@ const page = () => {
             </select>
           </div>
 
-
           {/*  Admission Open Date */}
-                <div className="flex flex-col">
-                  <label htmlFor="admissionApplyDate" className="mb-2 font-semibold">
-                    Admission Open Date
-                  </label>
-                  <input
-                    type="date"
-                    id="admissionopendate"
-                    name="admissionopendate"
-                    required
-                    className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
-           {/*  Admission Open Date */}
+          <div className="flex flex-col">
+            <label htmlFor="admissionApplyDate" className="mb-2 font-semibold">
+              Admission Open Date
+            </label>
+            <input
+              type="date"
+              id="admissionopendate"
+              name="admissionopendate"
+              required
+              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          {/*  Admission Open Date */}
 
-                {/* Test Date */}
-                <div className="flex flex-col">
-                  <label htmlFor="testDate" className="mb-2 font-semibold">
-                    Test Date
-                  </label>
-                  <input
-                    type="date"
-                    id="testDate"
-                    name="testDate"
-                    required
-                    className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
-                  {/* Test Date */}
+          {/* Test Date */}
+          <div className="flex flex-col">
+            <label htmlFor="testDate" className="mb-2 font-semibold">
+              Test Date
+            </label>
+            <input
+              type="date"
+              id="testDate"
+              name="testDate"
+              required
+              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          {/* Test Date */}
 
-                  {/* DeadLine Date */}
-                <div className="flex flex-col">
-                  <label htmlFor="testDate" className="mb-2 font-semibold">
-                    Deadline Date
-                  </label>
-                  <input
-                    type="date"
-                    id="deadlinedate"
-                    name="deadlinedate"
-                    required
-                    className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
-                  {/* University Website*/}
-                    <div className="flex flex-col">
-                      <label htmlFor="testDate" className="mb-2 font-semibold">
-                        University Website To Apply Online
-                      </label>
-                      <input
-                        type="text"
-                        id="universitywebsite"
-                        name="universitywebsite"
-                        required
-                        className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                  {/* University Website*/}
+          {/* DeadLine Date */}
+          <div className="flex flex-col">
+            <label htmlFor="testDate" className="mb-2 font-semibold">
+              Deadline Date
+            </label>
+            <input
+              type="date"
+              id="deadlinedate"
+              name="deadlinedate"
+              required
+              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          {/* University Website*/}
+          <div className="flex flex-col">
+            <label htmlFor="testDate" className="mb-2 font-semibold">
+              University Website To Apply Online
+            </label>
+            <input
+              type="text"
+              id="universitywebsite"
+              name="universitywebsite"
+              required
+              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          {/* University Website*/}
 
-                  {/* HR NOTICE */}
-                  <div className="flex flex-col">
-                      <label htmlFor="testDate" className="mb-2 font-semibold">
-                        HR ADMISSION NOTICE
-                      </label>
-                      <input
-                        type="text"
-                        id="hradmissionnotice"
-                        name="hradmissionnotice"
-                        className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                  {/* HR NOTICE */}
-
+          {/* HR NOTICE */}
+          <div className="flex flex-col">
+            <label htmlFor="testDate" className="mb-2 font-semibold">
+              HR ADMISSION NOTICE
+            </label>
+            <input
+              type="text"
+              id="hradmissionnotice"
+              name="hradmissionnotice"
+              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          {/* HR NOTICE */}
 
           {/* Submit Button */}
           <div className="flex justify-center">
