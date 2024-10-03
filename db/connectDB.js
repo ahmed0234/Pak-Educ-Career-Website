@@ -16,7 +16,7 @@ export const connectToDatabase = async () => {
     connection.isConnected = db.connections[0].readyState; // 1 means connected
     console.log("Database connected successfully");
   } catch (error) {
-    console.error("Database connection failed:", error);
+    console.error("Database connection failed:", error.message);
     throw new Error("Database connection error");
   }
 };

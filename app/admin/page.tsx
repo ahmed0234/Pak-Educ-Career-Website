@@ -1,3 +1,7 @@
+import { Create_University } from "@/actions/serveractions";
+
+
+
 const page = () => {
   return (
     <div className="bg-background py-10 px-4 bg-[#0a0a0a]">
@@ -5,7 +9,7 @@ const page = () => {
         <h2 className="text-2xl font-bold mb-6 text-center">
           Add University Details
         </h2>
-        <form className="space-y-6">
+        <form className="space-y-6" action={Create_University}>
           {/* University Name */}
           <div className="flex flex-col">
             <label htmlFor="university_name" className="mb-2 font-semibold">
