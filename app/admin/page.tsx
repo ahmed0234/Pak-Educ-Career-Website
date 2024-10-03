@@ -266,19 +266,7 @@ const page = () => {
             />
           </div>
 
-          {/* University Code */}
-          <div className="flex flex-col">
-            <label htmlFor="name" className="mb-2 font-semibold">
-              University Code
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="University Code"
-              required
-              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+          
 
           {/* ImportantAdmission or Not */}
           <div className="flex flex-col">
@@ -340,20 +328,33 @@ const page = () => {
                   />
                 </div>
                   {/* University Website*/}
-
-                  <div className="flex flex-col">
-                  <label htmlFor="testDate" className="mb-2 font-semibold">
-                    University Website To Apply Online
-                  </label>
-                  <input
-                    type="text"
-                    id="universitywebsite"
-                    name="universitywebsite"
-                    required
-                    className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
+                    <div className="flex flex-col">
+                      <label htmlFor="testDate" className="mb-2 font-semibold">
+                        University Website To Apply Online
+                      </label>
+                      <input
+                        type="text"
+                        id="universitywebsite"
+                        name="universitywebsite"
+                        required
+                        className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      />
+                    </div>
                   {/* University Website*/}
+
+                  {/* HR NOTICE */}
+                  <div className="flex flex-col">
+                      <label htmlFor="testDate" className="mb-2 font-semibold">
+                        HR ADMISSION NOTICE
+                      </label>
+                      <input
+                        type="text"
+                        id="hradmissionnotice"
+                        name="hradmissionnotice"
+                        className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      />
+                    </div>
+                  {/* HR NOTICE */}
 
 
           {/* Submit Button */}
