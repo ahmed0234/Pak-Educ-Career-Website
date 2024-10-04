@@ -11,36 +11,57 @@ const UniversitySchema = new mongoose.Schema(
     },
     location: {
       type: String,
-      required: true, // The city or area where the university is located
+      required: true,
+      index: true,
+    },
+    sector: {
+      type: String,
+      enum: ["Government", "Semi Government", "Private"],
+      required: true,
+    },
+    priority: {
+      type: Number,
+      default: 0, // Lower numbers have higher priority
       index: true,
     },
     importantAdmission: {
       type: Boolean,
-      default: false, // true for open, false for closed
+      default: false, // Yes for important admission
     },
-    admissionStatus: {
-      type: Boolean,
+    admissionOpenDate: {
+      type: Date,
       required: true,
-      default: false, // true for open, false for closed
-      index: true,
+    },
+    testDate: {
+      type: Date,
+      required: true,
+    },
+    deadlineDate: {
+      type: Date,
+      required: true,
+    },
+    universityWebsite: {
+      type: String,
+      required: true,
+    },
+    hrAdmissionNotice: {
+      type: String,
     },
     programs: {
       bsPrograms: {
         isOpen: {
           type: Boolean,
-          default: false, // True if admissions are open
-          index: true,
+          default: false,
         },
         list: {
-          type: [String], // Array of strings to store BS program names (e.g., "Computer Science", "Agriculture")
+          type: [String], // Array of strings to store BS program names
           default: [],
         },
       },
       mphilPrograms: {
         isOpen: {
           type: Boolean,
-          default: false, // True if admissions are open
-          index: true,
+          default: false,
         },
         list: {
           type: [String], // Array of strings to store MPhil program names
@@ -50,28 +71,43 @@ const UniversitySchema = new mongoose.Schema(
       phdPrograms: {
         isOpen: {
           type: Boolean,
-          default: false, // True if admissions are open
-          index: true,
+          default: false,
         },
         list: {
           type: [String], // Array of strings to store PhD program names
           default: [],
         },
       },
-    },
-    establishedYear: {
-      type: Number,
-      index: true,
-    },
-    code: {
-      type: String,
-      unique: true,
-      sparse: true,
-    },
-    priority: {
-      type: Number,
-      default: 0, // Lower numbers have higher priority
-      index: true,
+      adpPrograms: {
+        isOpen: {
+          type: Boolean,
+          default: false,
+        },
+        list: {
+          type: [String], // Array of strings to store ADP program names
+          default: [],
+        },
+      },
+      bs5thPrograms: {
+        isOpen: {
+          type: Boolean,
+          default: false,
+        },
+        list: {
+          type: [String], // Array of strings to store BS 5th Semester program names
+          default: [],
+        },
+      },
+      diplomaPrograms: {
+        isOpen: {
+          type: Boolean,
+          default: false,
+        },
+        list: {
+          type: [String], // Array of strings to store Diploma program names
+          default: [],
+        },
+      },
     },
   },
   { timestamps: true }

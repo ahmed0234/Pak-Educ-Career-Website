@@ -48,9 +48,9 @@ const page = () => {
               name="sector"
               className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="true">Government</option>
-              <option value="false">Semi Government</option>
-              <option value="false">Private</option>
+              <option value="Government">Government</option>
+              <option value="Semi Government">Semi Government</option>
+              <option value="Private">Private</option>
             </select>
           </div>
 
