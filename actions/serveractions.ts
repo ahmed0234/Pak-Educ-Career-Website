@@ -10,14 +10,14 @@ export async function Create_University(data: FormData) {
   const testDate2 = new Date(data.get("testDate") as string);
   const deadlineDate3 = new Date(data.get("deadlinedate") as string);
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return `${date.getDate().toString().padStart(2, "0")}-${(
-      date.getMonth() + 1
-    )
-      .toString()
-      .padStart(2, "0")}-${date.getFullYear()}`;
-  };
+  // const formatDate = (dateString) => {
+  //   const date = new Date(dateString);
+  //   return `${date.getDate().toString().padStart(2, "0")}-${(
+  //     date.getMonth() + 1
+  //   )
+  //     .toString()
+  //     .padStart(2, "0")}-${date.getFullYear()}`;
+  // };
 
   // Extract values from the FormData object
   const university = {
