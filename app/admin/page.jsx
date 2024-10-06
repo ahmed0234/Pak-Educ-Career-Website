@@ -29,7 +29,7 @@ const Page = () => {
         setError(response.message);
       }
     } catch (e) {
-      setError('An unexpected error occurred.');
+      setError('An unexpected error occurred.', e.message);
     } finally {
       setLoading(false);
     }
