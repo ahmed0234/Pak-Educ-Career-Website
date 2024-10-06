@@ -1,15 +1,46 @@
+'use client';
+
+import { useState } from 'react';
 import { Create_University } from "@/actions/serveractions";
 
 
 
-const page = () => {
+const Page = () => {
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState(null);
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    setMessage(null);
+    setError(null);
+
+    const formData = new FormData(event.currentTarget);
+
+    try {
+      // Call the server action
+      const response = await Create_University(formData);
+
+      // Handle the response
+      if (response.success) {
+        setMessage(response.message);
+      } else {
+        setError(response.message);
+      }
+    } catch (e) {
+      setError('An unexpected error occurred.');
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div className="bg-background py-10 px-4 bg-[#0a0a0a]">
       <div className="max-w-4xl mx-auto bg-zinc-900 p-8 rounded-lg shadow-lg text-white">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Add University Details
         </h2>
-        <form className="space-y-6" action={Create_University}>
+        <form className="space-y-6" onSubmit={handleSubmit}>
           {/* University Name */}
           <div className="flex flex-col">
             <label htmlFor="university_name" className="mb-2 font-semibold">
@@ -352,16 +383,20 @@ const page = () => {
           {/* Submit Button */}
           <div className="flex justify-center">
             <button
+          disabled={loading}
               type="submit"
               className="bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-[family-name:var(--font-geist-sans)]"
             >
-              Submit
+              {loading ? 'Submitting...' : 'Submit'}
+              {/* Submit */}
             </button>
           </div>
+          {message && <div className="success-message">{message}</div>}
+          {error && <div className="error-message">{error}</div>}
         </form>
       </div>
     </div>
   );
 };
 
-export default page;
+export default Page;
