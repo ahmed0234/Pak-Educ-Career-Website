@@ -4,57 +4,64 @@ import mongoose from "mongoose";
 
 const UniversitySchema = new mongoose.Schema(
   {
+    // University Name
     name: {
       type: String,
       required: true,
       unique: true,
+      index: true, // Index for faster searches on university name
     },
+
+    // Location (Province & City)
     location: {
-      type: String,
-      required: true,
-      index: true,
+      province: {
+        type: String,
+        required: true,
+        index: true, // Query universities based on the province
+      },
+      city: {
+        type: String,
+        index: true, // Query universities based on the city
+      },
     },
+
+    // Affiliation
+    affiliation: {
+      isOpen: {
+        type: Boolean,
+        default: false,
+      },
+      name: {
+        type: String, // List of BS programs
+        default: null,
+      },
+    },
+
+    // Sector (Government, Semi Government, Private)
     sector: {
       type: String,
       enum: ["Government", "Semi Government", "Private"],
       required: true,
+      index: true, // Frequent searches by sector
     },
+
+    // Priority
     priority: {
       type: Number,
-      default: 0, // Lower numbers have higher priority
-      index: true,
+      default: 0, // Lower number means higher priority
+      index: true, // Priority indexing for sorting
     },
-    importantAdmission: {
-      type: Boolean,
-      default: false, // Yes for important admission
-    },
-    admissionOpenDate: {
-      type: Date,
-      required: true,
-    },
-    testDate: {
-      type: Date,
-      required: true,
-    },
-    deadlineDate: {
-      type: Date,
-      required: true,
-    },
-    universityWebsite: {
-      type: String,
-      required: true,
-    },
-    hrAdmissionNotice: {
-      type: String,
-    },
+
+    // Programs with Admission Open Status
     programs: {
       bsPrograms: {
         isOpen: {
           type: Boolean,
           default: false,
+          index: true, // Search by BS program availability
         },
         list: {
-          type: [String], // Array of strings to store BS program names
+          type: [String], // List of BS programs
           default: [],
         },
       },
@@ -62,9 +69,10 @@ const UniversitySchema = new mongoose.Schema(
         isOpen: {
           type: Boolean,
           default: false,
+          index: true, // Search by MPhil program availability
         },
         list: {
-          type: [String], // Array of strings to store MPhil program names
+          type: [String], // List of MPhil programs
           default: [],
         },
       },
@@ -72,9 +80,10 @@ const UniversitySchema = new mongoose.Schema(
         isOpen: {
           type: Boolean,
           default: false,
+          index: true, // Search by PhD program availability
         },
         list: {
-          type: [String], // Array of strings to store PhD program names
+          type: [String], // List of PhD programs
           default: [],
         },
       },
@@ -82,9 +91,10 @@ const UniversitySchema = new mongoose.Schema(
         isOpen: {
           type: Boolean,
           default: false,
+          index: true, // Search by ADP program availability
         },
         list: {
-          type: [String], // Array of strings to store ADP program names
+          type: [String], // List of ADP programs
           default: [],
         },
       },
@@ -92,9 +102,10 @@ const UniversitySchema = new mongoose.Schema(
         isOpen: {
           type: Boolean,
           default: false,
+          index: true, // Search by BS 5th Semester program availability
         },
         list: {
-          type: [String], // Array of strings to store BS 5th Semester program names
+          type: [String], // List of BS 5th Semester programs
           default: [],
         },
       },
@@ -102,16 +113,62 @@ const UniversitySchema = new mongoose.Schema(
         isOpen: {
           type: Boolean,
           default: false,
+          index: true, // Search by Diploma program availability
         },
         list: {
-          type: [String], // Array of strings to store Diploma program names
+          type: [String], // List of Diploma programs
           default: [],
         },
       },
     },
+
+    // Admission Information
+    importantAdmission: {
+      type: Boolean,
+      default: false, // Mark important admission periods
+      index: true, // Query for important admissions
+    },
+    admissionDates: {
+      deadlineDate: {
+        type: Date,
+      },
+
+      testDate: {
+        type: Date,
+      },
+    },
+
+    // University Website
+    universityWebsite: {
+      type: String,
+    },
+
+    // HR Admission Notice Link
+    hrAdmissionNotice: {
+      type: String, // Optional field for admission notice link
+      default: null,
+    },
   },
   { timestamps: true }
 );
+
+// Create compound indexes for querying by multiple fields
+UniversitySchema.index({
+  "location.province": 1,
+  "location.city": 1,
+  "programs.bsPrograms.isOpen": 1,
+});
+UniversitySchema.index({
+  "location.city": 1,
+  "programs.bsPrograms.isOpen": 1,
+  "programs.mphilPrograms.isOpen": 1,
+  "programs.phdPrograms.isOpen": 1,
+  "programs.diplomaPrograms.isOpen": 1,
+  "programs.bs5thPrograms.isOpen": 1,
+  "programs.adpPrograms.isOpen": 1,
+});
+UniversitySchema.index({ sector: 1, "programs.phdPrograms.isOpen": 1 });
+UniversitySchema.index({ priority: 1, importantAdmission: 1 });
 
 const University =
   mongoose.models.Universities ||

@@ -1,9 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
 import { Create_University } from "@/actions/serveractions";
-
-
+import { useState } from "react";
 
 const Page = () => {
   const [loading, setLoading] = useState(false);
@@ -29,7 +27,7 @@ const Page = () => {
         setError(response.message);
       }
     } catch (e) {
-      setError('An unexpected error occurred.', e.message);
+      setError("An unexpected error occurred.", e.message);
     } finally {
       setLoading(false);
     }
@@ -55,21 +53,62 @@ const Page = () => {
             />
           </div>
 
-          {/* Location */}
+          {/* Location Province*/}
           <div className="flex flex-col">
-            <label htmlFor="location" className="mb-2 font-semibold">
-              Location (Province/Region)
+            <label htmlFor="location_province" className="mb-2 font-semibold">
+              Location (Province)
             </label>
             <input
               type="text"
-              id="location"
-              name="location"
+              id="location_province"
+              name="location_province"
               required
               className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
+          {/* Location Province*/}
 
-          {/* Admission Status */}
+          {/* Location City*/}
+          <div className="flex flex-col">
+            <label htmlFor="location_city" className="mb-2 font-semibold">
+              Location (City)
+            </label>
+            <input
+              type="text"
+              id="location_city"
+              name="location_city"
+              required
+              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          {/* Location City*/}
+
+          {/* Affiliation if have Start*/}
+
+          <div className="flex flex-col">
+            <div className="flex items-center gap-2 mb-2">
+              <input
+                type="checkbox"
+                id="affiliation"
+                name="affiliation"
+                className="focus:ring-2 focus:ring-blue-500"
+              />
+              <label htmlFor="affiliation" className="font-semibold">
+                Affiliation
+              </label>
+            </div>
+
+            {/* Textarea for Adding Programs */}
+            <textarea
+              id="affiliation_name"
+              name="affiliation_name"
+              placeholder="Affiliation University Name"
+              className="border text-black border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          {/* Affiliation if have End*/}
+
+          {/* Sector */}
           <div className="flex flex-col">
             <label htmlFor="sector" className="mb-2 font-semibold">
               Sector
@@ -117,6 +156,8 @@ const Page = () => {
               Agriculture, Business Administration).
             </p>
           </div>
+          {/* BS Programs */}
+
           {/* MPhil Programs */}
           <div className="flex flex-col">
             <label htmlFor="MphilProgramsOpen" className="mb-2 font-semibold">
@@ -148,6 +189,7 @@ const Page = () => {
               Agriculture, Business Administration).
             </p>
           </div>
+          {/* MPhil Programs */}
 
           {/* PhD Programs */}
           <div className="flex flex-col">
@@ -280,18 +322,6 @@ const Page = () => {
           </div>
           {/* Diploma  */}
 
-          {/* Priority */}
-          <div className="flex flex-col">
-            <label htmlFor="priority" className="mb-2 font-semibold">
-              Priority
-            </label>
-            <input
-              type="number"
-              id="priority"
-              name="priority"
-              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
 
           {/* ImportantAdmission or Not */}
           <div className="flex flex-col">
@@ -307,21 +337,37 @@ const Page = () => {
               <option value="false">No</option>
             </select>
           </div>
+        {/* ImportantAdmission or Not */}
 
-          {/*  Admission Open Date */}
+          {/*  Priority of Important Admission */}
           <div className="flex flex-col">
-            <label htmlFor="admissionApplyDate" className="mb-2 font-semibold">
-              Admission Open Date
+            <label htmlFor="priority" className="mb-2 font-semibold">
+              Priority of Important Admission
             </label>
             <input
-              type="date"
-              id="admissionopendate"
-              name="admissionopendate"
-              required
+              type="number"
+              id="priority"
+              name="priority"
               className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          {/*  Admission Open Date */}
+              {/*  Priority of Important Admission */}
+
+          
+
+          {/* DeadLine Date S*/}
+          <div className="flex flex-col">
+            <label htmlFor="deadlinedate" className="mb-2 font-semibold">
+              Deadline Date
+            </label>
+            <input
+              type="date"
+              id="deadlinedate"
+              name="deadlinedate"
+              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          {/* DeadLine Date E*/}
 
           {/* Test Date */}
           <div className="flex flex-col">
@@ -332,25 +378,11 @@ const Page = () => {
               type="date"
               id="testDate"
               name="testDate"
-              required
               className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           {/* Test Date */}
 
-          {/* DeadLine Date */}
-          <div className="flex flex-col">
-            <label htmlFor="testDate" className="mb-2 font-semibold">
-              Deadline Date
-            </label>
-            <input
-              type="date"
-              id="deadlinedate"
-              name="deadlinedate"
-              required
-              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
           {/* University Website*/}
           <div className="flex flex-col">
             <label htmlFor="testDate" className="mb-2 font-semibold">
@@ -360,7 +392,6 @@ const Page = () => {
               type="text"
               id="universitywebsite"
               name="universitywebsite"
-              required
               className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -369,7 +400,7 @@ const Page = () => {
           {/* HR NOTICE */}
           <div className="flex flex-col">
             <label htmlFor="testDate" className="mb-2 font-semibold">
-              HR ADMISSION NOTICE
+              HR ADMISSION NOTICE IMAGE LINK
             </label>
             <input
               type="text"
@@ -383,11 +414,11 @@ const Page = () => {
           {/* Submit Button */}
           <div className="flex justify-center">
             <button
-          disabled={loading}
+              disabled={loading}
               type="submit"
               className="bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-[family-name:var(--font-geist-sans)]"
             >
-              {loading ? 'Submitting...' : 'Submit'}
+              {loading ? "Submitting..." : "Submit"}
               {/* Submit */}
             </button>
           </div>

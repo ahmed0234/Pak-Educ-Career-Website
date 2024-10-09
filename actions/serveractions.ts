@@ -126,113 +126,100 @@ import Universitymodel from "@/db/UniversitiesSchema";
 export async function Create_University(data: FormData) {
   try {
     // Extract and transform values from FormData
-    const admissionOpenDate1 = new Date(
-      data.get("admissionopendate") as string
-    );
-    const testDate2 = new Date(data.get("testDate") as string);
-    const deadlineDate3 = new Date(data.get("deadlinedate") as string);
+    const deadlineDate = new Date(data.get("deadlinedate") as string);
+    const testDate = new Date(data.get("testDate") as string);
 
     // Extract values from the FormData object
     const university = {
-      universityName: data.get("university_name") as string,
-      location: data.get("location") as string,
+      name: data.get("university_name") as string,
+      location: {
+        province: data.get("location_province") as string,
+        city: (data.get("location_city") as string) || null,
+      },
+      affiliation: {
+        isOpen:  (data.get("affiliation") as string) === "on",
+        name: (data.get("affiliation_name") as string) || null,
+      },
       sector: data.get("sector") as string,
-      bsProgramsOpen: data.get("bsProgramsOpen") === "on",
-      bsPrograms:
-        (data.get("bsPrograms") as string)?.split(",").map((p) => p.trim()) ||
-        [],
-      mphilProgramsOpen: data.get("MphilProgramsOpen") === "on",
-      mphilPrograms:
-        (data.get("MphilPrograms") as string)
-          ?.split(",")
-          .map((p) => p.trim()) || [],
-      phdProgramsOpen: data.get("PhDprogramsopen") === "on",
-      phdPrograms:
-        (data.get("PhDprograms") as string)?.split(",").map((p) => p.trim()) ||
-        [],
-      adpProgramsOpen: data.get("ADP_programs_open") === "on",
-      adpPrograms:
-        (data.get("adp_programs") as string)?.split(",").map((p) => p.trim()) ||
-        [],
-      bs5thProgramsOpen: data.get("bs5th_programs_open") === "on",
-      bs5thPrograms:
-        (data.get("bs5th_programs") as string)
-          ?.split(",")
-          .map((p) => p.trim()) || [],
-      diplomaProgramsOpen: data.get("Diplomaopen") === "on",
-      diplomaPrograms:
-        (data.get("Diplomaprograms") as string)
-          ?.split(",")
-          .map((p) => p.trim()) || [],
       priority: parseInt(data.get("priority") as string, 10),
       importantAdmission: data.get("importantadmission") === "true",
-      admissionOpenDate: admissionOpenDate1,
-      testDate: testDate2,
-      deadlineDate: deadlineDate3,
-      universityWebsite: data.get("universitywebsite") as string,
-      hrAdmissionNotice: (data.get("hradmissionnotice") as string) || "",
-    };
-
-    // Validate required fields
-    if (
-      !university.universityName ||
-      !university.location ||
-      !university.sector
-    ) {
-      throw new Error(
-        "University name, location, and sector are required fields."
-      );
-    }
-
-    // Connect to the database
-    await connectToDatabase();
-
-    // Prepare the data for saving
-    const universityData = {
-      name: university.universityName,
-      location: university.location,
-      sector: university.sector,
-      priority: university.priority,
-      importantAdmission: university.importantAdmission,
-      admissionOpenDate: university.admissionOpenDate,
-      testDate: university.testDate,
-      deadlineDate: university.deadlineDate,
-      universityWebsite: university.universityWebsite,
-      hrAdmissionNotice: university.hrAdmissionNotice,
+      admissionDates: {
+        deadlineDate,
+        testDate,
+      },
+      universityWebsite: (data.get("universitywebsite") as string) || null,
+      hrAdmissionNotice: (data.get("hradmissionnotice") as string) || null,
       programs: {
         bsPrograms: {
-          isOpen: university.bsProgramsOpen,
-          list: university.bsPrograms,
+          isOpen: data.get("bsProgramsOpen") === "on",
+          list:
+          (data.get("bsPrograms") as string)
+          ?.split(",")
+          .map((p) => p.trim()) || [],
+             
         },
         mphilPrograms: {
-          isOpen: university.mphilProgramsOpen,
-          list: university.mphilPrograms,
+          isOpen: data.get("MphilProgramsOpen") === "on",
+          list:
+            (data.get("MphilPrograms") as string)
+              ?.split(",")
+              .map((p) => p.trim()) || [],
         },
         phdPrograms: {
-          isOpen: university.phdProgramsOpen,
-          list: university.phdPrograms,
+          isOpen: data.get("PhDprogramsopen") === "on",
+          list:
+            (data.get("PhDprograms") as string)
+              ?.split(",")
+              .map((p) => p.trim()) || [],
         },
         adpPrograms: {
-          isOpen: university.adpProgramsOpen,
-          list: university.adpPrograms,
+          isOpen: data.get("ADP_programs_open") === "on",
+          list:
+            (data.get("adp_programs") as string)
+              ?.split(",")
+              .map((p) => p.trim()) || [],
         },
         bs5thPrograms: {
-          isOpen: university.bs5thProgramsOpen,
-          list: university.bs5thPrograms,
+          isOpen: data.get("bs5th_programs_open") === "on",
+          list:
+            (data.get("bs5th_programs") as string)
+              ?.split(",")
+              .map((p) => p.trim()) || [],
         },
         diplomaPrograms: {
-          isOpen: university.diplomaProgramsOpen,
-          list: university.diplomaPrograms,
+          isOpen: data.get("Diplomaopen") === "on",
+          list:
+            (data.get("Diplomaprograms") as string)
+              ?.split(",")
+              .map((p) => p.trim()) || [],
         },
       },
     };
 
+
+    // Validate required fields
+    if (
+      !university.name ||
+      !university.location.province ||
+      !university.sector
+    ) {
+      throw new Error(
+        "University name, location (province), and sector are required fields."
+      );
+    }
+
+
+    // Connect to the database
+    await connectToDatabase();
+
     // Create and save the university document
-    const newUniversity = new Universitymodel(universityData);
+    const newUniversity = new Universitymodel(university);
     await newUniversity.save();
 
+    console.log(newUniversity);
+
     // Return a success response
-    return { success: true, message: "Data uploaded successfully!" };
+    return { success: true, message: "University data uploaded successfully!" };
   } catch (error: any) {
     // Handle errors and return a failure response
     return { success: false, message: error.message };
