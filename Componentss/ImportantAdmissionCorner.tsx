@@ -1,31 +1,45 @@
-import React from 'react'
+import { gotham } from "@/app/layout";
+import { connectToDatabase } from "@/db/connectDB";
+import Universitymodel from "@/db/UniversitiesSchema";
+import Link from "next/link";
 
-const ImportantAdmissionCorner = () => {
-  return (
-    <div className='px-4'>
-        <h1 className='text-3xl text-rose-600 underline'>Important Admissions Corner !</h1>
-        <div className='flex mt-6 flex-wrap gap-9'>
-            <div className='universitycard px-5 py-4 bg-zinc-800 rounded-3xl'>
-                    <h1 className='text-sm'>Allama Iqbal Open University AIOU</h1>
-            </div>
-            <div className='universitycard px-5 py-4 bg-zinc-800 rounded-3xl'>
-                    <h1 className='text-sm'>Quai-E-Azam QAU</h1>
-            </div>
-            <div className='universitycard px-5 py-4 bg-zinc-800 rounded-3xl'>
-                    <h1 className='text-sm'>Nust University</h1>
-            </div>
-            <div className='universitycard px-5 py-4 bg-zinc-800 rounded-3xl'>
-                    <h1 className='text-sm'>GC University Lahore</h1>
-            </div>
-            <div className='universitycard px-5 py-4 bg-zinc-800 rounded-3xl'>
-                    <h1 className='text-sm'>GC University Lahore</h1>
-            </div>
-            <div className='universitycard px-5 py-4 bg-zinc-800 rounded-3xl'>
-                    <h1 className='text-sm'>GC University Lahore</h1>
-            </div>
-        </div>
-    </div>
-  ) 
+
+async function findImportantAdmissions() {
+  try {
+    await connectToDatabase();
+    const universities = await Universitymodel.find({
+      importantAdmission: true,
+    })
+      .sort({ priority: 1 }) // Sort by priority in ascending order
+      .exec();
+    return universities;
+  } catch (error) {
+    console.error("Error finding universities:", error);
+    throw error;
+  }
 }
 
-export default ImportantAdmissionCorner
+const ImportantAdmissionCorner = async () => {
+  const Importantuniversities = await findImportantAdmissions();
+  return (
+    <div className="">
+      <h1 className={`text-3xl text-rose-600 border-b inline-block border-rose-600 ${gotham.className} tracking-wider`}>
+        Important Admissions Corner !
+      </h1>
+      <div className="flex mt-6 flex-wrap gap-9">
+        {Importantuniversities.map((university) => (
+          <div
+            key={university._id}
+            className="universitycard px-5 py-4 bg-zinc-800 rounded-3xl"
+          >
+            <Link href={`/admission/${university._id}`} className="text-sm">
+              {university.name}
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ImportantAdmissionCorner;

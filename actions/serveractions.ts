@@ -3,7 +3,7 @@
 // import { connectToDatabase } from "@/db/connectDB";
 // import Universitymodel from "@/db/UniversitiesSchema";
 
-// // import { revalidatePath } from "next/cache";
+
 
 // export async function Create_University(data: FormData) {
 //   const admissionOpenDate1 = new Date(data.get("admissionopendate") as string);
@@ -121,17 +121,11 @@
 
 import { connectToDatabase } from "@/db/connectDB";
 import Universitymodel from "@/db/UniversitiesSchema";
-
+import { revalidatePath } from "next/cache";
 // Improved Server Action to handle form data submission and provide feedback
-export async function Create_University(data: FormData) {
+export async function Create_University(data: FormData, hrimage: string) {
 
-  function formatDate(dateString) {
-    const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
-    const year = date.getFullYear();
-    return `${day}/${month}/${year}`;
-  }
+
   
   try {
     // Extract and transform values from FormData
@@ -149,7 +143,7 @@ export async function Create_University(data: FormData) {
     const university = {
       name: data.get("university_name") as string,
       location: {
-        province: data.get("location_province") as string,
+        province: data.get("location_province") as string || null,
         city: (data.get("location_city") as string) || null,
       },
       affiliation: {
@@ -157,14 +151,14 @@ export async function Create_University(data: FormData) {
         name: (data.get("affiliation_name") as string) || null,
       },
       sector: data.get("sector") as string,
-      priority: parseInt(data.get("priority") as string, 10),
+      priority: parseInt(data.get("priority") as string, 10) || null,
       importantAdmission: data.get("importantadmission") === "true",
       admissionDates: {
         deadlineDate,
         testDate,
       },
       universityWebsite: (data.get("universitywebsite") as string) || null,
-      hrAdmissionNotice: (data.get("hradmissionnotice") as string) || null,
+      hrAdmissionNotice: (hrimage as string) || null,
       programs: {
         bsPrograms: {
           isOpen: data.get("bsProgramsOpen") === "on",
@@ -225,6 +219,8 @@ export async function Create_University(data: FormData) {
     }
 
 
+    console.log(university);
+
     // Connect to the database
     await connectToDatabase();
 
@@ -232,7 +228,7 @@ export async function Create_University(data: FormData) {
     const newUniversity = new Universitymodel(university);
     await newUniversity.save();
     
-    console.log(newUniversity);
+    revalidatePath('/');
 
     // Return a success response
     return { success: true, message: "University data uploaded successfully!" };

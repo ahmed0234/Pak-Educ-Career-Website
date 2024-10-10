@@ -1,12 +1,15 @@
 "use client";
 
 import { Create_University } from "@/actions/serveractions";
+import { UploadButton } from "@/utils/uploadthing";
+import Image from "next/image";
 import { useState } from "react";
 
 const Page = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
+  const [hrimage, sethrimage] = useState(null);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -18,7 +21,7 @@ const Page = () => {
 
     try {
       // Call the server action
-      const response = await Create_University(formData);
+      const response = await Create_University(formData, hrimage);
 
       // Handle the response
       if (response.success) {
@@ -402,7 +405,7 @@ const Page = () => {
           {/* University Website*/}
 
           {/* HR NOTICE */}
-          <div className="flex flex-col">
+          {/* <div className="flex flex-col">
             <label htmlFor="testDate" className="mb-2 font-semibold">
               HR ADMISSION NOTICE IMAGE LINK
             </label>
@@ -412,8 +415,33 @@ const Page = () => {
               name="hradmissionnotice"
               className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-          </div>
+          </div> */}
           {/* HR NOTICE */}
+
+            <div className=" h-fit w-fit flex gap-6  ">
+              <div className="border h-fit px-6 flex flex-col gap-6 w-fit rounded-2xl text-center py-6">
+                <h1>HR NOTICE IMAGE UPLOAD</h1>
+                <UploadButton
+                    endpoint="imageUploader"
+                    onClientUploadComplete={(res) => {
+                      alert("Upload Completed");
+                      sethrimage(res[0].url);
+                    }}
+                    onUploadError={(error) => {
+                      alert(`ERROR! ${error.message}`);
+                    }}
+                  />
+              </div>
+
+              {
+              hrimage &&  
+              <div className="w-fit h-fit">
+                <Image src={hrimage} alt="Image" width={200} height={200} />        
+              </div>
+              }
+             
+             
+            </div>
 
           {/* Submit Button */}
           <div className="flex justify-center">

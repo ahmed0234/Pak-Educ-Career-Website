@@ -13,6 +13,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'i.postimg.cc',
       },
+      {
+    
+        hostname: 'utfs.io',
+      },
     ],
   },
 };

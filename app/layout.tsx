@@ -1,6 +1,7 @@
 import Navbar from "@/Componentss/Navbar";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import localFont from 'next/font/local'
+import "@uploadthing/react/styles.css";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -13,6 +14,16 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+
+
+export const gotham = localFont({
+  src: "./fonts/Gotham_Black.otf",
+  variable: "--font-gotham-black",
+  weight: "100 900",
+});
+
+
+
 
 export const metadata: Metadata = {
   title: "Pak Edu Career",
