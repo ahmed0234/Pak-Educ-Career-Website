@@ -372,15 +372,19 @@ const Page = () => {
           {/* Test Date */}
           <div className="flex flex-col">
             <label htmlFor="testDate" className="mb-2 font-semibold">
-              Test Date
+              Test Dates
             </label>
             <input
-              type="date"
+              type="text"
               id="testDate"
               name="testDate"
               className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
+          <p className="text-sm text-rose-500 mt-2">
+              Separate each Date with a comma (e.g. 01/10/2024,
+              11/10/2024).
+          </p>
           {/* Test Date */}
 
           {/* University Website*/}

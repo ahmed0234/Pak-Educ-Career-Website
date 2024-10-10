@@ -124,10 +124,26 @@ import Universitymodel from "@/db/UniversitiesSchema";
 
 // Improved Server Action to handle form data submission and provide feedback
 export async function Create_University(data: FormData) {
+
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
+  
   try {
     // Extract and transform values from FormData
     const deadlineDate = new Date(data.get("deadlinedate") as string);
-    const testDate = new Date(data.get("testDate") as string);
+    const testDate =  (data.get("testDate") as string);
+
+
+   
+  
+
+  
+    
 
     // Extract values from the FormData object
     const university = {
@@ -215,7 +231,7 @@ export async function Create_University(data: FormData) {
     // Create and save the university document
     const newUniversity = new Universitymodel(university);
     await newUniversity.save();
-
+    
     console.log(newUniversity);
 
     // Return a success response

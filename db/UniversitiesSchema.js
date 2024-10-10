@@ -131,16 +131,19 @@ const UniversitySchema = new mongoose.Schema(
     admissionDates: {
       deadlineDate: {
         type: Date,
+        default: null,
       },
 
       testDate: {
-        type: Date,
+        type: String,
+        default: null,
       },
     },
 
     // University Website
     universityWebsite: {
       type: String,
+      default: null,
     },
 
     // HR Admission Notice Link
