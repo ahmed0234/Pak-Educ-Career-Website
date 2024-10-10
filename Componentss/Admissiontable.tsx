@@ -92,7 +92,7 @@ const AdmissionTableList = async () => {
             <tr className="bg-zinc-800 text-whtie uppercase text-sm leading-normal">
               <th className="py-3 px-6 text-left">Sr.</th>
               <th className="py-3 px-6 text-left">University</th>
-              <th className="py-3 px-6 text-left">Programs</th>
+              <th className="py-3 px-6 text-left">Programs University Offering</th>
               <th className="py-3 px-6 text-left">Deadline</th>
             </tr>
           </thead>
