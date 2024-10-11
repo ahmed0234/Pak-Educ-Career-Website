@@ -1,3 +1,4 @@
+import BlurImageAdvertisementsLoading from "@/Componentss/BlurImageAdvertisementsLoading";
 import { Programinfo } from "@/Componentss/Programinfo";
 import { connectToDatabase } from "@/db/connectDB";
 import Universitymodel from "@/db/UniversitiesSchema";
@@ -7,7 +8,7 @@ const getUniversityById = async (id) => {
   try {
     await connectToDatabase();
     const university_data = await Universitymodel.findById(id); // Mongoose method to find by ObjectId
-    console.log(university_data);
+    // console.log(university_data._id);
     return university_data;
   } catch (error) {
     console.error("Error fetching university by ID:", error);
@@ -129,7 +130,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
       <div className="Advertisement_Picture flex flex-col gap-8 justify-center items-center">
             <div>
-                <Image alt="Advertisement Pic" src={university.hrAdmissionNotice} width={1200} height={500}/>
+              <BlurImageAdvertisementsLoading university={university} />
             </div>
             <div>
             <a href={university.hrAdmissionNotice} target="_blank">
@@ -143,3 +144,19 @@ const Page = async ({ params }: { params: { id: string } }) => {
 };
 
 export default Page;
+
+
+// export async function generateStaticParams() {
+//   try {
+//     await connectToDatabase();
+//     const university_data = await Universitymodel.find(); 
+//     return university_data.map((university) => ({
+//       id: university._id.toString(),
+//     }))
+//     // Mongoose method to find by ObjectId
+//   } catch (error) {
+//     console.error("Error fetching university by ID:", error);
+//   }
+ 
+// }
+ 
