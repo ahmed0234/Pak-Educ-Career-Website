@@ -6,6 +6,7 @@ const BlurImageAdvertisementsLoading = ({ university }) => {
   const [isLoading, setIsLoading] = useState(true);
   return (
     <Image
+      quality={65} // {number 1-100}
       alt="Advertisement Pic"
       src={university.hrAdmissionNotice}
       width={600}
