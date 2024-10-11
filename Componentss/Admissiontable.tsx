@@ -110,7 +110,7 @@ const AdmissionTableList = async () => {
                 </td>
                 <td className="py-3 px-6 relative">
                   <div className="absolute inset-y-0 left-0 w-px bg-white" />
-                  <Link href={`/universities/${university.id}`}>
+                  <Link href={`/university/${university.id}`}>
                     {university.name}
                   </Link>
                 </td>
