@@ -32,7 +32,7 @@ const ImportantAdmissionCorner = async () => {
             key={university._id}
             className="universitycard px-5 py-4 bg-zinc-800 rounded-3xl"
           >
-            <Link href={`/admission/${university._id}`} className="text-sm">
+            <Link href={`/university/${university._id}`} className="text-sm">
               {university.name}
             </Link>
           </div>
