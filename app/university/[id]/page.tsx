@@ -2,7 +2,7 @@ import BlurImageAdvertisementsLoading from "@/Componentss/BlurImageAdvertisement
 import { Programinfo } from "@/Componentss/Programinfo";
 import { connectToDatabase } from "@/db/connectDB";
 import Universitymodel from "@/db/UniversitiesSchema";
-import Image from "next/image";
+
 
 const getUniversityById = async (id) => {
   try {
