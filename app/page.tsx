@@ -40,11 +40,6 @@ export default async function Home() {
       <div className="mt-12">
         <AdmissionTableList university_raw_data={data} />
       </div>
-      {/* <form action={revalidatelandingpage}>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-12">
-            Revalidate Landing Page
-        </button>
-      </form> */}
     </div>
   );
 }

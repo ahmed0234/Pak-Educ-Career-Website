@@ -1,5 +1,6 @@
 "use client";
 
+import { revalidatelandingpage } from "@/actions/RevalidateLandingPage";
 import { Create_University } from "@/actions/serveractions";
 import { UploadButton } from "@/utils/uploadthing";
 import Image from "next/image";
@@ -37,6 +38,11 @@ const Page = () => {
   };
   return (
     <div className="bg-background py-10 px-4 bg-[#0a0a0a]">
+        <form action={revalidatelandingpage}>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-12">
+            Revalidate Data / Page
+        </button>
+      </form>
       <div className="max-w-4xl mx-auto bg-zinc-900 p-8 rounded-lg shadow-lg text-white">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Add University Details
