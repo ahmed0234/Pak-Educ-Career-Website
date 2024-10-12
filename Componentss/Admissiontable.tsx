@@ -4,8 +4,10 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import Sortingtable from "./Sortingtable";
 import { findFilteredUniversities } from "@/actions/filtereduniversities";
+import { gotham } from "@/app/layout";
 
 const AdmissionTableList = ({ university_raw_data }) => {
+  const [loading, setloading] = useState(false)
   function transformUniversityData(data) {
     const today = new Date();
 
@@ -61,9 +63,11 @@ const AdmissionTableList = ({ university_raw_data }) => {
   }
 
   async function filteredUniversitiesData(data){
+    setloading(true)
     const filteredUniversities = await findFilteredUniversities(data);
     const transformedfiltereduniversities = transformUniversityData(filteredUniversities);
     setUniversities(transformedfiltereduniversities)
+    setloading(false)
   }
 
   const [universities, setUniversities] = useState([]); // Set default state to an empty array
@@ -79,10 +83,14 @@ const AdmissionTableList = ({ university_raw_data }) => {
   return (
     <div>
       <div className="HIDE FILTER BOX OR NOT mb-11">
-          <h1 className="underline cursor-pointer inline-block select-none" onClick={() => sethide(!hide)}>Wanna Filter Universities?</h1>
+          <h1 className="border-b cursor-pointer inline-block select-none text-xl" onClick={() => sethide(!hide)}>Wanna Filter Universities?</h1>
       </div>
       <div className={hide ? "hidden" : "block"}>
         <Sortingtable filteredUniversitiesData={filteredUniversitiesData}/>
+      </div>
+
+      <div className={loading ? `block text-yellow-400 text-3xl pb-12 italic ${gotham.className}` : "hidden"}>
+          <h1>Please Wait Loading........</h1>
       </div>
 
       <h1
