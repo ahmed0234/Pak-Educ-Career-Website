@@ -81,9 +81,9 @@ const Sortingtable = ({filteredUniversitiesData}) => {
           <option value="">None</option>
           <option value="Punjab">Punjab</option>
           <option value="Sindh">Sindh</option>
-          <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
+          <option value="KPK">KPK</option>
           <option value="Azad Kashmir">Azad Kashmir</option>
-          <option value="Gilgit Baltistan">Gilgit-Baltistan</option>
+          <option value="Balochistan">Balochistan</option>
         </select>
       </div>
 
