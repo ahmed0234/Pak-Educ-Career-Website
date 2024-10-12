@@ -19,7 +19,7 @@ const Navbar = () => {
     <>
       <div className="container border-b Navbar font-[family-name:var(--font-geist-sans)] flex justify-between items-center px-4 py-8">
         <div className="flex  items-center justify-center gap-4">
-        <Image src={'/logo.png'} alt="Logo" width={50} height={50}/>
+        <Image src={'/logo.jpg'} alt="Logo" width={50} height={50}/>
           <h1 className="text-2xl ">
             <Link href={"/"}>Pak Edu Career</Link>{" "}
           </h1>
