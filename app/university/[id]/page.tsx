@@ -106,6 +106,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
               month: 'long',
               year: 'numeric',
             })}</span></h2>
+          {university.affiliation.isOpen && <h2 className="text-lg"><span className="text-rose-500 italic font-bold tracking-wider text-xl">Affiliation: </span> {university.affiliation.name}</h2>}
       </div>
 
       <div className="University_Programs">

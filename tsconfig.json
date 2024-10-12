@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "db/connectDB.js", "app/admin/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "db/connectDB.js", "app/admin/page.jsx", "actions/filtereduniversities.js"],
   "exclude": ["node_modules"]
 }
