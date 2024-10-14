@@ -5,6 +5,7 @@ import { Create_University } from "@/actions/serveractions";
 import { UploadButton } from "@/utils/uploadthing";
 import Image from "next/image";
 import { useState } from "react";
+import { gotham } from "../layout";
 
 const Page = () => {
   const [loading, setLoading] = useState(false);
@@ -36,18 +37,27 @@ const Page = () => {
       setLoading(false);
     }
   };
+ 
+  const copyToClipboard = () => {
+   
+    navigator.clipboard.writeText(hrimage).then(() => {
+      alert("Text copied to clipboard!");
+    }).catch(err => {
+      alert("Text copied to clipboard!", err);
+    });
+  };
   return (
     <div className="bg-background py-10 px-4 bg-[#0a0a0a]">
-        <form action={revalidatelandingpage}>
+        <form className=" inline-block" action={revalidatelandingpage}>
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-12">
             Revalidate Data / Page
         </button>
       </form>
-      <div className="max-w-4xl mx-auto bg-zinc-900 p-8 rounded-lg shadow-lg text-white">
+      <div className="max-w-4xl mx-auto bg-zinc-900 p-8 rounded-lg shadow-lg text-white ">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Add University Details
         </h2>
-        <form className="space-y-6" onSubmit={handleSubmit}>
+        <form className="space-y-6 " onSubmit={handleSubmit}>
           {/* University Name */}
           <div className="flex flex-col">
             <label htmlFor="university_name" className="mb-2 font-semibold">
@@ -445,9 +455,18 @@ const Page = () => {
                 <Image src={hrimage} alt="Image" width={200} height={200} />        
               </div>
               }
-             
+            
              
             </div>
+            {hrimage && (
+              <div className="flex flex-col gap-2  w-fit text-wrap border">
+                <button onClick={copyToClipboard} class="bg-black text-white py-2 px-4 rounded shadow-lg hover:bg-gray-800  focus:ring-opacity-75">
+                  Copy Image Link
+                </button>
+
+              </div>
+            )}
+          
 
           {/* Submit Button */}
           <div className="flex justify-center">
