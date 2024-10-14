@@ -1,5 +1,6 @@
 "use client";
 
+import { gotham } from "@/app/layout";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -19,8 +20,8 @@ const Navbar = () => {
     <>
       <div className="container border-b Navbar font-[family-name:var(--font-geist-sans)] flex justify-between items-center px-4 py-8">
         <div className="flex  items-center justify-center gap-4">
-        <Image src={'/logo.jpg'} alt="Logo" width={50} height={50}/>
-          <h1 className="text-2xl ">
+        <Image src={'/logo.jpg'} alt="Logo" width={60} height={60}/>
+          <h1 className={`text-2xl ${gotham.className} glowy_2 text-white`}>
             <Link href={"/"}>Pak Edu Career</Link>{" "}
           </h1>
         </div>

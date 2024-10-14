@@ -94,9 +94,9 @@ const AdmissionTableList = ({ university_raw_data }) => {
       </div>
 
       <h1
-        className={`text-2xl text-rose-500 border-b  inline-block border-rose-600 tracking-wider ${gotham.className}`}
+        className={`glowy text-2xl  border-b  inline-block border-rose-600 tracking-wider ${gotham.className}`}
       >
-        List of Universities in which Admissions are Open
+        List of Universities in which Admissions are Open !
       </h1>
 
       <div className="mt-8">

@@ -23,10 +23,10 @@ const ImportantAdmissionCorner = async () => {
   const Importantuniversities = await findImportantAdmissions();
   return (
     <div className="">
-      <h1 className={`text-3xl text-rose-600 border-b inline-block border-rose-600 ${gotham.className} tracking-wider`}>
+      <h1 className={`glowy text-3xl  border-b inline-block border-rose-600 ${gotham.className} tracking-wider`}>
         Important Admissions Corner !
       </h1>
-      <div className="flex mt-6 flex-wrap gap-9">
+      <div className="flex mt-6 flex-wrap gap-4">
         {Importantuniversities.map((university) => (
           <div
             key={university._id}
