@@ -5,7 +5,7 @@ import { Create_University } from "@/actions/serveractions";
 import { UploadButton } from "@/utils/uploadthing";
 import Image from "next/image";
 import { useState } from "react";
-import { gotham } from "../layout";
+
 
 const Page = () => {
   const [loading, setLoading] = useState(false);
