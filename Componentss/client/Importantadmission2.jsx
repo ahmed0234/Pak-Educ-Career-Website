@@ -15,7 +15,7 @@ const Importantadmission2 = ({data}) => {
     <div className="slider-container mt-8">
     <Swiper
         spaceBetween={30} // space between slides
-        slidesPerView={2} // shows 4 slides at once
+        slidesPerView={1} // shows 4 slides at once
         navigation={true} // enables navigation arrows
         pagination={{ clickable: true }} // enables pagination (optional)
         autoplay={{
@@ -24,22 +24,27 @@ const Importantadmission2 = ({data}) => {
         }}
         loop={true} // loop the slides
         modules={[Navigation, Autoplay, Scrollbar]} // importing necessary modules
+        breakpoints={{
+            1024: {
+                slidesPerView: 2,
+            },
+          }}
         >
 
             {data?.map((university, idx)=> (
                     <SwiperSlide key={idx}>
                         <Link href={`/university/${university._id}`}>
                          <div className="flex gap-4 px-1 py-2 h-[26rem] w-full bg-[url('/grunge.png')] bg-cover "> 
-                            <div className="h-full w-1/2 border relative">
-                                <Image src={university.hrAdmissionNotice} alt="Picture" fill/>
+                            <div className="h-full w-1/2 max-2xl:w-full border relative">
+                                <Image src={university.hrAdmissionNotice} alt="Picture" fill quality={100} priority={true}/>
                             </div>
                             <div className="h-full my-auto flex flex-col gap-6 justify-center">
                                 <div className=" px-5 py-3  rounded-full bg-gradient-to-b from-[#fee02d] to-[#fa8900]">
-                                    <h1 class={`text-center text-transparent bg-clip-text bg-gradient-to-b from-black to-black  font-bold`}>{university.name}</h1>
+                                    <h1 class={`max-2xl:text-sm text-center text-transparent bg-clip-text bg-gradient-to-b from-black to-black  font-bold`}>{university.name}</h1>
                                 </div>
 
                                 <div className=" px-5 py-3  rounded-full bg-gradient-to-b from-[#fee02d] to-[#fa8900]">
-                                    <h1 class={`text-transparent bg-clip-text bg-gradient-to-b from-black to-black font-bold`}>Sector: {university.sector}</h1>
+                                    <h1 class={`max-2xl:text-sm text-transparent bg-clip-text bg-gradient-to-b from-black to-black font-bold`}>Sector: {university.sector}</h1>
                                 </div>
 
                                 <div className=" px-5 py-3  rounded-full bg-gradient-to-b from-[#fee02d] to-[#fa8900]">
@@ -53,7 +58,7 @@ const Importantadmission2 = ({data}) => {
                                 </div>
 
                                 <div className=" px-5 py-3  rounded-full bg-gradient-to-b from-[#fee02d] to-[#fa8900]">
-                                        <h1 className={`text-transparent bg-clip-text bg-gradient-to-b from-black to-black font-bold`}>Programs Offering: {" "}
+                                        <h1 className={`max-2xl:text-sm text-transparent bg-clip-text bg-gradient-to-b from-black to-black font-bold`}>Programs Offering: {" "}
                                             {university.programs.bsPrograms.isOpen && `BS, `} 
                                             {university.programs.mphilPrograms.isOpen && `Mphil, `} 
                                             {university.programs.phdPrograms.isOpen && `Phd, `} 

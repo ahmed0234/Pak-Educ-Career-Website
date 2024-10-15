@@ -11,7 +11,7 @@ export const Programinfo = ({ university, program }) => {
       {selectedProgram?.isOpen && (
         <div>
           <h1 className="font-bold text-3xl text-cyan-500 underline mb-4">
-            {programType} Programs
+            {programType.toUpperCase()} Programs
           </h1>
           <h1 className="font-bold mb-6 pl-2">
             {university.name} has announced {programType} Admissions in the following programs for fall 2024:
@@ -19,7 +19,7 @@ export const Programinfo = ({ university, program }) => {
           <div className="flex flex-col gap-4 pl-4">
             {selectedProgram.list.map((programName, idx) => (
               <h1 key={programName} className="pl-4">
-                {idx + 1}. {programType.toUpperCase()} {programName} {/* Display type + program name */}
+                {idx + 1}. {programName} {/* Display type + program name */}
               </h1>
             ))}
           </div>

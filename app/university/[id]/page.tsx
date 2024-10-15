@@ -98,9 +98,9 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
       <div className="University Introduction flex flex-col gap-4">
         <h1 className="text-3xl text-emerald-500">{university.name} Admission Fall 2024</h1>
-        <h2 className="text-lg">Location: {university.location.province}, {university.location.city}</h2>
+        <h2 className="text-lg">Location: {university.location.city}, {university.location.province}</h2>
         <h2 className="text-lg">Sector: {university.sector}</h2>
-        <h2> The last date of application for {university.name} is{' '} <span className="text-rose-500 font-bold">
+        <h2> The last date of application is: <span className="text-rose-500 font-bold">
             {new Date(university.admissionDates.deadlineDate).toLocaleDateString('en-GB', {
               day: 'numeric',
               month: 'long',

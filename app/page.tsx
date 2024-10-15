@@ -34,10 +34,10 @@ export default async function Home() {
   const data = await findUniversitiesSortedByDeadline();
  
   return (
-    <div className="container h-auto pb-24 px-4 mt-14 font-[family-name:var(--font-geist-sans)] bg-[#0a0a0a] ">
+    <div className=" h-auto pb-24 px-4 mt-14 font-[family-name:var(--font-geist-sans)] bg-[#0a0a0a] ">
       <ImportantAdmissionCorner />
 
-      <div className="mt-12">
+      <div className="mt-12 px-4 mx-auto w-full">
         <AdmissionTableList university_raw_data={data} />
       </div>
     </div>

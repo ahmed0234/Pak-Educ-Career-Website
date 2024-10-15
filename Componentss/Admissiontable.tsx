@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Sortingtable from "./Sortingtable";
 import { findFilteredUniversities } from "@/actions/filtereduniversities";
 import { DharmaGothicRegular, gotham } from "@/app/layout";
+import Image from "next/image";
 
 const AdmissionTableList = ({ university_raw_data }) => {
   const [loading, setloading] = useState(false)
@@ -100,52 +101,68 @@ const AdmissionTableList = ({ university_raw_data }) => {
         List of Universities in which Admissions are Open !
       </h1>
 
-      <div className="mt-8">
-        <table className="min-w-full table-auto bg-zinc-950 border border-gray-300 rounded-lg h-auto">
-          <thead>
-            <tr className="bg-zinc-800 text-white uppercase text-sm leading-normal">
-              <th className="py-3 px-6 text-left">Sr.</th>
-              <th className="py-3 px-6 text-left">University</th>
-              <th className="py-3 px-6 text-left">Programs University Offering</th>
-              <th className="py-3 px-6 text-left">Sector</th> {/* New column for sector */}
-              <th className="py-3 px-6 text-left">Deadline</th>
-            </tr>
-          </thead>
-          <tbody className="text-white text-sm font-light">
-            {universities.map((university, idx) => (
-              <tr
-                key={university.id}
-                className="border-b  hover:bg-zinc-900 transition duration-300"
-              >
-                <td className="py-3 px-6 relative w-[0px]">
-                  <div className="absolute inset-y-0 left-0 w-px bg-white" />
-                  <h1>{idx + 1}</h1>
-                </td>
-                <td className="py-3 px-6 relative">
-                  <div className="absolute inset-y-0 left-0 w-px bg-white" />
-                  <Link href={`/university/${university.id}`}>{university.name}</Link>
-                </td>
-                <td className="py-3 px-6 relative">
-                  <div className="absolute inset-y-0 left-0 w-px bg-white" />
-                  <ul className="flex gap-3">
-                    {university.programs.map((program, idx) => (
-                      <li key={idx}>{`${program}, `}</li>
-                    ))}
-                  </ul>
-                </td>
-                <td className="py-3 px-6 relative">
-                  <div className="absolute inset-y-0 left-0 w-px bg-white" />
-                  <h1>{university.sector}</h1> {/* Display sector */}
-                </td>
-                <td className="py-3 px-6 relative text-rose-500">
-                  <div className="absolute inset-y-0 left-0 w-px bg-white" />
-                  {university.deadline}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <div className="MainContaineroftable_and_Advertisement flex gap-6 max-[1200px]:flex-col">
+
+          <div className="mt-8">
+            <table className="min-w-full table-auto bg-zinc-950 border border-gray-300 rounded-lg h-auto">
+              <thead>
+                <tr className="bg-zinc-800 text-white uppercase text-sm leading-normal">
+                  <th className="py-3 px-6 text-left">Sr.</th>
+                  <th className="py-3 px-6 text-left">University</th>
+                  <th className="py-3 px-6 text-left">Programs University Offering</th>
+                  <th className="py-3 px-6 text-left">Sector</th> {/* New column for sector */}
+                  <th className="py-3 px-6 text-left">Deadline</th>
+                </tr>
+              </thead>
+              <tbody className="text-white text-sm font-light">
+                {universities.map((university, idx) => (
+                  <tr
+                    key={university.id}
+                    className="border-b  hover:bg-zinc-900 transition duration-300"
+                  >
+                    <td className="py-3 px-6 relative w-[0px]">
+                      <div className="absolute inset-y-0 left-0 w-px bg-white" />
+                      <h1>{idx + 1}</h1>
+                    </td>
+                    <td className="py-3 px-6 relative">
+                      <div className="absolute inset-y-0 left-0 w-px bg-white" />
+                      <Link href={`/university/${university.id}`}>{university.name}</Link>
+                    </td>
+                    <td className="py-3 px-6 relative">
+                      <div className="absolute inset-y-0 left-0 w-px bg-white" />
+                      <ul className="flex gap-3">
+                        {university.programs.map((program, idx) => (
+                          <li key={idx}>{`${program}, `}</li>
+                        ))}
+                      </ul>
+                    </td>
+                    <td className="py-3 px-6 relative">
+                      <div className="absolute inset-y-0 left-0 w-px bg-white" />
+                      <h1>{university.sector}</h1> {/* Display sector */}
+                    </td>
+                    <td className="py-3 px-6 relative text-rose-500">
+                      <div className="absolute inset-y-0 left-0 w-px bg-white" />
+                      {university.deadline}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-8 space-y-6 max-lg:flex items-center justify-center gap-4 flex-wrap space-x-6 mx-auto">
+
+              <div className="inline-block w-[500px] h-[500px] max-2xl:w-[350px] max-2xl:h-[350px] max-xl:w-[350px] max-xl:h-[350px] relative">
+                  <Image src={`/advertisement/1.jpg`} alt="Advertisement" fill/>
+              </div>
+
+              <div className="inline-block w-[500px] h-[500px] max-2xl:w-[350px] max-2xl:h-[350px] max-xl:w-[350px] max-xl:h-[350px] relative">
+                  <Image src={`/advertisement/2.jpg`} alt="Advertisement" fill/>
+              </div>
+
+          </div>
+
+        </div>
     </div>
   );
 };
