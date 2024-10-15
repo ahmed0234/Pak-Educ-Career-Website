@@ -1,4 +1,5 @@
 import Navbar from "@/Componentss/Navbar";
+import Footer from "@/Componentss/Footer";
 import localFont from 'next/font/local'
 import "@uploadthing/react/styles.css";
 import "./globals.css";
@@ -38,6 +39,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
