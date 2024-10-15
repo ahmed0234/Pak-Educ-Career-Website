@@ -13,11 +13,12 @@
     --foreground: #ededed;
   }
 }
-
+html {
+  font-family: var(--font-dharma-gothic);
+}
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
@@ -82,33 +83,33 @@ body {
   }
 }
 
-
 @layer components {
-   .glowy {
+  .glowy {
     font-size: calc(20px + 18vh);
     line-height: calc(20px + 20vh);
-  /*   text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
+    /*   text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
       0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092;
     color: #fccaff; */
-    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
-      color: #fff6a9;
+    text-shadow: 0 0 10px #ffa500, 0 0 5px #ffa500, 0 0 15px #ffa500,
+      0 0 25px #ffa500, 0 0 25px #ff0000, 0 0 5px #ff8d00, 0 0 45px #ff0000;
+    color: #fff6a9;
     /* font-family: "Sacramento", cursive; */
     text-align: center;
     animation: blink 12s infinite;
     -webkit-animation: blink 12s infinite;
   }
-   .glowy_2 {
+  .glowy_2 {
     font-size: calc(20px + 18vh);
     line-height: calc(20px + 20vh);
-  /*   text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
+    /*   text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
       0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092;
     color: #fccaff; */
-    text-shadow: 0 0 1px #ffffff, 0 0 2px #ffffff, 0 0 2px #ffffff, 0 0 1px #ffffff, 0 0 40px #ff7e14, 0 0 10px #ff8d00, 0 0 50px #ff0000;
-      color: #d37721;
+    text-shadow: 0 0 1px #ffffff, 0 0 2px #ffffff, 0 0 2px #ffffff,
+      0 0 1px #ffffff, 0 0 40px #ff7e14, 0 0 10px #ff8d00, 0 0 50px #ff0000;
+    color: #d37721;
     /* font-family: "Sacramento", cursive; */
     text-align: center;
     animation: blink 12s infinite;
     -webkit-animation: blink 12s infinite;
   }
-  
 }

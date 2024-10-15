@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import Sortingtable from "./Sortingtable";
 import { findFilteredUniversities } from "@/actions/filtereduniversities";
-import { gotham } from "@/app/layout";
+import { DharmaGothicRegular, gotham } from "@/app/layout";
 
 const AdmissionTableList = ({ university_raw_data }) => {
   const [loading, setloading] = useState(false)
@@ -39,6 +39,7 @@ const AdmissionTableList = ({ university_raw_data }) => {
         id: university._id, // Include the unique ID here
         name: university.name,
         programs: programs, // Only program categories like ["BS", "MPhil"]
+        sector: university.sector, // Add sector field
         deadline: new Date(university.admissionDates.deadlineDate), // Keep the Date object for sorting
       };
     });
@@ -94,7 +95,7 @@ const AdmissionTableList = ({ university_raw_data }) => {
       </div>
 
       <h1
-        className={`glowy text-2xl  border-b  inline-block border-rose-600 tracking-wider ${gotham.className}`}
+        className={`glowy text-4xl  border-b  inline-block border-rose-600 tracking-wider ${DharmaGothicRegular.className}`}
       >
         List of Universities in which Admissions are Open !
       </h1>
@@ -106,6 +107,7 @@ const AdmissionTableList = ({ university_raw_data }) => {
               <th className="py-3 px-6 text-left">Sr.</th>
               <th className="py-3 px-6 text-left">University</th>
               <th className="py-3 px-6 text-left">Programs University Offering</th>
+              <th className="py-3 px-6 text-left">Sector</th> {/* New column for sector */}
               <th className="py-3 px-6 text-left">Deadline</th>
             </tr>
           </thead>
@@ -130,6 +132,10 @@ const AdmissionTableList = ({ university_raw_data }) => {
                       <li key={idx}>{`${program}, `}</li>
                     ))}
                   </ul>
+                </td>
+                <td className="py-3 px-6 relative">
+                  <div className="absolute inset-y-0 left-0 w-px bg-white" />
+                  <h1>{university.sector}</h1> {/* Display sector */}
                 </td>
                 <td className="py-3 px-6 relative text-rose-500">
                   <div className="absolute inset-y-0 left-0 w-px bg-white" />

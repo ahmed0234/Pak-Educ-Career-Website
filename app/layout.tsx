@@ -23,6 +23,32 @@ export const gotham = localFont({
   weight: "100 900",
 });
 
+export const DharmaGothicRegular = localFont({
+  src: [
+    {
+      path: '/fonts/DharmaGothicERegular.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '/fonts/DharmaGothicERegularItalic.woff2',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: '/fonts/DharmaGothicELight.woff2',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '/fonts/DharmaGothicEHeavy.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-dharma-gothic', // Create a CSS variable for the font
+});
+
 
 
 
@@ -35,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0a0a0a]`}
+        className={` ${geistSans.className}  antialiased bg-[#0a0a0a]`}
       >
         <Navbar />
         {children}

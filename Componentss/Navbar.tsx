@@ -1,6 +1,6 @@
 "use client";
 
-import { gotham } from "@/app/layout";
+
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -19,12 +19,14 @@ const Navbar = () => {
   return (
     <>
       <div className="container border-b Navbar font-[family-name:var(--font-geist-sans)] flex justify-between items-center px-4 py-8">
-        <div className="flex  items-center justify-center gap-4">
-        <Image src={'/logo.jpg'} alt="Logo" width={60} height={60}/>
-          <h1 className={`text-2xl ${gotham.className} glowy_2 text-white`}>
-            <Link href={"/"}>Pak Edu Career</Link>{" "}
-          </h1>
-        </div>
+         <Link href={`/`} className="Logos Navbar">
+            <div className="flex  items-center justify-center gap-4">
+          
+              <Image src={'/logo.jpg'} alt="Logo" width={60} height={60}/>
+              <Image src={'/PECLOGO.png'} alt="Logo" width={170} height={170} quality={100}  priority={true} />
+              </div>
+          </Link>
+     
         <AlignJustify
           className="cursor-pointer md:hidden"
           onClick={() => setopen(!open)}

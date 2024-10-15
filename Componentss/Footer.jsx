@@ -1,4 +1,5 @@
-import { gotham } from '@/app/layout'
+import { DharmaGothicRegular, gotham } from '@/app/layout'
+import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
 
@@ -16,27 +17,24 @@ const Footer = () => {
   
   {/* <!-- Footer content --> */}
   <div className="container mx-auto px-4 py-12 relative z-10">
-    <div className="flex flex-row max-md::flex-col justify-between items-center flex-wrap">
+    <div className=" flex flex-row max-md::flex-col justify-between items-center gap-6 flex-wrap">
       {/* <!-- Logo / Branding --> */}
-      <div className="mb-6 lg:mb-0">
-      <h1 className={`text-2xl ${gotham.className} glowy_2 text-white`}>
-            <Link href={"/"}>Pak Edu Career</Link>{" "}
-          </h1>
+      <div className="mb-6 lg:mb-0 ">
+        <Image src={'/PECLOGO.png'} alt="Logo" width={180} height={180} quality={100}  priority={true} />
       </div>
       
       {/* <!-- Social Media Icons --> */}
-      <div className="mb-6 lg:mb-0 flex space-x-6 text-xl">
-        <a href="#" className="hover:text-gray-400"><i class="fa-brands fa-youtube"></i></a>
-        <a href="#" className="hover:text-gray-400"><i className="fab fa-facebook"></i></a>
-        <a href="#" className="hover:text-gray-400"><i className="fab fa-twitter"></i></a>
-        <a href="#" className="hover:text-gray-400"><i class="fa-brands fa-instagram"></i></a>
-        
+      <div className="mb-6 lg:mb-0 flex space-x-6 text-xl  ">
+        <a href="https://www.youtube.com/c/PakEduCareer1" target='_blank' className="hover:text-rose-500 hover:scale-125 duration-300"><i class="fa-brands fa-youtube text-3xl max-lg:text-xl"></i></a>
+        <a href="https://www.facebook.com/PakEduCareer" target='_blank' className="hover:text-rose-500 hover:scale-125 duration-300"><i className="fab fa-facebook text-3xl max-lg:text-xl"></i></a>
+        <a href="https://whatsapp.com/channel/0029VaDL9eoEwEk2fJOps31j"  target='_blank'className="hover:text-rose-500 hover:scale-125 duration-300"><i class="fa-brands fa-whatsapp text-3xl max-lg:text-xl"></i></a>
+        <a href="https://www.instagram.com/pakeducareer" target='_blank' className="hover:text-rose-500 hover:scale-125 duration-300"><i class="fa-brands fa-instagram text-3xl max-lg:text-xl"></i></a>
       </div>
       {/* <!-- Social Media Icons --> */}
 
       {/* <!-- Copyright Text --> */}
       <div>
-        <p className="text-sm">&copy; COPYRIGHT 2024 BY Pak Edu Career</p>
+        <p className={`text-2xl ${DharmaGothicRegular.className} `}>&copy; COPYRIGHT 2024-2025 BY PakEduCareer</p>
       </div>
     </div>
   </div>
