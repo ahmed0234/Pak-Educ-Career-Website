@@ -152,11 +152,11 @@ const AdmissionTableList = ({ university_raw_data }) => {
 
           <div className="mt-8 space-y-6 max-lg:flex items-center justify-center gap-4 flex-wrap space-x-6 mx-auto">
 
-              <div className="inline-block w-[500px] h-[500px] max-2xl:w-[350px] max-2xl:h-[350px] max-xl:w-[350px] max-xl:h-[350px] relative">
+              <div className="inline-block w-[500px] h-[500px] max-2xl:w-[350px] max-2xl:h-[350px] max-xl:w-[350px] max-xl:h-[350px] relative fancy">
                   <Image src={`/advertisement/1.jpg`} alt="Advertisement" fill/>
               </div>
 
-              <div className="inline-block w-[500px] h-[500px] max-2xl:w-[350px] max-2xl:h-[350px] max-xl:w-[350px] max-xl:h-[350px] relative">
+              <div className="inline-block w-[500px] h-[500px] max-2xl:w-[350px] max-2xl:h-[350px] max-xl:w-[350px] max-xl:h-[350px] relative fancy">
                   <Image src={`/advertisement/2.jpg`} alt="Advertisement" fill/>
               </div>
 
