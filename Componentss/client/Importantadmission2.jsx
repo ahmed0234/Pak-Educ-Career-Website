@@ -34,7 +34,7 @@ const Importantadmission2 = ({data}) => {
             {data?.map((university, idx)=> (
                     <SwiperSlide key={idx}>
                         <Link href={`/university/${university._id}`}>
-                         <div className="flex gap-4 px-1 py-2 h-[26rem] w-full bg-[url('/grunge.png')] bg-cover "> 
+                         <div className="flex gap-4 px-4 py-2 h-[26rem] w-full bg-zinc-900 rounded-xl"> 
                             <div className="h-full w-1/2 max-2xl:w-full border relative">
                                 <Image src={university.hrAdmissionNotice} alt="Picture" fill quality={100} priority={true}/>
                             </div>
