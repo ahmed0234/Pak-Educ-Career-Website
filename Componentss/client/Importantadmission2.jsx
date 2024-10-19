@@ -19,7 +19,7 @@ const Importantadmission2 = ({data}) => {
         navigation={true} // enables navigation arrows
         pagination={{ clickable: true }} // enables pagination (optional)
         autoplay={{
-            delay: 1400, // autoplay every 3 seconds
+            delay: 3200, // autoplay every 3 seconds
             disableOnInteraction: false, // autoplay won't stop after user interaction
         }}
         loop={true} // loop the slides

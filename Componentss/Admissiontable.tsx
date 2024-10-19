@@ -101,7 +101,7 @@ const AdmissionTableList = ({ university_raw_data }) => {
         List of Universities in which Admissions are Open !
       </h1>
 
-      <div className="MainContaineroftable_and_Advertisement flex gap-6 max-[1200px]:flex-col">
+      <div className="MainContaineroftable_and_Advertisement flex gap-6 max-[1136px]:flex-col">
 
           <div className="mt-8">
             <table className="min-w-full table-auto bg-zinc-950 border border-gray-300 rounded-lg h-auto">
@@ -150,15 +150,28 @@ const AdmissionTableList = ({ university_raw_data }) => {
             </table>
           </div>
 
-          <div className="mt-8 space-y-6 max-lg:flex items-center justify-center gap-4 flex-wrap space-x-6 mx-auto">
+          <div className="mt-8 sm:flex sm:flex-col gap-4 items-center justify-center">
 
-              <div className="inline-block w-[500px] h-[500px] max-2xl:w-[350px] max-2xl:h-[350px] max-xl:w-[350px] max-xl:h-[350px] relative fancy">
+              <div className="w-[300px] h-[300px] max-2xl:w-[350px] max-2xl:h-[350px] max-xl:w-[300px] max-xl:h-[300px] relative fancy">
                   <Image src={`/advertisement/1.jpg`} alt="Advertisement" fill/>
               </div>
 
-              <div className="inline-block w-[500px] h-[500px] max-2xl:w-[350px] max-2xl:h-[350px] max-xl:w-[350px] max-xl:h-[350px] relative fancy">
+              <div className="w-[300px] h-[300px] max-2xl:w-[300px] max-2xl:h-[300px] max-xl:w-[300px] max-xl:h-[300px] relative fancy">
                   <Image src={`/advertisement/2.jpg`} alt="Advertisement" fill/>
               </div>
+
+              <div className="w-[300px] h-[300px] max-2xl:w-[300px] max-2xl:h-[300px] max-xl:w-[300px] max-xl:h-[300px] relative fancy">
+                  <Image src={`/advertisement/4.jpg`} alt="Advertisement" fill/>
+              </div>
+
+              <div className="w-[300px] h-[300px] max-2xl:w-[300px] max-2xl:h-[300px] max-xl:w-[300px] max-xl:h-[300px] relative fancy">
+                  <Image src={`/advertisement/3.jpg`} alt="Advertisement" fill/>
+              </div>
+
+              <div className="w-[300px] h-[300px] max-2xl:w-[300px] max-2xl:h-[300px] max-xl:w-[300px] max-xl:h-[300px] relative fancy">
+                  <Image src={`/advertisement/5.jpg`} alt="Advertisement" fill/>
+              </div>
+
 
           </div>
 
