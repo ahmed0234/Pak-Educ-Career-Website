@@ -24,7 +24,7 @@ const ImportantAdmissionCorner = async () => {
   return (
     <div className="container">
       <h1
-        className={`glowy text-5xl  border-b inline-block border-rose-600 ${DharmaGothicRegular.className} font-medium tracking-wider`}
+        className={`glowy text-5xl max-sm:mx-auto  border-b inline-block border-rose-600 ${DharmaGothicRegular.className} font-medium tracking-wider`}
       >
         Important Admissions Corner !
       </h1>
