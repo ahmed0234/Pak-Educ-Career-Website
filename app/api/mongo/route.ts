@@ -6,11 +6,9 @@ import { NextResponse } from "next/server";
 export async function GET({}) {
   try {
     await connectToDatabase();
-    const currentDate = new Date();
-    currentDate.setUTCHours(0, 0, 0, 0); // Set time to 00:00:00
-    const result: any = await Universitymodel.deleteMany({
-      "admissionDates.deadlineDate": { $lt: currentDate },
-    });
+
+
+    const result: any = await Universitymodel.find();
     return NextResponse.json(result);
   } catch (error) {
     console.log(error.message);

@@ -31,7 +31,7 @@ const Importantadmission2 = ({ data }) => {
           navigation={true}
           pagination={{ clickable: true }}
           autoplay={{
-            delay: 3000,
+            delay: 2400,
             disableOnInteraction: false,
           }}
           loop={true}
@@ -54,7 +54,7 @@ const Importantadmission2 = ({ data }) => {
             <SwiperSlide key={idx} className="">
               <Link href={`/university/${university._id}`}>
                 <div className="flex flex-col gap-4 items-center justify-center pb-4 px-2 w-full rounded-xl">
-                  <div className="h-[370px] w-[300px] relative">
+                  <div className="h-[390px] w-[300px] relative">
                     <Image
                       src={university.hrAdmissionNotice}
                       alt="Picture"
