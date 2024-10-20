@@ -19,7 +19,7 @@ const Naavbar = () => {
           <div className=" gap-4 lg:flex hidden"> 
 
 <div className="1 dropdown z-40">
-  <button className="dropbtn">Cities</button>
+  <button className="dropbtn text-sm">Cities</button>
   <div className="dropdown-content text-xs">
       <Link href={`/city/Islamabad`}>Islamabad</Link>
       <Link href={`/city/Rawalpindi`}>Rawalpindi</Link>
@@ -33,9 +33,9 @@ const Naavbar = () => {
 
 
 <div className="2 dropdown z-40">
-  <button className="dropbtn">Programs</button>
-  <div className="dropdown-content text-xs">
-      <Link href={`/programs/bsPrograms`}><span className="text-xs">Bs</span></Link>
+  <button className="dropbtn text-sm">Programs</button>
+  <div className="dropdown-content text-sm">
+      <Link href={`/programs/bsPrograms`}>Bs</Link>
       <Link href={`/programs/mphilPrograms`}>Mphil</Link>
       <Link href={`/programs/phdPrograms`}>Phd</Link>
       <Link href={`/programs/adpPrograms`}>ADP</Link>
@@ -46,8 +46,8 @@ const Naavbar = () => {
 </div>
 
 <div className="2 dropdown z-40">
-  <button className="dropbtn">Sector</button>
-  <div className="dropdown-content text-xs">
+  <button className="dropbtn text-sm">Sector</button>
+  <div className="dropdown-content text-sm">
       <Link href={`/sector/Government`}>Govt</Link>
       <Link href={`/sector/Semi Government`}>Semi Govt</Link>
       <Link href={`/sector/Private`}>Private</Link>
@@ -55,8 +55,8 @@ const Naavbar = () => {
 </div>
 
 <div className="2 dropdown z-40">
-  <button className="dropbtn">Province</button>
-  <div className="dropdown-content text-xs">
+  <button className="dropbtn text-sm">Province</button>
+  <div className="dropdown-content text-sm">
       <Link href={`/province/Punjab`}>Punjab</Link>
       <Link href={`/province/Sindh`}>Sindh</Link>
       <Link href={`/province/KPK`}>KPK</Link>
