@@ -9,7 +9,17 @@ interface ParamPageProps {
 
 async function fetchUniversity(name: string) {
   await connectToDatabase()
-  const cityData = await Universitymodel.find({ "location.city": name });
+  let cityData;
+    if (name === "Government") {
+    // Fetch universities with BS programs
+    cityData = await Universitymodel.find({ sector:  "Government"});
+  } else if (name === "Semi Government") {
+    // Fetch universities with MPhil programs
+    cityData = await Universitymodel.find({ sector:  "Semi Government"});
+  } else if (name === "Private") {
+    // Fetch universities with MPhil programs
+    cityData = await Universitymodel.find({ sector:  "Private"});
+  }
   return cityData;
 }
 

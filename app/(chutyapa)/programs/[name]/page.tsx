@@ -90,7 +90,7 @@ const Page = async ({params}: ParamPageProps) => {
     }));
   }
   const data = await fetchUniversity(params.name)
-  console.log(params.name);
+  if (!data) return <div className='min-h-[75vh] container pt-12'><h1 className='text-yellow-400 text-xl'>No Universities . . . . . . . . . . .</h1></div>
   const universities = transformUniversityData(data)
   return (
     <div className="mt-8 overflow-x-auto container min-h-[75vh]">

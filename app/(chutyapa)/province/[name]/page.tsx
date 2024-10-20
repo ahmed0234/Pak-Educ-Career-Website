@@ -9,7 +9,20 @@ interface ParamPageProps {
 
 async function fetchUniversity(name: string) {
   await connectToDatabase()
-  const cityData = await Universitymodel.find({ "location.city": name });
+  let cityData;
+    if (name === "Punjab") {
+    // Fetch universities with BS programs
+    cityData = await Universitymodel.find({ "location.province":  "Punjab"});
+  } else if (name === "Sindh") {
+    // Fetch universities with MPhil programs
+    cityData = await Universitymodel.find({ "location.province":  "Sindh"});
+  } else if (name === "KPK") {
+    // Fetch universities with MPhil programs
+    cityData = await Universitymodel.find({ "location.province":  "KPK"});
+  } else if (name === "Azad Kashmir") {
+    // Fetch universities with MPhil programs
+    cityData = await Universitymodel.find({ "location.province":  "Azad Kashmir"});
+  }
   return cityData;
 }
 

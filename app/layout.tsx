@@ -1,4 +1,4 @@
-import Navbar from "@/Componentss/Navbar";
+import Naavbar from "@/app/Navbar";
 import Footer from "@/Componentss/Footer";
 import localFont from 'next/font/local'
 import "@uploadthing/react/styles.css";
@@ -63,7 +63,9 @@ export default function RootLayout({
       <body
         className={` ${geistSans.className}  antialiased bg-[#0a0a0a]`}
       >
-        <Navbar />
+        <div >
+        <Naavbar />
+        </div>
         {children}
         <Footer />
       </body>
