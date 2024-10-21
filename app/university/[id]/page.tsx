@@ -97,7 +97,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
     <div className="University_Data container mt-12 flex flex-col gap-16 pb-28 max-xl:px-4">
 
       <div className="University Introduction flex flex-col gap-4">
-        <h1 className="text-4xl max-xl:text-3xl text-center font-bold text-emerald-400">{university.name} Admission Opens</h1>
+        <h1 className=" text-4xl max-xl:text-3xl text-center font-bold text-emerald-400">{university.name} Admission Opens</h1>
         <h2 className="text-lg">Location: {university.location.city}, {university.location.province}</h2>
         <h2 className="text-lg">Sector: {university.sector}</h2>
         <h2> The last date of application is: <span className="text-rose-500 font-bold">
@@ -122,11 +122,10 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
       <div className="HOW_TO_APPLY? text-center flex flex-col gap-8">
               <h1 className="text-3xl text-yellow-500">How to apply for {university.name} <br />Admission?</h1>
-              <div>
-                <a href={university.universityWebsite} target="_blank">
-                  <button className="px-10 py-3 bg-red-600 font-bold text-lg rounded-full">Apply Now</button>
-                </a>
+              <div className="chicken w-fit h-fit mx-auto">
+                <button className="chicken2">Apply Now</button>
               </div>
+
       </div>  
 
       <div className="Advertisement_Picture flex flex-col gap-8 justify-center items-center">

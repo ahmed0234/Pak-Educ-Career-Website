@@ -139,7 +139,7 @@ const AdmissionTableList = ({ university_raw_data }) => {
                       <div className="absolute inset-y-0 left-0 w-px bg-white" />
                       <h1 className="max-md:text-xs">{university.sector === `Government` ? "Govt" : university.sector}</h1>
                     </td>
-                    <td className="py-3 px-2 md:px-6 relative text-rose-500 whitespace-nowrap max-md:text-xs">
+                    <td className="py-3 px-2 md:px-6 relative text-red-500 font-semibold whitespace-nowrap max-md:text-xs">
                       <div className="absolute inset-y-0 left-0 w-px bg-white" />
                       {university.deadline}
                     </td>

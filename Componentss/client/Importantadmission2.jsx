@@ -65,11 +65,11 @@ const Importantadmission2 = ({ data }) => {
                     />
                   </div>
                   <div className="h-full my-auto flex flex-col gap-6 justify-center">
-                    <div className=" px-5 py-3 rounded-full bg-gradient-to-b from-[#fee02d] to-[#fa8900]">
-                      <h1 className=" max-2xl:text-sm text-center text-xs text-transparent bg-clip-text bg-gradient-to-b from-black to-black font-bold">
+                 
+                      <h1 className="ImportantAdmissionUniversityName text-xs">
                         {university.name}
                       </h1>
-                    </div>
+              
                   </div>
                 </div>
               </Link>
