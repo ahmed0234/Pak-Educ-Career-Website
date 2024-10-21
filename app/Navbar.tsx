@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import "./components.css"
 
 const Naavbar = () => {
  
@@ -65,15 +65,19 @@ const Naavbar = () => {
 </div>
 
 
-          </div>
-
-            <div>
-                <button className="bg-white text-zinc-950 py-2 px-4 rounded text-sm">
-                Contact Us
-                </button>
-            </div>
-
       </div>
+              <button type="button" className="Navbtn">
+                  <strong>Contact Us</strong>
+                  <div id="container-stars">
+                    <div id="stars"></div>
+                  </div>
+
+                  <div id="glow">
+                    <div className="circle"></div>
+                    <div className="circle"></div>
+                  </div>
+              </button>
+    </div>
 
 
   );
