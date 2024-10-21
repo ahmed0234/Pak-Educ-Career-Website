@@ -97,7 +97,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
   return (
     <>
 
-    <div className=" container grid grid-cols-12 border">
+    <div className=" container grid grid-cols-12 ">
 
       <div className="University_Data col-span-9  max-xl:col-span-9 container mt-12 flex flex-col gap-16 pb-28 max-xl:px-4 px-4">
 
