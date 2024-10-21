@@ -3,6 +3,7 @@ import { Programinfo } from "@/Componentss/Programinfo";
 import { connectToDatabase } from "@/db/connectDB";
 import Universitymodel from "@/db/UniversitiesSchema";
 import Image from "next/image";
+import Link from "next/link";
 
 
 const getUniversityById = async (id) => {
@@ -96,78 +97,79 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
   return (
     <>
+      <div className="lg:container px-4 w-full lg:grid lg:grid-cols-12">
 
-    <div className=" container grid grid-cols-12 ">
+          <div className="University_Data lg:col-span-9  mt-12 flex flex-col gap-16 mb-12">
 
-      <div className="University_Data col-span-9  max-xl:col-span-9 container mt-12 flex flex-col gap-16 pb-28 max-xl:px-4 px-4">
-
-        <div className="University Introduction flex flex-col gap-4">
-              <h1 className=" text-4xl max-xl:text-3xl text-center font-bold text-emerald-400">{university.name} Admission Opens</h1>
-              <h2 className="text-lg">Location: {university.location.city}, {university.location.province}</h2>
-              <h2 className="text-lg">Sector: {university.sector}</h2>
-              <h2> The last date of application is: <span className="text-rose-500 font-bold">
-                  {new Date(university.admissionDates.deadlineDate).toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'long',
-                    year: 'numeric',
-                  })}</span></h2>
-                {university.affiliation.isOpen && <h2 className="text-lg"><span className="text-rose-500 italic font-bold tracking-wider text-xl">Affiliation: </span> {university.affiliation.name}</h2>}
-                  {university.admissionDates.testDate &&  <h2 className="text-lg"><span className="text-rose-500 italic font-bold tracking-wider text-xl">Test-Dates: </span> {university.admissionDates.testDate}</h2>}
-        </div>
-
-
-        <div className="University_Programs">
-              <h1 className="text-3xl text-orange-400">Available Programs</h1>
-
-              <Programinfo university={university} program={"bsPrograms"}/>
-              <Programinfo university={university} program={"mphilPrograms"}/>
-              <Programinfo university={university} program={"phdPrograms"}/>
-              <Programinfo university={university} program={"adpPrograms"}/>
-              <Programinfo university={university} program={"bs5thPrograms"}/>
-              <Programinfo university={university} program={"diplomaPrograms"}/>
-        </div>
-
-        <div className="HOW_TO_APPLY? text-center flex flex-col gap-8">
-                <h1 className="text-3xl text-yellow-500">How to apply for {university.name} <br />Admission?</h1>
-                <div className="chicken w-fit h-fit mx-auto">
-                  <button className="chicken2">Apply Now</button>
-                </div>
-
-        </div>  
-
-        <div className="Advertisement_Picture flex flex-col gap-8 justify-center items-center">
-              <div>
-                <BlurImageAdvertisementsLoading university={university} />
+              <div className="University Introduction flex flex-col gap-4">
+                    <h1 className="text-base sm:text-2xl md:text-3xl lg:text-4xl text-center font-bold text-teal-400">{university.name} Admission Opens</h1>
+                    <h2 className="text-xs sm:text-sm md:text-lg">Location: {university.location.city}, {university.location.province}</h2>
+                    <h2 className="text-xs sm:text-sm md:text-lg">Sector: {university.sector}</h2>
+                    <h2 className="text-xs sm:text-sm md:text-lg"> The last date of application is: <span className="text-rose-500 font-bold">
+                        {new Date(university.admissionDates.deadlineDate).toLocaleDateString('en-GB', {
+                          day: 'numeric',
+                          month: 'long',
+                          year: 'numeric',
+                        })}</span></h2>
+                      {university.affiliation.isOpen && <h2 className="text-xs sm:text-sm md:text-lg"><span className="text-base text-rose-500 italic font-bold tracking-wider sm:text-xl md:text-xl">Affiliation: </span> {university.affiliation.name}</h2>}
+                        {university.admissionDates.testDate &&  <h2 className="text-xs sm:text-sm md:text-lg "><span className="text-base text-rose-500 italic font-bold tracking-wider sm:text-xl md:text-xl">Test-Dates: </span> {university.admissionDates.testDate}</h2>}
               </div>
-              <div>
-              <a href={university.hrAdmissionNotice} target="_blank">
-                    <button className="px-10 py-3 bg-red-600 font-bold text-lg rounded-full">Advertisement Link</button>
-                  </a>
+
+
+              <div className="University_Programs">
+                    <h1 className="text-center sm:text-left text-3xl md:text-4xl text-orange-400">Available Programs</h1>
+
+                    <Programinfo university={university} program={"bsPrograms"}/>
+                    <Programinfo university={university} program={"mphilPrograms"}/>
+                    <Programinfo university={university} program={"phdPrograms"}/>
+                    <Programinfo university={university} program={"adpPrograms"}/>
+                    <Programinfo university={university} program={"bs5thPrograms"}/>
+                    <Programinfo university={university} program={"diplomaPrograms"}/>
               </div>
-        </div>
+
+              <div className="HOW_TO_APPLY? text-center flex flex-col gap-8">
+                      <h1 className="text-lg md:text-xl text-yellow-500">How to apply for {university.name} <br />Admission?</h1>
+                      <div className="chicken w-fit h-fit mx-auto">
+                        <Link href={`${university.universityWebsite}`} target="_blank">
+                          <button className="chicken2">Apply Now</button>
+                        </Link>
+                      </div>
+
+              </div>  
+
+              <div className="Advertisement_Picture flex flex-col gap-8 justify-center items-center">
+                    <div>
+                      <BlurImageAdvertisementsLoading university={university} />
+                    </div>
+                    <div>
+                    <a href={university.hrAdmissionNotice} target="_blank">
+                          <button className="px-10 py-3 bg-red-600 font-bold text-lg rounded-full">Advertisement Link</button>
+                        </a>
+                    </div>
+              </div>
+
+          </div>
+
+          <div className="w-full lg:col-span-3 relative mt-12  flex flex-wrap gap-2 lg:gap-4 max-[1000px]:justify-center  justify-start lg:flex-col lg:items-start"> 
+              <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px]   relative top-0 left-0 fancy">
+                      <Image src={`/advertisement/1.jpg`} alt="Advertisement" fill />
+              </div>
+              <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px]   relative top-0 left-0 fancy">
+                      <Image src={`/advertisement/2.jpg`} alt="Advertisement" fill />
+              </div>
+              <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px]   relative top-0 left-0 fancy">
+                      <Image src={`/advertisement/3.jpg`} alt="Advertisement" fill />
+              </div>
+              <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px]   relative top-0 left-0 fancy">
+                      <Image src={`/advertisement/4.jpg`} alt="Advertisement" fill />
+              </div>
+              <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px]  relative top-0 left-0 fancy">
+                      <Image src={`/advertisement/5.jpg`} alt="Advertisement" fill />
+              </div>
+        
+          </div>
 
       </div>
-
-      <div className="px-4 container  mt-12  w-full col-span-3 max-xl:col-span-3 flex gap-2 flex-col overflow-hidden"> 
-          <div className="w-[280px] h-[280px]  max-xl:w-[200px] max-xl:h-[200px] max-lg:w-[200px] max-lg:h-[200px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[170px] max-sm:h-[170px] relative top-0 left-0 fancy">
-                  <Image src={`/advertisement/1.jpg`} alt="Advertisement" fill />
-          </div>
-          <div className="w-[280px] h-[280px]  max-xl:w-[200px] max-xl:h-[200px] max-lg:w-[200px] max-lg:h-[200px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[170px] max-sm:h-[170px] relative top-0 left-0 fancy">
-                  <Image src={`/advertisement/2.jpg`} alt="Advertisement" fill />
-          </div>
-          <div className="w-[280px] h-[280px]  max-xl:w-[200px] max-xl:h-[200px] max-lg:w-[200px] max-lg:h-[200px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[170px] max-sm:h-[170px] relative top-0 left-0 fancy">
-                  <Image src={`/advertisement/3.jpg`} alt="Advertisement" fill />
-          </div>
-          <div className="w-[280px] h-[280px]  max-xl:w-[200px] max-xl:h-[200px] max-lg:w-[200px] max-lg:h-[200px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[170px] max-sm:h-[170px] relative top-0 left-0 fancy">
-                  <Image src={`/advertisement/4.jpg`} alt="Advertisement" fill />
-          </div>
-          <div className="w-[280px] h-[280px] max-xl:w-[200px] max-xl:h-[200px]  max-lg:w-[200px] max-lg:h-[200px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[170px] max-sm:h-[170px] relative top-0 left-0 fancy">
-                  <Image src={`/advertisement/5.jpg`} alt="Advertisement" fill />
-          </div>
-     
-      </div>
-
-    </div>
     </>
   );
 };
