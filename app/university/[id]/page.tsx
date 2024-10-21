@@ -97,9 +97,9 @@ const Page = async ({ params }: { params: { id: string } }) => {
   return (
     <>
 
-    <div className=" container grid grid-cols-12">
+    <div className=" container grid grid-cols-12 border">
 
-      <div className="University_Data col-span-10  container mt-12 flex flex-col gap-16 pb-28 max-xl:px-4 px-4">
+      <div className="University_Data col-span-9  max-xl:col-span-9 container mt-12 flex flex-col gap-16 pb-28 max-xl:px-4 px-4">
 
         <div className="University Introduction flex flex-col gap-4">
               <h1 className=" text-4xl max-xl:text-3xl text-center font-bold text-emerald-400">{university.name} Admission Opens</h1>
@@ -148,20 +148,20 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
       </div>
 
-      <div className="px-4 container  mt-12  w-full col-span-2 flex gap-2 flex-col"> 
-          <div className="w-[250px] h-[250px] max-lg:w-[200px] max-lg:h-[200px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[170px] max-sm:h-[170px] relative fancy">
+      <div className="px-4 container  mt-12  w-full col-span-3 max-xl:col-span-3 flex gap-2 flex-col overflow-hidden"> 
+          <div className="w-[280px] h-[280px]  max-xl:w-[200px] max-xl:h-[200px] max-lg:w-[200px] max-lg:h-[200px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[170px] max-sm:h-[170px] relative top-0 left-0 fancy">
                   <Image src={`/advertisement/1.jpg`} alt="Advertisement" fill />
           </div>
-          <div className="w-[250px] h-[250px] max-lg:w-[200px] max-lg:h-[200px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[170px] max-sm:h-[170px] relative fancy">
+          <div className="w-[280px] h-[280px]  max-xl:w-[200px] max-xl:h-[200px] max-lg:w-[200px] max-lg:h-[200px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[170px] max-sm:h-[170px] relative top-0 left-0 fancy">
                   <Image src={`/advertisement/2.jpg`} alt="Advertisement" fill />
           </div>
-          <div className="w-[250px] h-[250px] max-lg:w-[200px] max-lg:h-[200px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[170px] max-sm:h-[170px] relative fancy">
+          <div className="w-[280px] h-[280px]  max-xl:w-[200px] max-xl:h-[200px] max-lg:w-[200px] max-lg:h-[200px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[170px] max-sm:h-[170px] relative top-0 left-0 fancy">
                   <Image src={`/advertisement/3.jpg`} alt="Advertisement" fill />
           </div>
-          <div className="w-[250px] h-[250px] max-lg:w-[200px] max-lg:h-[200px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[170px] max-sm:h-[170px] relative fancy">
+          <div className="w-[280px] h-[280px]  max-xl:w-[200px] max-xl:h-[200px] max-lg:w-[200px] max-lg:h-[200px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[170px] max-sm:h-[170px] relative top-0 left-0 fancy">
                   <Image src={`/advertisement/4.jpg`} alt="Advertisement" fill />
           </div>
-          <div className="w-[250px] h-[250px] max-lg:w-[200px] max-lg:h-[200px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[170px] max-sm:h-[170px] relative fancy">
+          <div className="w-[280px] h-[280px] max-xl:w-[200px] max-xl:h-[200px]  max-lg:w-[200px] max-lg:h-[200px] max-md:w-[180px] max-md:h-[180px] max-sm:w-[170px] max-sm:h-[170px] relative top-0 left-0 fancy">
                   <Image src={`/advertisement/5.jpg`} alt="Advertisement" fill />
           </div>
      
