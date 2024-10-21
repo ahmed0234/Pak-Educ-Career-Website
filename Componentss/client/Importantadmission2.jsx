@@ -31,7 +31,7 @@ const Importantadmission2 = ({ data }) => {
           navigation={true}
           pagination={{ clickable: true }}
           autoplay={{
-            delay: 2400,
+            delay: 2000,
             disableOnInteraction: false,
           }}
           loop={true}
@@ -54,18 +54,19 @@ const Importantadmission2 = ({ data }) => {
             <SwiperSlide key={idx} className="">
               <Link href={`/university/${university._id}`}>
                 <div className="flex flex-col gap-4 items-center justify-center pb-4 px-2 w-full rounded-xl">
-                  <div className="h-[400px] w-[300px] relative">
+                  <div className=" h-[400px] w-[300px] relative px-8">
                     <Image
                       src={university.hrAdmissionNotice}
                       alt="Picture"
                       fill
                       quality={100}
                       priority={true}
+                      className="box"
                     />
                   </div>
                   <div className="h-full my-auto flex flex-col gap-6 justify-center">
-                    <div className="px-5 py-3 rounded-full bg-gradient-to-b from-[#fee02d] to-[#fa8900]">
-                      <h1 className="max-2xl:text-sm text-center text-xs text-transparent bg-clip-text bg-gradient-to-b from-black to-black font-bold">
+                    <div className=" px-5 py-3 rounded-full bg-gradient-to-b from-[#fee02d] to-[#fa8900]">
+                      <h1 className=" max-2xl:text-sm text-center text-xs text-transparent bg-clip-text bg-gradient-to-b from-black to-black font-bold">
                         {university.name}
                       </h1>
                     </div>
