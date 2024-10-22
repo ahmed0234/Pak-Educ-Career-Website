@@ -16,7 +16,7 @@ export const Programinfo = ({ university, program }) => {
       {selectedProgram?.isOpen && (
         <div>
           <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-cyan-500 underline mb-4">
-            {program === `bs5thPrograms` ? "BS 5th" : programType.toUpperCase()} Programs
+            {program === `bs5thPrograms` ? "BS 5th Semester" : programType.toUpperCase()} Programs
           </h1>
           <h1 className="text-xs md:text-base lg:text-lg font-bold mb-6 pl-2">
             {university.name} has announced {programType} Admissions in the following programs for fall 2024:
