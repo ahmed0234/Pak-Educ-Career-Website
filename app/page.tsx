@@ -1,13 +1,15 @@
 // import { revalidatelandingpage } from "@/actions/RevalidateLandingPage";
-import AdmissionTableList from "@/Componentss/Admissiontable";
-import ImportantAdmissionCorner from "@/Componentss/ImportantAdmissionCorner";
+import AdmissionTableList from "@/components/Admissiontable";
+import ImportantAdmissionCorner from "@/components/ImportantAdmissionCorner";
 import { connectToDatabase } from "@/db/connectDB";
 import Universitymodel from "@/db/UniversitiesSchema";
-import { Metadata } from "next";
 
 
 
 // export const dynamic = "force-dynamic";
+
+
+
 
 
 async function findUniversitiesSortedByDeadline() {
@@ -15,19 +17,15 @@ async function findUniversitiesSortedByDeadline() {
     await connectToDatabase();
     const universities_data = await Universitymodel.find()
       .sort({ "admissionDates.deadlineDate": -1 }) // Sort by deadlineDate in descending order
+      .lean() // This ensures we return plain objects
       .exec();
-    return universities_data;
+      return await JSON.parse(JSON.stringify(universities_data));
   } catch (error) {
     console.error("Error finding universities:", error);
     throw error;
   }
 }
 
-
-export const metadata: Metadata = {
-  title: "Pak Edu Career",
-  description: "Pak Edu Career",
-};
 
 
 export default async function Home() {

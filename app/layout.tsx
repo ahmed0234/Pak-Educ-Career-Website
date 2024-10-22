@@ -1,5 +1,5 @@
 import Naavbar from "@/app/Navbar";
-import Footer from "@/Componentss/Footer";
+import Footer from "@/components/Footer";
 import localFont from 'next/font/local'
 import "@uploadthing/react/styles.css";
 import "./globals.css";

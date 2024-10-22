@@ -461,7 +461,7 @@ const Page = () => {
             </div>
             {hrimage && (
               <div className="flex flex-col gap-2  w-fit text-wrap border">
-                <button onClick={copyToClipboard} class="bg-black text-white py-2 px-4 rounded shadow-lg hover:bg-gray-800  focus:ring-opacity-75">
+                <button onClick={copyToClipboard} className="bg-black text-white py-2 px-4 rounded shadow-lg hover:bg-gray-800  focus:ring-opacity-75">
                   Copy Image Link
                 </button>
 

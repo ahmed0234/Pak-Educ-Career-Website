@@ -1,6 +1,5 @@
-import { DharmaGothicRegular, gotham } from '@/app/layout'
+import { DharmaGothicRegular } from '@/app/layout'
 import Image from 'next/image'
-import Link from 'next/link'
 import Script from 'next/script'
 
 
@@ -25,10 +24,10 @@ const Footer = () => {
       
       {/* <!-- Social Media Icons --> */}
       <div className="mb-6 lg:mb-0 flex space-x-8 text-lg  ">
-        <a href="https://www.youtube.com/c/PakEduCareer1" target='_blank' className="hover:text-rose-500 hover:scale-125 duration-300"><i class="fa-brands fa-youtube text-2xl max-lg:text-xl"></i></a>
+        <a href="https://www.youtube.com/c/PakEduCareer1" target='_blank' className="hover:text-rose-500 hover:scale-125 duration-300"><i className="fa-brands fa-youtube text-2xl max-lg:text-xl"></i></a>
         <a href="https://www.facebook.com/PakEduCareer" target='_blank' className="hover:text-rose-500 hover:scale-125 duration-300"><i className="fab fa-facebook text-2xl max-lg:text-xl"></i></a>
-        <a href="https://whatsapp.com/channel/0029VaDL9eoEwEk2fJOps31j"  target='_blank'className="hover:text-rose-500 hover:scale-125 duration-300"><i class="fa-brands fa-whatsapp text-2xl max-lg:text-xl"></i></a>
-        <a href="https://www.instagram.com/pakeducareer" target='_blank' className="hover:text-rose-500 hover:scale-125 duration-300"><i class="fa-brands fa-instagram text-2xl max-lg:text-xl"></i></a>
+        <a href="https://whatsapp.com/channel/0029VaDL9eoEwEk2fJOps31j"  target='_blank'className="hover:text-rose-500 hover:scale-125 duration-300"><i className="fa-brands fa-whatsapp text-2xl max-lg:text-xl"></i></a>
+        <a href="https://www.instagram.com/pakeducareer" target='_blank' className="hover:text-rose-500 hover:scale-125 duration-300"><i className="fa-brands fa-instagram text-2xl max-lg:text-xl"></i></a>
       </div>
       {/* <!-- Social Media Icons --> */}
 

@@ -1,6 +1,6 @@
 
 import { DharmaGothicRegular } from "@/app/layout";
-import Importantadmission2 from "@/Componentss/client/Importantadmission2";
+import Importantadmission2 from "@/components/client/Importantadmission2";
 import { connectToDatabase } from "@/db/connectDB";
 import Universitymodel from "@/db/UniversitiesSchema";
 
