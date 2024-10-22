@@ -145,7 +145,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
 
               <div className="University_Programs">
-                    <h1 className="text-center  text-3xl md:text-4xl text-orange-400 font-semibold">Offered Programs</h1>
+                    <h1 className="text-center  text-3xl md:text-4xl 2xl:text-5xl text-orange-400 font-semibold">Offered Programs</h1>
 
                     <Programinfo university={university} program={"bsPrograms"}/>
                     <Programinfo university={university} program={"mphilPrograms"}/>
