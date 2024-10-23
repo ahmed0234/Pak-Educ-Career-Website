@@ -34,7 +34,7 @@ const Sortingtable = ({ filteredUniversitiesData }) => {
         [name]: value, // Update regular text/select inputs
       });
     }
-    console.log(formData.province);
+   
   };
 
   const handleSubmit = (e) => {
@@ -100,7 +100,7 @@ const Sortingtable = ({ filteredUniversitiesData }) => {
           <option value="Punjab">Punjab</option>
           <option value="Sindh">Sindh</option>
           <option value="KPK">KPK</option>
-          <option value="Azad Kashmir">Azad Kashmir</option>
+          <option value="AJK">AJK</option>
           <option value="Balochistan">Balochistan</option>
         </select>
       </div>
@@ -161,7 +161,7 @@ const Sortingtable = ({ filteredUniversitiesData }) => {
               <option value="Peshawar">Peshawar</option>
             </>
           )}
-           {formData.province === "Azad Kashmir" && (
+           {formData.province === "AJK" && (
             <>
               <option value="Muzaffarabad">Muzaffarabad</option>
               <option value="Neelum">Neelum</option>

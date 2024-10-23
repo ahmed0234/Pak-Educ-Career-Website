@@ -111,7 +111,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
                     </tr>
                     <tr>
                       <td className="px-4 py-2 md:py-3 xl:py-4 border border-gray-400 text-center text-xs md:text-base lg:text-lg">Sector</td>
-                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-gray-400 text-center text-xs md:text-base lg:text-lg">{university.sector}</td>
+                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-gray-400 text-center text-xs md:text-base lg:text-lg">{university.sector === "Government" && "Govt"} {university.sector === "Semi Government" && "Semi Govt"} {university.sector === "Private" && "Private"}</td>
                     </tr>
                     {university.affiliation.isOpen && (
                       <tr>
@@ -121,7 +121,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
                     )}
                     <tr>
                       <td className="px-4 py-2 md:py-3 xl:py-4 border border-gray-400 text-center text-xs md:text-base lg:text-lg">Deadline to Apply</td>
-                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-gray-400 text-center text-xs md:text-base lg:text-lg text-rose-500">
+                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-gray-400 text-center text-xs md:text-base lg:text-lg text-red-600 font-semibold">
                         {new Date(university.admissionDates.deadlineDate).toLocaleDateString('en-GB', {
                           day: 'numeric',
                           month: 'long',

@@ -51,7 +51,7 @@ export async function findFilteredUniversities(data) {
     const query = await buildQuery(data);
     // Query the MongoDB database using Mongoose
     const universities = await UniversityModel.find(query);
-    console.log(universities);
+ 
     
     // Return the result
     return universities;

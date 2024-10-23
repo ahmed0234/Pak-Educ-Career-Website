@@ -8,7 +8,6 @@ const UniversitySchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
-      unique: true,
       index: true, // Index for faster searches on university name
     },
 

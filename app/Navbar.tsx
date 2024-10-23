@@ -36,13 +36,12 @@ const Naavbar = () => {
         <div className="2 dropdown z-40">
           <button className="dropbtn text-sm">Programs</button>
           <div className="dropdown-content text-sm">
-              <Link href={`/programs/bsPrograms`}>Bs</Link>
-              <Link href={`/programs/mphilPrograms`}>Mphil</Link>
-              <Link href={`/programs/phdPrograms`}>Phd</Link>
+              <Link href={`/programs/bsPrograms`}>BS</Link>
+              <Link href={`/programs/bs5thPrograms`}>BS 5th Semester</Link>
               <Link href={`/programs/adpPrograms`}>ADP</Link>
+              <Link href={`/programs/mphilPrograms`}>MPhil</Link>
+              <Link href={`/programs/phdPrograms`}>PhD</Link>
               <Link href={`/programs/diplomaPrograms`}>Diploma</Link>
-              <Link href={`/programs/bs5thPrograms`}>Bs5th Semester</Link>
-              diplomaPrograms
           </div>
         </div>
 
@@ -61,7 +60,8 @@ const Naavbar = () => {
               <Link href={`/province/Punjab`}>Punjab</Link>
               <Link href={`/province/Sindh`}>Sindh</Link>
               <Link href={`/province/KPK`}>KPK</Link>
-              <Link href={`/province/Azad Kashmir`}>Azad Kashmir</Link>
+              <Link href={`/province/AJK`}>AJK</Link>
+              <Link href={`/province/Balochistan`}>Balochistan</Link>
           </div>
         </div>
 

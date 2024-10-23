@@ -219,7 +219,7 @@ export async function Create_University(data: FormData, hrimage: string) {
     }
 
 
-    console.log(university);
+  
 
     // Connect to the database
     await connectToDatabase();
