@@ -67,6 +67,7 @@ const Naavbar = () => {
 
 
         </div>
+        <Link href={`/contact`}>
               <button type="button" className="Navbtn hidden lg:block">
                   <strong>Contact Us</strong>
                   <div id="container-stars">
@@ -78,6 +79,7 @@ const Naavbar = () => {
                     <div className="circle"></div>
                   </div>
               </button>
+        </Link>
 
 
               <HamburgerSidebar />
