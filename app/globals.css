@@ -211,6 +211,20 @@ body {
   initial-value: 0turn;
 }
 
+.dangerousHtml ul li {
+  list-style: circle;
+}
+
+.dangerousHtml a {
+  color: yellow;
+}
+
+.dangerousHtml h1{
+  font-size: 1.8rem;
+}
+.dangerousHtml h2{
+  font-size: 1.3rem;
+}
 }
 
 

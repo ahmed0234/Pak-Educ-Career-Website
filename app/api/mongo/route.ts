@@ -3,14 +3,18 @@ import { connectToDatabase } from "@/db/connectDB";
 import Universitymodel from "@/db/UniversitiesSchema";
 import {Users} from "@/db/userMessages";
 import { NextResponse } from "next/server";
-
+import { AdvertisementsData } from "@/db/advertisement";
 export const dynamic = "force-dynamic";
 
 export async function GET({}) {
+
+
   try {
+
+
     await connectToDatabase()
-    const message = await Users.deleteMany();
-    return NextResponse.json(message);
+    const data  = await AdvertisementsData.deleteMany();
+    return NextResponse.json(data);
 
   } catch (error) {
     console.log(error.message);
@@ -20,12 +24,10 @@ export async function GET({}) {
 
 
 
-
-// 
-// Universitymodel.syncIndexes()
-// .then(() => {
-//   console.log(`sucessfull`);
-// })
-// .catch((error) => {
-//   console.error("Error synchronizing indexes:", error);
-// });
+Universitymodel.syncIndexes()
+      .then(() => {
+        console.log(`sucessfull`);
+      })
+      .catch((error) => {
+        console.error("Error synchronizing indexes:", error);
+      });
