@@ -1,33 +1,26 @@
 /* eslint-disable */
 import { connectToDatabase } from "@/db/connectDB";
 import Universitymodel from "@/db/UniversitiesSchema";
-import {Users} from "@/db/userMessages";
+import {AdvertisementsData} from "@/db/advertisement";
 import { NextResponse } from "next/server";
-import { AdvertisementsData } from "@/db/advertisement";
 export const dynamic = "force-dynamic";
 
 export async function GET({}) {
-
-
   try {
-
-
-    await connectToDatabase()
-    const data  = await AdvertisementsData.deleteMany();
+    await connectToDatabase();
+    const data = await AdvertisementsData.find();
     return NextResponse.json(data);
-
   } catch (error) {
     console.log(error.message);
     return NextResponse.json(error.message);
   }
 }
 
+// Universitymodel.syncIndexes()
+// .then((data) => {
+//   console.log(`sucessfull synced indexxes`);
 
-
-Universitymodel.syncIndexes()
-      .then(() => {
-        console.log(`sucessfull`);
-      })
-      .catch((error) => {
-        console.error("Error synchronizing indexes:", error);
-      });
+// })
+// .catch((error) => {
+//   console.error("Error synchronizing indexes:", error);
+// });

@@ -158,6 +158,7 @@ export async function Create_University(data: FormData, hrimage: string) {
         testDate,
       },
       universityWebsite: (data.get("universitywebsite") as string) || null,
+      universityDescription: (data.get("universityDescription") as string) || null,
       hrAdmissionNotice: (hrimage as string) || null,
       programs: {
         bsPrograms: {

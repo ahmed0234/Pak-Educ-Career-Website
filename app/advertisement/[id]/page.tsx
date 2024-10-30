@@ -4,24 +4,22 @@ import Image from "next/image";
 
 
 
-async function getAdvertisement(priority) {
+async function getAdvertisement(id) {
     await connectToDatabase();
-    const data = await AdvertisementsData.findOne({ priority }).exec();
-    console.log(data);
-    return data;
+    const advertisement = await AdvertisementsData.findById(id);
+    return advertisement;
 }
 
-const Page = async () => {
+const Page = async ({params}) => {
     // Fetch advertisement data with priority set to 5
-    const advertisementData = await getAdvertisement(1); // Pass the desired priority
+    const advertisementData = await getAdvertisement(params.id); // Pass the desired priority
 
     return (
-        <div className="container py-20 min-h-screen">
+        <div className="container py-20 min-h-screen px-4 ">
             {advertisementData ? (
                 <>
 
-                    <Image src={advertisementData.advertisementImg} alt="pic" width={400} height={400}/>
-                    <br />
+                    <Image src={advertisementData.advertisementImg} alt="pic" width={500} height={500} className="mx-auto"/>
                     <br />
                     <br />
                     <div 
@@ -38,3 +36,12 @@ const Page = async () => {
 }
 
 export default Page;
+
+export async function generateStaticParams() {
+    await connectToDatabase();
+    const advertisements = await AdvertisementsData.find().lean();
+
+    return advertisements.map((ad) => ({
+        id: ad._id.toString(),
+    }));
+}

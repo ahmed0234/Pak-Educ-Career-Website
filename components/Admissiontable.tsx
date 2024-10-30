@@ -6,63 +6,64 @@ import Sortingtable from "./Sortingtable";
 import { findFilteredUniversities } from "@/actions/filtereduniversities";
 import { DharmaGothicRegular, gotham } from "@/app/layout";
 import Image from "next/image";
+import { Filter } from 'lucide-react';
 
-const AdmissionTableList = ({ university_raw_data }) => {
+const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
   const [loading, setloading] = useState(false)
-  function transformUniversityData(data) {
-    const today = new Date();
+      function transformUniversityData(data) {
+        const today = new Date();
 
-    // First, transform the data
-    const transformedData = data.map((university) => {
-      const programs = [];
+        // First, transform the data
+        const transformedData = data.map((university) => {
+          const programs = [];
 
-      if (university.programs.bsPrograms.isOpen) {
-        programs.push("BS");
-      }
-      if (university.programs.mphilPrograms.isOpen) {
-        programs.push("MPhil");
-      }
-      if (university.programs.phdPrograms.isOpen) {
-        programs.push("PhD");
-      }
-      if (university.programs.adpPrograms.isOpen) {
-        programs.push("ADP");
-      }
-      if (university.programs.bs5thPrograms.isOpen) {
-        programs.push("BS 5th Semester");
-      }
-      if (university.programs.diplomaPrograms.isOpen) {
-        programs.push("Diploma");
-      }
+          if (university.programs.bsPrograms.isOpen) {
+            programs.push("BS");
+          }
+          if (university.programs.mphilPrograms.isOpen) {
+            programs.push("MPhil");
+          }
+          if (university.programs.phdPrograms.isOpen) {
+            programs.push("PhD");
+          }
+          if (university.programs.adpPrograms.isOpen) {
+            programs.push("ADP");
+          }
+          if (university.programs.bs5thPrograms.isOpen) {
+            programs.push("BS 5th Semester");
+          }
+          if (university.programs.diplomaPrograms.isOpen) {
+            programs.push("Diploma");
+          }
 
-      // Transform the data
-      return {
-        id: university._id, // Include the unique ID here
-        name: university.name,
-        programs: programs, // Only program categories like ["BS", "MPhil"]
-        sector: university.sector, // Add sector field
-        deadline: new Date(university.admissionDates.deadlineDate), // Keep the Date object for sorting
-      };
-    });
+          // Transform the data
+          return {
+            id: university._id, // Include the unique ID here
+            name: university.name,
+            programs: programs, // Only program categories like ["BS", "MPhil"]
+            sector: university.sector, // Add sector field
+            deadline: new Date(university.admissionDates.deadlineDate), // Keep the Date object for sorting
+          };
+        });
 
-    // Sort the universities by deadline closest to today
-    const sortedUniversities = transformedData.sort((a, b) => {
-      const timeDiffA = a.deadline.getTime() - today.getTime();
-      const timeDiffB = b.deadline.getTime() - today.getTime();
+        // Sort the universities by deadline closest to today
+        const sortedUniversities = transformedData.sort((a, b) => {
+          const timeDiffA = a.deadline.getTime() - today.getTime();
+          const timeDiffB = b.deadline.getTime() - today.getTime();
 
-      return timeDiffA - timeDiffB; // Sort by closest deadline
-    });
+          return timeDiffA - timeDiffB; // Sort by closest deadline
+        });
 
-    // Format the deadline for display
-    return sortedUniversities.map((university) => ({
-      ...university,
-      deadline: university.deadline.toLocaleDateString("en-GB", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      }),
-    }));
-  }
+        // Format the deadline for display
+        return sortedUniversities.map((university) => ({
+          ...university,
+          deadline: university.deadline.toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          }),
+        }));
+      }
 
   async function filteredUniversitiesData(data){
     setloading(true)
@@ -85,7 +86,7 @@ const AdmissionTableList = ({ university_raw_data }) => {
   return (
     <div>
       <div className="HIDE FILTER BOX OR NOT mb-11">
-          <h1 className="border-b cursor-pointer inline-block select-none text-xl" onClick={() => sethide(!hide)}>Wanna Filter Universities?</h1>
+          <h1 className="border-b border-teal-600 cursor-pointer inline-block select-none text-2xl text-teal-500 font-bold" onClick={() => sethide(!hide)}>  Filter University Admissions <span className="inline-block text-center"><Filter size={`20px`}/></span> </h1>
       </div>
       <div className={hide ? "hidden" : "block"}>
         <Sortingtable filteredUniversitiesData={filteredUniversitiesData}/>
@@ -174,6 +175,7 @@ const AdmissionTableList = ({ university_raw_data }) => {
       </div> */}
 
         <div className="MainContaineroftable_and_Advertisement flex gap-6 flex-wrap lg:flex-nowrap max-[768px]:flex-col">
+
             <div className="mt-8 overflow-x-auto w-full">
               <table className="min-w-full table-auto bg-zinc-950 border border-gray-300 rounded-lg">
                 <thead>
@@ -204,11 +206,10 @@ const AdmissionTableList = ({ university_raw_data }) => {
 
                       <td className="py-3 px-4 md:px-6 relative">
                                 <div className="absolute inset-y-0 left-0 w-px bg-white" /> {/* Separator */}
-                                <ul className="flex flex-wrap gap-1 md:gap-3">
+                                <ul className="flex flex-wrap gap-1  md:gap-1">
                                   {university.programs.map((program, idx) => (
-                                    <li key={idx} className="inline text-xs md:text-sm">
-                                      {program}
-                                      {idx < university.programs.length - 1 && ","} {/* Add comma if not the last program */}
+                                    <li key={idx} className="inline w-fit text-xs md:text-sm">
+                                      {program}{idx < university.programs.length - 1 && ","} 
                                     </li>
                                   ))}
                                 </ul>
@@ -234,13 +235,22 @@ const AdmissionTableList = ({ university_raw_data }) => {
               </table>
             </div>
 
+
+
             <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-6 lg:flex-col">
-              {[1, 2, 4, 3, 5].map((num) => (
-                <div key={num} className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px]   relative top-0 left-0 fancy">
-                  <Image src={`/advertisement/${num}.jpg`} alt={`Advertisement ${num}`} className="object-cover" fill />
+                        {advertisementData.map((ad) => (
+                          <Link href={`/advertisement/${ad._id}`} key={ad._id}>
+                            <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px] relative top-0 left-0 fancy">
+                              <Image
+                                src={ad.advertisementImg} // Assuming advertisementImg contains the image URL
+                                alt={`Advertisement ${ad.priority}`}
+                                className="object-cover"
+                                fill
+                              />
+                            </div>
+                          </Link>
+                        ))}
                 </div>
-              ))}
-            </div>
         </div>
 
 

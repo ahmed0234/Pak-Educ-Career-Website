@@ -2,8 +2,24 @@ import BlurImageAdvertisementsLoading from "@/components/BlurImageAdvertisements
 import { Programinfo } from "@/components/Programinfo";
 import { connectToDatabase } from "@/db/connectDB";
 import Universitymodel from "@/db/UniversitiesSchema";
+import {AdvertisementsData} from "@/db/advertisement";
 import Image from "next/image";
 import Link from "next/link";
+
+
+
+async function advertisementsData() {
+  try {
+    await connectToDatabase();
+    const advertisements = await AdvertisementsData.find().sort({ priority: 1 });
+    return await JSON.parse(JSON.stringify(advertisements));
+  } catch (error) {
+    console.error("Error finding universities:", error);
+    throw error;
+  }
+}
+
+
 
 
 const getUniversityById = async (id) => {
@@ -19,6 +35,7 @@ const getUniversityById = async (id) => {
 
 const Page = async ({ params }: { params: { id: string } }) => {
   const university = await getUniversityById(params.id);
+  const advertisementDataa = await advertisementsData();
   // const university = {
   //   "location": {
   //     "province": "Punjab",
@@ -141,7 +158,9 @@ const Page = async ({ params }: { params: { id: string } }) => {
               </div>
            
 
-        
+                    <div className="University_Description text-center w-[95%]">
+                        <h1 className="text-xs leading-relaxed text-emerald-400 font-semibold  xl:text-sm 2xl:text-base">{university.universityDescription}</h1>
+                    </div>
 
 
               <div className="University_Programs">
@@ -182,22 +201,18 @@ const Page = async ({ params }: { params: { id: string } }) => {
           </div>
 
           <div className="pl-3 w-full lg:col-span-3 relative mt-12  flex flex-wrap gap-2 lg:gap-4 max-[1000px]:justify-center  justify-start lg:flex-col lg:items-start"> 
-              <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px]   relative top-0 left-0 fancy">
-                      <Image src={`/advertisement/1.jpg`} alt="Advertisement" fill />
-              </div>
-              <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px]   relative top-0 left-0 fancy">
-                      <Image src={`/advertisement/2.jpg`} alt="Advertisement" fill />
-              </div>
-              <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px]   relative top-0 left-0 fancy">
-                      <Image src={`/advertisement/3.jpg`} alt="Advertisement" fill />
-              </div>
-              <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px]   relative top-0 left-0 fancy">
-                      <Image src={`/advertisement/4.jpg`} alt="Advertisement" fill />
-              </div>
-              <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px]  relative top-0 left-0 fancy">
-                      <Image src={`/advertisement/5.jpg`} alt="Advertisement" fill />
-              </div>
-        
+                  {advertisementDataa.map((ad) => (
+                            <Link href={`/advertisement/${ad._id}`} key={ad._id}>
+                              <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px] relative top-0 left-0 fancy">
+                                <Image
+                                  src={ad.advertisementImg} // Assuming advertisementImg contains the image URL
+                                  alt={`Advertisement ${ad.priority}`}
+                                  className="object-cover"
+                                  fill
+                                />
+                              </div>
+                            </Link>
+                        ))}
           </div>
 
       </div>

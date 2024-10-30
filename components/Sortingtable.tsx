@@ -78,7 +78,7 @@ const Sortingtable = ({ filteredUniversitiesData }) => {
       onSubmit={handleSubmit}
     >
       <h1 className="text-2xl font-bold text-center mb-6 text-white">
-        Filter Universities
+      Filter University Admissions
       </h1>
 
       {/* Province */}

@@ -141,7 +141,7 @@ const ContactWithSocials = () => {
                                   <Mail className="w-6 h-6 text-yellow-500 mt-1" />
                                   <div>
                                     <h3 className="font-semibold mb-1">Email</h3>
-                                    <p className="text-slate-300">youremail@gmail.com</p>
+                                    <p className="text-slate-300">pakeducareer2020@gmail.com</p>
                                   </div>
                                 </div>
                                 

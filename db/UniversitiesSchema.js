@@ -145,6 +145,12 @@ const UniversitySchema = new mongoose.Schema(
       default: null,
     },
 
+    // University Description
+    universityDescription: {
+      type: String,
+      default: null,
+    },
+
     // HR Admission Notice Link
     hrAdmissionNotice: {
       type: String, // Optional field for admission notice link

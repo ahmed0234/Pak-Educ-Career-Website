@@ -341,7 +341,20 @@ const Page = () => {
             </p>
           </div>
           {/* Diploma  */}
-
+              
+                      {/* University Description */}
+          <div className="flex flex-col">
+            <label htmlFor="universityDescription" className="mb-2 font-semibold">
+              University Description
+            </label>
+            <textarea
+            rows={5}
+              type="text"
+              id="universityDescription"
+              name="universityDescription"
+              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
           {/* ImportantAdmission or Not */}
           <div className="flex flex-col">
@@ -353,8 +366,8 @@ const Page = () => {
               name="importantadmission"
               className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="true">Yes</option>
               <option value="false">No</option>
+              <option value="true">Yes</option>
             </select>
           </div>
         {/* ImportantAdmission or Not */}

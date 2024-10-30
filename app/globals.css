@@ -213,6 +213,11 @@ body {
 
 .dangerousHtml ul li {
   list-style: circle;
+  @apply text-teal-400
+}
+.dangerousHtml ul  {
+  list-style: circle;
+  @apply pl-3 mt-4 flex flex-col gap-2
 }
 
 .dangerousHtml a {
@@ -220,10 +225,20 @@ body {
 }
 
 .dangerousHtml h1{
-  font-size: 1.8rem;
+  @apply text-xl text-center text-rose-500 md:text-2xl lg:text-3xl xl:text-4xl
 }
 .dangerousHtml h2{
-  font-size: 1.3rem;
+  @apply text-sm text-center  text-yellow-500 md:text-base lg:text-lg
+}
+.dangerousHtml h3{
+  @apply text-sm text-center lg:text-base xl:text-lg
+}
+
+.dangerousHtml p{
+  @apply text-sm text-center text-rose-500 md:text-lg lg:text-xl
+}
+.dangerousHtml strong{
+  @apply text-xl tracking-normal 
 }
 }
 

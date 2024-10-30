@@ -92,7 +92,7 @@ const Page = async ({params}: ParamPageProps) => {
   const universities = transformUniversityData(data)
   return (
     <div className="mt-8 overflow-x-auto container min-h-[75vh]">
-      <table className="min-w-full table-auto bg-zinc-950 border border-gray-300 rounded-lg">
+              <table className="min-w-full table-auto bg-zinc-950 border border-gray-300 rounded-lg">
                 <thead>
                   <tr className="bg-zinc-800 text-white uppercase text-xs md:text-sm leading-normal">
                     <th className="py-3 px-4 md:px-6 text-left hidden md:table-cell">Sr.</th>
@@ -120,17 +120,24 @@ const Page = async ({params}: ParamPageProps) => {
                       </td>
 
                       <td className="py-3 px-4 md:px-6 relative">
-                        <div className="absolute inset-y-0 left-0 w-px bg-white" /> {/* Separator */}
-                        <ul className="flex flex-wrap gap-1 md:gap-3">
-                          {university.programs.map((program, idx) => (
-                            <li key={idx} className="inline text-xs md:text-sm">{`${program}, `}</li>
-                          ))}
-                        </ul>
-                      </td>
+                                <div className="absolute inset-y-0 left-0 w-px bg-white" /> {/* Separator */}
+                                <ul className="flex flex-wrap gap-1  md:gap-1">
+                                  {university.programs.map((program, idx) => (
+                                    <li key={idx} className="inline w-fit text-xs md:text-sm">
+                                      {program}{idx < university.programs.length - 1 && ","} 
+                                    </li>
+                                  ))}
+                                </ul>
+                              </td>
+
 
                       <td className="py-3 px-4 md:px-6 relative hidden md:table-cell">
                         <div className="absolute inset-y-0 left-0 w-px bg-white" /> {/* Separator */}
-                        <h1>{university.sector === 'Government' ? 'Govt' : university.sector}</h1>
+                        <h1>
+                          {university.sector === 'Government' && 'Govt' }
+                          {university.sector === 'Semi Government' && 'Semi Govt' }
+                          {university.sector === 'Private' && 'Private' }
+                        </h1>
                       </td>
 
                       <td className="py-3 px-4 md:px-6 relative text-red-500 font-semibold whitespace-nowrap">
@@ -140,7 +147,7 @@ const Page = async ({params}: ParamPageProps) => {
                     </tr>
                   ))}
                 </tbody>
-      </table>
+              </table>
     </div>
   )
 }
