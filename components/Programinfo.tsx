@@ -16,7 +16,7 @@ export const Programinfo = ({ university, program }) => {
           <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-cyan-500 underline mb-4">
             {program === `bsPrograms` && "BS " } 
             {program === `bs5thPrograms` && "BS 5th Semester "} 
-            {program === `ADP` && "ADP " } 
+            {program === `adpPrograms` && "ADP " } 
             {program === `mphilPrograms` && "MPhil " } 
             {program === `phdPrograms` && "PhD " } 
             {program === `diplomaPrograms` && "Diploma " } 

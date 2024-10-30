@@ -48,7 +48,7 @@ export default async function Home() {
     <div className=" h-auto pb-24 px-4 mt-14 font-[family-name:var(--font-geist-sans)] bg-[#0a0a0a] ">
       <ImportantAdmissionCorner />
 
-      <div className="mt-12 px-4 mx-auto w-full">
+      <div className="mt-12  sm:px-4 mx-auto w-full">
         <AdmissionTableList university_raw_data={data} advertisementData={data2}/>
       </div>
     </div>

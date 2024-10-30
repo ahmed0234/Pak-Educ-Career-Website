@@ -86,7 +86,7 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
   return (
     <div>
       <div className="HIDE FILTER BOX OR NOT mb-11">
-          <h1 className="border-b border-teal-600 cursor-pointer inline-block select-none text-2xl text-teal-500 font-bold" onClick={() => sethide(!hide)}>  Filter University Admissions <span className="inline-block text-center"><Filter size={`20px`}/></span> </h1>
+          <h1 className="border-b border-teal-600 cursor-pointer inline-block select-none text-lg lg:text-xl xl:text-2xl text-teal-500 font-bold" onClick={() => sethide(!hide)}>  Filter University Admissions <span className="inline-block text-center"><Filter size={`20px`}/></span> </h1>
       </div>
       <div className={hide ? "hidden" : "block"}>
         <Sortingtable filteredUniversitiesData={filteredUniversitiesData}/>
@@ -97,82 +97,11 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
       </div>
 
       <h1
-        className={`glowy text-4xl  border-b  inline-block border-rose-600 tracking-wider ${DharmaGothicRegular.className}`}
+        className={`glowy text-3xl sm:text-4xl   border-b  inline-block border-rose-600 tracking-wider ${DharmaGothicRegular.className}`}
       >
         List of Universities in which Admissions are Open !
       </h1>
 
-      {/* <div className="MainContaineroftable_and_Advertisement flex gap-6 max-[768px]:flex-col">
-          <div className="mt-8 overflow-x-auto">
-            <table className="min-w-full table-auto bg-zinc-950 border border-gray-300 rounded-lg h-auto">
-              <thead>
-                <tr className="bg-zinc-800 text-white uppercase text-sm leading-normal">
-                  <th className="py-3 px-2 md:px-6 text-left hidden text-xs md:block">Sr.</th>
-                  <th className="py-3 px-2 md:px-6 text-left text-xs">University</th>
-                  <th className="py-3 px-2 md:px-6 text-left text-xs">Programs</th>
-                  <th className="py-3 px-2 md:px-6 text-left hidden md:block text-xs">Sector</th>
-                  <th className="py-3 px-2 md:px-6 text-left whitespace-nowrap text-xs">Deadline</th>
-                </tr>
-              </thead>
-              <tbody className="text-white text-sm font-light">
-                {universities.map((university, idx) => (
-                  <tr
-                    key={university.id}
-                    className="border-b hover:bg-zinc-900 transition duration-300"
-                  >
-                    <td className="SR py-3 px-2 md:px-6 relative w-[0px] hidden md:block">
-                      <div className="absolute inset-y-0 left-0 w-px bg-white" />
-                      <h1 className="max-md:text-xs">{idx + 1}</h1>
-                    </td>
-                    <td className="University_Name py-3 px-4  md:px-6 relative">
-                      <div className="absolute inset-y-0 left-0 w-px bg-white" />
-                      <Link href={`/university/${university.id}`} className="max-md:text-xs min-w-32">{university.name}</Link>
-                    </td>
-                    <td className="University_Programs py-3 px-2 md:px-6 relative">
-                      <div className="absolute inset-y-0 left-0 w-px bg-white" />
-                      <ul className="flex flex-wrap gap-3">
-                        {university.programs.map((program, idx) => (
-                          <li className="max-md:text-xs" key={idx}>{`${program}, `}</li>
-                        ))}
-                      </ul>
-                    </td>
-                    <td className="University_Sector py-3 px-2 md:px-6 relative hidden md:block">
-                      <div className="absolute inset-y-0 left-0 w-px bg-white" />
-                      <h1 className="max-md:text-xs">{university.sector === `Government` ? "Govt" : university.sector}</h1>
-                    </td>
-                    <td className="py-3 px-2 md:px-6 relative text-red-500 font-semibold whitespace-nowrap max-md:text-xs">
-                      <div className="absolute inset-y-0 left-0 w-px bg-white" />
-                        <h1 className="text-xs">{university.deadline}</h1>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="mt-8 flex lg:flex-col flex-wrap">
-            <div className="w-[300px] h-[300px] lg:w-[240px] lg:h-[240px] xl:w-[260px] xl:h-[260px] 2xl:w-[290px] 2xl:h-[290px] relative fancy">
-              <Image src={`/advertisement/1.jpg`} alt="Advertisement" fill />
-            </div>
-
-            <div className="w-[300px] h-[300px] lg:w-[240px] lg:h-[240px] xl:w-[260px] xl:h-[260px] 2xl:w-[290px] 2xl:h-[290px] relative fancy">
-              <Image src={`/advertisement/2.jpg`} alt="Advertisement" fill />
-            </div>
-
-            <div className="w-[300px] h-[300px] lg:w-[240px] lg:h-[240px] xl:w-[260px] xl:h-[260px] 2xl:w-[290px] 2xl:h-[290px] relative fancy">
-              <Image src={`/advertisement/4.jpg`} alt="Advertisement" fill />
-            </div>
-
-            <div className="w-[300px] h-[300px] lg:w-[240px] lg:h-[240px] xl:w-[260px] xl:h-[260px] 2xl:w-[290px] 2xl:h-[290px] relative fancy">
-              <Image src={`/advertisement/3.jpg`} alt="Advertisement" fill />
-            </div>
-
-            <div className="w-[300px] h-[300px] lg:w-[240px] lg:h-[240px] xl:w-[260px] xl:h-[260px] 2xl:w-[290px] 2xl:h-[290px] relative fancy">
-              <Image src={`/advertisement/5.jpg`} alt="Advertisement" fill />
-            </div>
-          </div>
-
-      </div> */}
 
         <div className="MainContaineroftable_and_Advertisement flex gap-6 flex-wrap lg:flex-nowrap max-[768px]:flex-col">
 
@@ -180,11 +109,11 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
               <table className="min-w-full table-auto bg-zinc-950 border border-gray-300 rounded-lg">
                 <thead>
                   <tr className="bg-zinc-800 text-white uppercase text-xs md:text-sm leading-normal">
-                    <th className="py-3 px-4 md:px-6 text-left hidden md:table-cell">Sr.</th>
-                    <th className="py-3 px-4 md:px-6 text-left">University</th>
-                    <th className="py-3 px-4 md:px-6 text-left">Programs</th>
-                    <th className="py-3 px-4 md:px-6 text-left hidden md:table-cell">Sector</th>
-                    <th className="py-3 px-4 md:px-6 text-left whitespace-nowrap">Deadline</th>
+                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left hidden md:table-cell">Sr.</th>
+                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left">University</th>
+                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left">Programs</th>
+                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left hidden md:table-cell">Sector</th>
+                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left whitespace-nowrap">Deadline</th>
                   </tr>
                 </thead>
                 <tbody className="text-white text-xs md:text-sm font-light">
@@ -201,7 +130,7 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
 
                       <td className="py-3 px-4 md:px-6 relative">
                         <div className="absolute inset-y-0 left-0 w-px bg-white" /> {/* Separator */}
-                        <Link href={`/university/${university.id}`} className="block text-xs md:text-sm">{university.name}</Link>
+                        <Link href={`/university/${university.id}`} className="max-[340px]:text-[0.7rem] sm:text-xs block  md:text-sm">{university.name}</Link>
                       </td>
 
                       <td className="py-3 px-4 md:px-6 relative">
@@ -225,9 +154,9 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
                         </h1>
                       </td>
 
-                      <td className="py-3 px-4 md:px-6 relative text-red-500 font-semibold whitespace-nowrap">
+                      <td className="py-3 px-4 md:px-6 relative text-red-500 font-semibold sm:whitespace-nowrap">
                         <div className="absolute inset-y-0 left-0 w-px bg-white" /> {/* Separator */}
-                        <h1 className="text-xs md:text-sm">{university.deadline}</h1>
+                        <h1 className="max-[340px]:text-[0.65rem] text-xs md:text-sm">{university.deadline}</h1>
                       </td>
                     </tr>
                   ))}
@@ -237,10 +166,10 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
 
 
 
-            <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-6 lg:flex-col">
+              <div className="mt-6 sm:mt-8 flex flex-wrap justify-center lg:justify-start gap-3 lg:flex-col">
                         {advertisementData.map((ad) => (
                           <Link href={`/advertisement/${ad._id}`} key={ad._id}>
-                            <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px] relative top-0 left-0 fancy">
+                            <div className="w-[180px] h-[180px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px] relative top-0 left-0 fancy">
                               <Image
                                 src={ad.advertisementImg} // Assuming advertisementImg contains the image URL
                                 alt={`Advertisement ${ad.priority}`}

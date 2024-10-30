@@ -203,7 +203,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
           <div className="pl-3 w-full lg:col-span-3 relative mt-12  flex flex-wrap gap-2 lg:gap-4 max-[1000px]:justify-center  justify-start lg:flex-col lg:items-start"> 
                   {advertisementDataa.map((ad) => (
                             <Link href={`/advertisement/${ad._id}`} key={ad._id}>
-                              <div className="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px] relative top-0 left-0 fancy">
+                              <div className="w-[190px] h-[190px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px] relative top-0 left-0 fancy">
                                 <Image
                                   src={ad.advertisementImg} // Assuming advertisementImg contains the image URL
                                   alt={`Advertisement ${ad.priority}`}

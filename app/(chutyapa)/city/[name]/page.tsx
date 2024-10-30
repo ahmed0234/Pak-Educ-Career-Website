@@ -74,14 +74,14 @@ const Page = async ({params}: ParamPageProps) => {
   const universities = transformUniversityData(data)
   return (
     <div className="mt-8 overflow-x-auto container min-h-[75vh]">
-                      <table className="min-w-full table-auto bg-zinc-950 border border-gray-300 rounded-lg">
+                <table className="min-w-full table-auto bg-zinc-950 border border-gray-300 rounded-lg">
                 <thead>
                   <tr className="bg-zinc-800 text-white uppercase text-xs md:text-sm leading-normal">
-                    <th className="py-3 px-4 md:px-6 text-left hidden md:table-cell">Sr.</th>
-                    <th className="py-3 px-4 md:px-6 text-left">University</th>
-                    <th className="py-3 px-4 md:px-6 text-left">Programs</th>
-                    <th className="py-3 px-4 md:px-6 text-left hidden md:table-cell">Sector</th>
-                    <th className="py-3 px-4 md:px-6 text-left whitespace-nowrap">Deadline</th>
+                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left hidden md:table-cell">Sr.</th>
+                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left">University</th>
+                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left">Programs</th>
+                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left hidden md:table-cell">Sector</th>
+                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left whitespace-nowrap">Deadline</th>
                   </tr>
                 </thead>
                 <tbody className="text-white text-xs md:text-sm font-light">
@@ -98,7 +98,7 @@ const Page = async ({params}: ParamPageProps) => {
 
                       <td className="py-3 px-4 md:px-6 relative">
                         <div className="absolute inset-y-0 left-0 w-px bg-white" /> {/* Separator */}
-                        <Link href={`/university/${university.id}`} className="block text-xs md:text-sm">{university.name}</Link>
+                        <Link href={`/university/${university.id}`} className="max-[340px]:text-[0.7rem] sm:text-xs block  md:text-sm">{university.name}</Link>
                       </td>
 
                       <td className="py-3 px-4 md:px-6 relative">
@@ -122,9 +122,9 @@ const Page = async ({params}: ParamPageProps) => {
                         </h1>
                       </td>
 
-                      <td className="py-3 px-4 md:px-6 relative text-red-500 font-semibold whitespace-nowrap">
+                      <td className="py-3 px-4 md:px-6 relative text-red-500 font-semibold sm:whitespace-nowrap">
                         <div className="absolute inset-y-0 left-0 w-px bg-white" /> {/* Separator */}
-                        <h1 className="text-xs md:text-sm">{university.deadline}</h1>
+                        <h1 className="max-[340px]:text-[0.65rem] text-xs md:text-sm">{university.deadline}</h1>
                       </td>
                     </tr>
                   ))}

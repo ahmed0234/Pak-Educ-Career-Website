@@ -5,7 +5,7 @@ import { useState } from "react";
 const BlurImageAdvertisementsLoading = ({ university }) => {
   const [isLoading, setIsLoading] = useState(true);
   return (
-  <div className="relative w-[400px] h-[400px] sm:w-[460px] sm:h-[460px] md:w-[500px] md:h-[500px] lg:w-[550px] lg:h-[550px]">
+  <div className="relative w-[350px] h-[350px] sm:w-[460px] sm:h-[460px] md:w-[500px] md:h-[500px] lg:w-[550px] lg:h-[550px]">
       <Image 
         quality={65} // {number 1-100}
         alt="Advertisement Pic"
