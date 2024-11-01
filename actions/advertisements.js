@@ -19,6 +19,8 @@ export async function submitContentAction({ content, priority, advertisementImag
     const savedContent = await newContent.save();
     // Revalidate the path for the new advertisement page
     revalidatePath(`/advertisement/${savedContent._id.toString()}`);
+    revalidatePath(`/`);
+    revalidatePath(`/university/`);
     return { success: true, message: "Content saved successfully",};
   } catch (error) {
     console.error("Error saving content:", error);

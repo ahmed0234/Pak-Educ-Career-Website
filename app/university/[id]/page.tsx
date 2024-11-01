@@ -223,17 +223,17 @@ const Page = async ({ params }: { params: { id: string } }) => {
 export default Page;
 
 
-// export async function generateStaticParams() {
-//   try {
-//     await connectToDatabase();
-//     const university_data = await Universitymodel.find(); 
-//     return university_data.map((university) => ({
-//       id: university._id.toString(),
-//     }))
-//     // Mongoose method to find by ObjectId
-//   } catch (error) {
-//     console.error("Error fetching university by ID:", error);
-//   }
+export async function generateStaticParams() {
+  try {
+    await connectToDatabase();
+    const universityData = await Universitymodel.find(); 
+    return universityData.map((university)=> {
+      return {id: university._id.toString()}
+    })
+    // Mongoose method to find by ObjectId
+  } catch (error) {
+    console.error("Error fetching university by ID:", error);
+  }
  
-// }
+}
  
