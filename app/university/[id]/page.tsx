@@ -5,6 +5,7 @@ import Universitymodel from "@/db/UniversitiesSchema";
 import {AdvertisementsData} from "@/db/advertisement";
 import Image from "next/image";
 import Link from "next/link";
+import { unstable_cache } from "next/cache";
 
 
 
@@ -22,7 +23,8 @@ async function advertisementsData() {
 
 
 
-const getUniversityById = async (id) => {
+const getUniversityById = unstable_cache(
+async (id) => {
   try {
     await connectToDatabase();
     const university_data = await Universitymodel.findById(id); // Mongoose method to find by ObjectId
@@ -31,7 +33,8 @@ const getUniversityById = async (id) => {
   } catch (error) {
     console.error("Error fetching university by ID:", error);
   }
-};
+}, ['dynamicUnis'], {tags: ['dynamicUnis']}
+)
 
 const Page = async ({ params }: { params: { id: string } }) => {
   const university = await getUniversityById(params.id);

@@ -6,10 +6,12 @@ import { connectToDatabase } from "@/db/connectDB";
 import Universitymodel from "@/db/UniversitiesSchema";
 
 
-import { revalidatePath } from "next/cache";
+
+import { revalidatePath, revalidateTag } from "next/cache";
 
 export const revalidatelandingpage = async () => {
-  revalidatePath("/");
+   revalidatePath("/");
+   revalidateTag('dynamicUnis')
   return  { success: true, message: "Page has been Revalidated"};
 };
 

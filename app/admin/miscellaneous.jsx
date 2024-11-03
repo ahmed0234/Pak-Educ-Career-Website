@@ -5,6 +5,8 @@ import { deleteexpireduniversitiesdata, revalidatelandingpage } from "@/actions/
 import { gotham } from "../layout";
 import { useState } from "react";
 
+
+
 const Miscellaneous = () => {
     const [loading, setloading] = useState(false)
     const [message, setmessage] = useState(null)
@@ -52,7 +54,7 @@ const Miscellaneous = () => {
         <h1 className={`${gotham.className} text-2xl border-b inline-block text-orange-500 border-orange-500`}>Miscellaneous Things Area</h1>
         <div className="w-full flex gap-6 flex-wrap">
 
-            <form className="hidden" onSubmit={revalidatingPageData}>
+            <form className="block" onSubmit={revalidatingPageData}>
                 <button disabled={loading} type="submit" className="bg-blue-500 hover:bg-blue-700 duration-200 text-white font-bold py-2 px-4 rounded mt-12">
                     Revalidate Data / Page
                 </button>
