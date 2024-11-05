@@ -162,7 +162,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
            
 
                     <div className="University_Description text-center w-[95%]">
-                        <h1 className="text-xs leading-relaxed text-emerald-400 font-semibold  xl:text-sm 2xl:text-base">{university.universityDescription}</h1>
+                        <h1 className="text-xs leading-relaxed text-amber-400 font-semibold  lg:text-lg ">{university.universityDescription}</h1>
                     </div>
 
 

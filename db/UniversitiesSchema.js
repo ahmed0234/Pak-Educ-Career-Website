@@ -151,6 +151,13 @@ const UniversitySchema = new mongoose.Schema(
       default: null,
     },
 
+    
+    universityAdmissionExpired: {
+      type: Boolean,
+      default: false,
+    },
+
+
     // HR Admission Notice Link
     hrAdmissionNotice: {
       type: String, // Optional field for admission notice link

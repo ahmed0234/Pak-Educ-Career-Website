@@ -28,7 +28,7 @@ const Naavbar = () => {
               <Link href={`/city/Karachi`}>Karachi</Link>
               <Link href={`/city/Peshawar`}>Peshawar</Link>
               <Link href={`/city/Multan`}>Multan</Link>
-              <Link href={`/city/Faislabad`}>Faislabad</Link>
+              <Link href={`/city/Faisalabad`}>Faisalabad</Link>
           </div>
         </div>
 

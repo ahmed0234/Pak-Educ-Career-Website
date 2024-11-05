@@ -21,11 +21,21 @@ export const deleteexpireduniversitiesdata = async () => {
     await connectToDatabase();
     const currentDate = new Date();
     currentDate.setUTCHours(0, 0, 0, 0); // Set time to 00:00:00
-    const result = await Universitymodel.deleteMany({
-      "admissionDates.deadlineDate": { $lt: currentDate },
-    });
-    return { success: true, message: `${result.deletedCount} Expired Universities has been Deleted` };
+    const result = await Universitymodel.updateMany(
+      { "admissionDates.deadlineDate": { $lt: currentDate } },
+      { $set: { universityAdmissionExpired: true } }
+    );
+
+    if(result){
+      revalidatePath('/')
+    }
+
+  return { success: true, message: `${result.modifiedCount} universities marked as expired` };
+  
   } catch (error) {
     return { success: false, message: error.message };
   }
 };
+
+
+

@@ -43,7 +43,7 @@ export default function HamburgerSidebar() {
         { name: 'Rawalpindi', link: '/city/Rawalpindi' },
         { name: 'Lahore', link: '/city/Lahore' },
         { name: 'Karachi', link: '/city/Karachi' },
-        { name: 'Faislabad', link: '/city/Faislabad' },
+        { name: 'Faisalabad', link: '/city/Faisalabad' },
         { name: 'Multan', link: '/city/Multan' },
         { name: 'Peshawar', link: '/city/Peshawar' },
       ],

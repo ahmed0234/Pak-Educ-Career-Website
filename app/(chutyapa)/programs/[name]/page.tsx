@@ -12,22 +12,22 @@ async function fetchUniversity(name: string) {
   let cityData;
     if (name === "bsPrograms") {
     // Fetch universities with BS programs
-    cityData = await Universitymodel.find({ "programs.bsPrograms.isOpen": true });
+    cityData = await Universitymodel.find({ "programs.bsPrograms.isOpen": true, universityAdmissionExpired: false });
   } else if (name === "mphilPrograms") {
     // Fetch universities with MPhil programs
-    cityData = await Universitymodel.find({ "programs.mphilPrograms.isOpen": true });
+    cityData = await Universitymodel.find({ "programs.mphilPrograms.isOpen": true, universityAdmissionExpired: false });
   } else if (name === "phdPrograms") {
     // Fetch universities with MPhil programs
-    cityData = await Universitymodel.find({ "programs.phdPrograms.isOpen": true });
+    cityData = await Universitymodel.find({ "programs.phdPrograms.isOpen": true, universityAdmissionExpired: false });
   } else if (name === "adpPrograms") {
     // Fetch universities with MPhil programs
-    cityData = await Universitymodel.find({ "programs.adpPrograms.isOpen": true });
+    cityData = await Universitymodel.find({ "programs.adpPrograms.isOpen": true, universityAdmissionExpired: false });
   } else if (name === "bs5thPrograms") {
     // Fetch universities with MPhil programs
-    cityData = await Universitymodel.find({ "programs.bs5thPrograms.isOpen": true });
+    cityData = await Universitymodel.find({ "programs.bs5thPrograms.isOpen": true, universityAdmissionExpired: false });
   } else if (name === "diplomaPrograms") {
     // Fetch universities with MPhil programs
-    cityData = await Universitymodel.find({ "programs.diplomaPrograms.isOpen": true });
+    cityData = await Universitymodel.find({ "programs.diplomaPrograms.isOpen": true, universityAdmissionExpired: false });
   }
 
   return cityData;

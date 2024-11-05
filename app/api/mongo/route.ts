@@ -8,19 +8,24 @@ export const dynamic = "force-dynamic";
 export async function GET({}) {
   try {
     await connectToDatabase();
-    const data = await AdvertisementsData.find();
-    return NextResponse.json(data);
+    const universities_data = await Universitymodel.find({
+      "admissionDates.deadlineDate": { $ne: null } // Ensure deadlineDate exists
+    })
+    .sort({ "admissionDates.deadlineDate": -1 }) // Sort by deadlineDate in descending order
+    .lean() 
+    .exec();
+    return NextResponse.json(universities_data);
+    
   } catch (error) {
     console.log(error.message);
     return NextResponse.json(error.message);
   }
 }
 
-// Universitymodel.syncIndexes()
-// .then((data) => {
-//   console.log(`sucessfull synced indexxes`);
+// await Universitymodel.syncIndexes();
 
-// })
-// .catch((error) => {
-//   console.error("Error synchronizing indexes:", error);
-// });
+// // Update existing documents to add the new field with a default value
+// const result = await Universitymodel.updateMany(
+//   { universityAdmissionExpired: { $exists: false } },  // Target documents without the field
+//   { $set: { universityAdmissionExpired: false } }      // Set the new field to its default
+// );

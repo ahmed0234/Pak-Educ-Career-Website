@@ -12,16 +12,16 @@ async function fetchUniversity(name: string) {
   let cityData;
     if (name === "Punjab") {
     // Fetch universities with BS programs
-    cityData = await Universitymodel.find({ "location.province":  "Punjab"});
+    cityData = await Universitymodel.find({ "location.province":  "Punjab", universityAdmissionExpired: false});
   } else if (name === "Sindh") {
     // Fetch universities with MPhil programs
-    cityData = await Universitymodel.find({ "location.province":  "Sindh"});
+    cityData = await Universitymodel.find({ "location.province":  "Sindh", universityAdmissionExpired: false});
   } else if (name === "KPK") {
     // Fetch universities with MPhil programs
-    cityData = await Universitymodel.find({ "location.province":  "KPK"});
+    cityData = await Universitymodel.find({ "location.province":  "KPK", universityAdmissionExpired: false});
   } else if (name === "AJK") {
     // Fetch universities with MPhil programs
-    cityData = await Universitymodel.find({ "location.province":  "AJK"});
+    cityData = await Universitymodel.find({ "location.province":  "AJK", universityAdmissionExpired: false});
   } else if (name === "Balochistan") {
     // Fetch universities with MPhil programs
     cityData = await Universitymodel.find({ "location.province":  "Balochistan"});

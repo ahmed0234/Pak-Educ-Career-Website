@@ -6,6 +6,7 @@ import { UploadButton } from "@/utils/uploadthing";
 import Image from "next/image";
 import { useState } from "react";
 import { gotham } from "../layout";
+import Auth from "@/components/client/Auth";
 
 
 const Page = () => {
@@ -13,6 +14,11 @@ const Page = () => {
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
   const [hrimage, sethrimage] = useState(null);
+  const [showme, setshowme] = useState(false)
+
+  function authenticator(abc) {
+    setshowme(abc)
+  } 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -48,7 +54,9 @@ const Page = () => {
     });
   };
   return (
-    <div className="bg-background py-10 px-4 bg-[#0a0a0a]">
+  <div className="min-h-screen">
+    <Auth authenticator={authenticator}/>
+    <div className={`${showme? "block" : "hidden"} first-line:hidden bg-background py-10 px-4 bg-[#0a0a0a]`}>
   
         <Miscellaneous />
         <div className="container mb-4">
@@ -498,6 +506,7 @@ const Page = () => {
         </form>
       </div>
     </div>
+  </div>
   );
 };
 

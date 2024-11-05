@@ -6,6 +6,7 @@ import "react-quill/dist/quill.snow.css";
 import { submitContentAction } from "@/actions/advertisements";
 import { UploadButton } from "@/utils/uploadthing";
 import Image from "next/image";
+import Auth from "@/components/client/Auth";
 
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -16,6 +17,13 @@ const EditorForm = () => {
   const [advertisementImage, setadvertisementImage] = useState(null);
   const [error, setError] = useState("");
   const [isPending, startTransition] = useTransition();
+
+
+  const [showme, setshowme] = useState(false)
+
+  function authenticator(abc) {
+    setshowme(abc)
+  } 
 
 
   const handleEditorChange = (content) => {
@@ -54,7 +62,10 @@ const EditorForm = () => {
 };
 
   return (
-    <div className="pt-20 min-h-screen">
+<div className="min-h-screen">
+   
+<Auth authenticator={authenticator}/>
+    <div className={`${showme? "block" : "hidden"} pt-20 min-h-screen`}>
 
 
     <form
@@ -126,6 +137,7 @@ const EditorForm = () => {
         {isPending ? "Submitting..." : "Submit"}
       </button>
     </form>
+    </div>
     </div>
   );
 };

@@ -9,7 +9,7 @@ interface ParamPageProps {
 
 async function fetchUniversity(name: string) {
   await connectToDatabase()
-  const cityData = await Universitymodel.find({ "location.city": name });
+  const cityData = await Universitymodel.find({ "location.city": name,  universityAdmissionExpired: false });
   return cityData;
 }
 

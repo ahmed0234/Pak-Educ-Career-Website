@@ -27,10 +27,13 @@ async function advertisementsData() {
 async function findUniversitiesSortedByDeadline() {
   try {
     await connectToDatabase();
-    const universities_data = await Universitymodel.find()
-      .sort({ "admissionDates.deadlineDate": -1 }) // Sort by deadlineDate in descending order
-      .lean() // This ensures we return plain objects
-      .exec();
+    const universities_data = await Universitymodel.find({
+      universityAdmissionExpired: false,  // Only fetch non-expired universities
+      "admissionDates.deadlineDate": { $ne: null } // Ensure deadlineDate exists
+    })
+    .sort({ "admissionDates.deadlineDate": -1 }) // Sort by deadlineDate in descending order
+    .lean()
+    .exec();
       return await JSON.parse(JSON.stringify(universities_data));
   } catch (error) {
     console.error("Error finding universities:", error);

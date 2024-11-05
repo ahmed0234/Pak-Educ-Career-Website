@@ -12,13 +12,13 @@ async function fetchUniversity(name: string) {
   let cityData;
     if (name === "Government") {
     // Fetch universities with BS programs
-    cityData = await Universitymodel.find({ sector:  "Government"});
+    cityData = await Universitymodel.find({ sector:  "Government", universityAdmissionExpired: false});
   } else if (name === "Semi Government") {
     // Fetch universities with MPhil programs
-    cityData = await Universitymodel.find({ sector:  "Semi Government"});
+    cityData = await Universitymodel.find({ sector:  "Semi Government", universityAdmissionExpired: false});
   } else if (name === "Private") {
     // Fetch universities with MPhil programs
-    cityData = await Universitymodel.find({ sector:  "Private"});
+    cityData = await Universitymodel.find({ sector:  "Private", universityAdmissionExpired: false});
   }
   return cityData;
 }
