@@ -13,7 +13,7 @@ const Auth = ({ authenticator }) => {
         // Check if the user is already authenticated
         const storedTimestamp = localStorage.getItem('authTimestamp');
         if (storedTimestamp) {
-            const expirationTime = parseInt(storedTimestamp, 10) + 3600000; // 1 hour in milliseconds
+            const expirationTime = parseInt(storedTimestamp, 10) + 10800000; // 3 hours in milliseconds
             const now = Date.now();
             if (now < expirationTime) {
                 setAuthenticated(true);

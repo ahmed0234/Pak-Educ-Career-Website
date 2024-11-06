@@ -86,7 +86,7 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
   return (
     <div>
       <div className="HIDE FILTER BOX OR NOT mb-11">
-          <h1 className="border-b border-teal-600 cursor-pointer inline-block select-none text-lg lg:text-xl xl:text-2xl text-teal-500 font-bold" onClick={() => sethide(!hide)}>  Filter University Admissions <span className="inline-block text-center"><Filter size={`20px`}/></span> </h1>
+          <h1 className="border-b border-teal-600 cursor-pointer inline-block select-none text-base lg:text-xl xl:text-2xl text-teal-500 font-bold" onClick={() => sethide(!hide)}>  Filter University Admissions <span className="inline-block text-center"><Filter size={`20px`}/></span> </h1>
       </div>
       <div className={hide ? "hidden" : "block"}>
         <Sortingtable filteredUniversitiesData={filteredUniversitiesData}/>
@@ -97,7 +97,7 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
       </div>
 
       <h1
-        className={`glowy text-3xl sm:text-4xl   border-b  inline-block border-rose-600 tracking-wider ${DharmaGothicRegular.className}`}
+        className={`glowy text-2xl sm:text-4xl   border-b  inline-block border-rose-600 tracking-wider ${DharmaGothicRegular.className}`}
       >
         List of Universities where Admissions are Open!
       </h1>

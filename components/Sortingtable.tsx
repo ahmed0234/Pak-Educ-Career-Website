@@ -77,7 +77,7 @@ const Sortingtable = ({ filteredUniversitiesData }) => {
       className="p-6 space-y-6 bg-zinc-900 shadow-md rounded-lg w-full max-w-4xl  mt-16 mb-16"
       onSubmit={handleSubmit}
     >
-      <h1 className="text-2xl font-bold text-center mb-6 text-white">
+      <h1 className="text-lg  sm:text-2xl font-bold text-center mb-6 text-white">
       Filter University Admissions
       </h1>
 

@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "db/connectDB.js", "app/admin/page.jsx", "actions/filtereduniversities.js", "app/admin2/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "db/connectDB.js", "app/admin/page.jsx", "actions/filtereduniversities.js", "app/admin2/page.jsx", "app/(chutyapa)/loading.tss"],
   "exclude": ["node_modules"]
 }
