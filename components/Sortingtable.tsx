@@ -130,7 +130,7 @@ const Sortingtable = ({ filteredUniversitiesData }) => {
               <option value="Gujrat">Gujrat</option>
               <option value="Bahawalpur">Bahawalpur</option>
               <option value="Jhelum">Jhelum</option>
-              <option value="Faislabad">Faislabad</option>
+              <option value="Faisalabad">Faisalabad</option>
             </>
           )}
 
