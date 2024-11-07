@@ -24,6 +24,26 @@ body {
   
 }
 
+
+/* For Webkit browsers like Chrome, Safari, and Edge */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-stone-700
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px; /* Roundness of the scrollbar thumb */
+  @apply bg-yellow-400
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-yellow-500
+}
+
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
