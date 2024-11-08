@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 export default function Loading() {
   return (
-    <div className="container min-h-screen w-full flex flex-col items-center justify-center bg-zinc-950">
+    <div className="container min-h-screen w-full flex flex-col items-center justify-center bg-zinc-950 dark:bg-neutral-100">
       {/* Main loader container */}
       <motion.div
         className="relative"
@@ -41,11 +41,11 @@ export default function Loading() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
       >
-        <h2 className="text-2xl font-bold bg-gradient-to-r from-yellow-500 to-pink-500 bg-clip-text text-transparent">
+        <h2 className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text text-transparent">
           Loading
         </h2>
         <motion.div
-          className="text-yellow-500/80 mt-2"
+          className="text-yellow-400/80 mt-2 dark:text-yellow-600"
           animate={{ opacity: [1, 0.5, 1] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >

@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/navigation'
+import Themetoggle from '../Toggler'
 
 interface DropdownItem {
   name: string
@@ -157,6 +158,9 @@ export default function HamburgerSidebar() {
                 ))}
               </ul>
             </nav>
+            <div className='w-fit mx-auto mt-3 pt-6'>
+            <Themetoggle mobileshow={true}/>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -174,6 +178,8 @@ export default function HamburgerSidebar() {
           ></motion.div>
         )}
       </AnimatePresence>
+
+ 
     </div>
   )
 }

@@ -62,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` ${geistSans.className}  antialiased bg-[#0a0a0a]`}
+        className={` ${geistSans.className}  antialiased bg-zinc-950 dark:bg-neutral-100`}
       >
         <div >
         <Naavbar />

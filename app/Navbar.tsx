@@ -1,13 +1,16 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import "./components.css"
 import HamburgerSidebar from "@/components/client/Hamburger";
+import Themetoggle from "@/components/Toggler";
+
 
 const Naavbar = () => {
  
   return (
 
-      <div className="container border-b Navbar font-[family-name:var(--font-geist-sans)] flex justify-between items-center px-4 py-8">
+      <div className="container border-b dark:border-zinc-900 Navbar font-[family-name:var(--font-geist-sans)] flex justify-between items-center px-4 py-8 ">
          <Link href={`/`} className="Logos Navbar">
             <div className="flex  items-center justify-center gap-4">
           
@@ -21,7 +24,7 @@ const Naavbar = () => {
 
         <div className="1 dropdown z-40">
           <button className="dropbtn text-sm">Cities</button>
-          <div className="dropdown-content text-xs">
+          <div className="dropdown-content text-xs bg-neutral-100">
               <Link href={`/city/Islamabad`}>Islamabad</Link>
               <Link href={`/city/Rawalpindi`}>Rawalpindi</Link>
               <Link href={`/city/Lahore`}>Lahore</Link>
@@ -35,7 +38,7 @@ const Naavbar = () => {
 
         <div className="2 dropdown z-40">
           <button className="dropbtn text-sm">Programs</button>
-          <div className="dropdown-content text-sm">
+          <div className="dropdown-content text-sm bg-neutral-100">
               <Link href={`/programs/bsPrograms`}>BS</Link>
               <Link href={`/programs/bs5thPrograms`}>BS 5th Semester</Link>
               <Link href={`/programs/adpPrograms`}>ADP</Link>
@@ -47,7 +50,7 @@ const Naavbar = () => {
 
         <div className="2 dropdown z-40">
           <button className="dropbtn text-sm">Sector</button>
-          <div className="dropdown-content text-sm">
+          <div className="dropdown-content text-sm bg-neutral-100">
               <Link href={`/sector/Government`}>Govt</Link>
               <Link href={`/sector/Semi Government`}>Semi Govt</Link>
               <Link href={`/sector/Private`}>Private</Link>
@@ -56,7 +59,7 @@ const Naavbar = () => {
 
         <div className="2 dropdown z-40">
           <button className="dropbtn text-sm">Province</button>
-          <div className="dropdown-content text-sm">
+          <div className="dropdown-content text-sm bg-neutral-100">
               <Link href={`/province/Punjab`}>Punjab</Link>
               <Link href={`/province/Sindh`}>Sindh</Link>
               <Link href={`/province/KPK`}>KPK</Link>
@@ -67,22 +70,31 @@ const Naavbar = () => {
 
 
         </div>
-        <Link href={`/contact`}>
-              <button type="button" className="Navbtn hidden lg:block">
-                  <strong>Contact Us</strong>
-                  <div id="container-stars">
-                    <div id="stars"></div>
-                  </div>
 
-                  <div id="glow">
-                    <div className="circle"></div>
-                    <div className="circle"></div>
-                  </div>
-              </button>
-        </Link>
+        <div className="flex gap-4">
 
 
-              <HamburgerSidebar />
+          <Link href={`/contact`}>
+                <button type="button" className="Navbtn hidden lg:block">
+                    <strong>Contact Us</strong>
+                    <div id="container-stars">
+                      <div id="stars"></div>
+                    </div>
+
+                    <div id="glow">
+                      <div className="circle"></div>
+                      <div className="circle"></div>
+                    </div>
+                </button>
+          </Link>
+
+          <Themetoggle mobileshow={false}/>
+
+        </div>
+
+
+
+        <HamburgerSidebar />
     </div>
 
 

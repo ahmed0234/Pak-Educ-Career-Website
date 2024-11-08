@@ -74,17 +74,17 @@ const Sortingtable = ({ filteredUniversitiesData }) => {
 
   return (
     <form
-      className="p-6 space-y-6 bg-zinc-900 shadow-md rounded-lg w-full max-w-4xl  mt-16 mb-16"
+      className="p-6 space-y-6 bg-zinc-900 text-white dark:bg-neutral-100 dark:shadow-black dark:shadow-md dark:text-black shadow-md rounded-lg w-full max-w-4xl  mt-16 mb-16"
       onSubmit={handleSubmit}
     >
-      <h1 className="text-lg  sm:text-2xl font-bold text-center mb-6 text-white">
+      <h1 className="text-lg  sm:text-2xl font-bold text-center mb-6 dark:text-black">
       Filter University Admissions
       </h1>
 
       {/* Province */}
       <div>
         <label
-          className="block text-white font-semibold mb-2"
+          className="block  font-semibold mb-2 dark:text-black" 
           htmlFor="province"
         >
           Select Province:
@@ -94,7 +94,7 @@ const Sortingtable = ({ filteredUniversitiesData }) => {
           name="province"
           value={formData.province}
           onChange={handleChange}
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-cyan-300 text-black"
+          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-cyan-300 text-black dark:text-black"
         >
           <option value="">None</option>
           <option value="Punjab">Punjab</option>
@@ -107,7 +107,7 @@ const Sortingtable = ({ filteredUniversitiesData }) => {
 
       {/* City */}
       <div>
-        <label className="block text-white font-semibold mb-2" htmlFor="city">
+        <label className="block text-white dark:text-black   font-semibold mb-2" htmlFor="city">
           Select City:
         </label>
 
@@ -184,7 +184,7 @@ const Sortingtable = ({ filteredUniversitiesData }) => {
 
       {/* Programs */}
       <div>
-        <label className="block text-white font-semibold mb-2">
+        <label className="block text-white dark:text-black font-semibold mb-2">
           Select Programs:
         </label>
         <div className="grid grid-cols-2 gap-4">
@@ -270,7 +270,7 @@ const Sortingtable = ({ filteredUniversitiesData }) => {
 
       {/* Sector */}
       <div>
-        <label className="block text-white font-semibold mb-2" htmlFor="sector">
+        <label className="block text-white dark:text-black font-semibold mb-2" htmlFor="sector">
           Select Sector:
         </label>
         <select

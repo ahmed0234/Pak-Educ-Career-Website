@@ -1,3 +1,5 @@
+
+
 "use client";
 import { Lock } from 'lucide-react';
 import { useEffect, useState } from "react";
@@ -23,7 +25,7 @@ const Auth = ({ authenticator }) => {
                 localStorage.removeItem('authTimestamp');
             }
         }
-    }, []);
+    }, [authenticator]);
 
     const handleSubmit = (e) => {
         e.preventDefault();

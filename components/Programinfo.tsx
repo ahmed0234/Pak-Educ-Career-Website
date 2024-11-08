@@ -26,7 +26,7 @@ export const Programinfo = ({ university, program }) => {
             {chunkedPrograms.map((chunk, idx) => (
               <div key={idx} className="flex flex-col gap-2">
                 {chunk.map((programName, programIdx) => (
-                  <h1 key={programName} className="pl-4 text-sm md:text-base lg:text-lg">
+                  <h1 key={programName} className="pl-4 text-sm md:text-base lg:text-lg text-white dark:text-black">
                     {idx * 15 + programIdx + 1}. {programName} {/* Display type + program name */}
                   </h1>
                 ))}

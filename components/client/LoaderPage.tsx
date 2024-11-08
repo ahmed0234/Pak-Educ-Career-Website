@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 export default function Loading() {
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-black">
+    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-black dark:bg-neutral-100">
       {/* Main loader container */}
       <motion.div
         className="relative"
