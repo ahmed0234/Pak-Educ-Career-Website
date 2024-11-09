@@ -77,7 +77,7 @@ const Sortingtable = ({ filteredUniversitiesData }) => {
       className="p-6 space-y-6 bg-zinc-900 text-white dark:bg-neutral-100 dark:shadow-black dark:shadow-md dark:text-black shadow-md rounded-lg w-full max-w-4xl  mt-16 mb-16"
       onSubmit={handleSubmit}
     >
-      <h1 className="text-lg  sm:text-2xl font-bold text-center mb-6 dark:text-black">
+      <h1 className="text-lg  sm:text-2xl font-bold text-center mb-6 dark:text-black dark:simple-shadow">
       Filter University Admissions
       </h1>
 
@@ -287,7 +287,7 @@ const Sortingtable = ({ filteredUniversitiesData }) => {
         </select>
       </div>
           <div>
-            <button className="px-6 py-2 bg-red-500 rounded-xl" onClick={reSetvalues}>
+            <button className="px-6 py-2 bg-red-500 rounded-xl dark:text-white" onClick={reSetvalues}>
               Reset
             </button>
           </div>

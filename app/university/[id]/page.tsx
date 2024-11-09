@@ -120,7 +120,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
       <div className="lg:container px-4 w-full lg:grid lg:grid-cols-12">
 
           <div className="University_Data lg:col-span-9  mt-12 flex flex-col gap-8 mb-12">
-              <h1 className="text-base sm:text-2xl md:text-3xl lg:text-4xl text-center font-bold text-teal-400">{university.name} Admissions Open</h1>
+              <h1 className="text-base sm:text-2xl md:text-3xl lg:text-4xl text-center font-bold text-teal-400 dark:simple-shadow">{university.name} Admissions Open</h1>
                     
               <div className="w-[320px] sm:w-[600px] md:w-[650px] xl:w-[800px] border mx-auto">
                 <table className="min-w-full border-collapse border border-gray-400 dark:border-black text-white dark:text-black">
@@ -167,7 +167,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
 
               <div className="University_Programs">
-                    <h1 className="text-center  text-3xl md:text-4xl 2xl:text-5xl text-orange-400 font-semibold">Offered Programs</h1>
+                    <h1 className="text-center  text-3xl md:text-4xl 2xl:text-5xl text-orange-400 font-semibold dark:simple-shadow">Offered Programs</h1>
 
                     <Programinfo university={university} program={"bsPrograms"}/>
                     <Programinfo university={university} program={"mphilPrograms"}/>

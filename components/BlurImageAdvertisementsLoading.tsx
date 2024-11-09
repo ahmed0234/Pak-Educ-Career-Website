@@ -12,8 +12,8 @@ const BlurImageAdvertisementsLoading = ({ university }) => {
         src={university.hrAdmissionNotice}
         fill
         objectFit="contain"
-        className={`transition-all duration-300 ease-in-out ${
-          isLoading ? "blur-3xl bg-zinc-600" : "blur-0"
+        className={`transition-all duration-300 ease-in-out  ${
+          isLoading ? "blur-2xl bg-zinc-600" : "blur-0"
         }`}
         onLoadingComplete={() => setIsLoading(false)}
       />
