@@ -1,3 +1,4 @@
+
 "use client"
 
 import Link from "next/link";
@@ -9,7 +10,41 @@ import Image from "next/image";
 import { Filter } from 'lucide-react';
 
 const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
-  const [loading, setloading] = useState(false)
+
+  const [universities, setUniversities] = useState([]);
+  const [filteredCities, setFilteredCities] = useState([]); // To hold unique cities for the selected province
+  const [loading, setLoading] = useState(false);
+  const [selectedProvince, setSelectedProvince] = useState("");
+  const [hide, sethide] = useState(true); // Set default state to an empty array
+
+
+  useEffect(() => {
+    if (university_raw_data) {
+      const transformedData = transformUniversityData(university_raw_data);
+      setUniversities(transformedData);
+    }
+  }, [university_raw_data, setUniversities]);
+
+  useEffect(() => {
+    if (selectedProvince) {
+      const uniqueCities = Array.from(
+        new Set(
+          university_raw_data
+            .filter((uni) => uni.location.province === selectedProvince)
+            .map((uni) => uni.location.city)
+        )
+      );
+      setFilteredCities(uniqueCities);
+    } else {
+      setFilteredCities([]); // Clear cities if no province selected
+    }
+  }, [selectedProvince, university_raw_data]);
+
+
+  const handleProvinceChange = (province) => {
+    setSelectedProvince(province); // Update the selected province
+  };
+
       function transformUniversityData(data) {
         const today = new Date();
 
@@ -65,16 +100,13 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
         }));
       }
 
-  async function filteredUniversitiesData(data){
-    setloading(true)
-    const filteredUniversities = await findFilteredUniversities(data);
-    const transformedfiltereduniversities = transformUniversityData(filteredUniversities);
-    setUniversities(transformedfiltereduniversities)
-    setloading(false)
-  }
-
-  const [universities, setUniversities] = useState([]); // Set default state to an empty array
-  const [hide, sethide] = useState(true); // Set default state to an empty array
+      async function filteredUniversitiesData(data) {
+        setLoading(true);
+        const filteredUniversities = await findFilteredUniversities(data);
+        const transformedFilteredUniversities = transformUniversityData(filteredUniversities);
+        setUniversities(transformedFilteredUniversities);
+        setLoading(false);
+      }
 
   useEffect(() => {
     if (university_raw_data) {
@@ -88,9 +120,13 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
       <div className="HIDE FILTER BOX OR NOT mb-11">
           <h1 className="border-b border-teal-600 cursor-pointer inline-block select-none text-base lg:text-xl xl:text-2xl text-teal-500 font-bold" onClick={() => sethide(!hide)}>  Filter University Admissions <span className="inline-block text-center"><Filter size={`20px`}/></span> </h1>
       </div>
-      <div className={hide ? "hidden" : "block"}>
-        <Sortingtable filteredUniversitiesData={filteredUniversitiesData}/>
-      </div>
+      {!hide && (
+        <Sortingtable
+          filteredUniversitiesData={filteredUniversitiesData}
+          cities={filteredCities} // Pass unique cities to SortingTable
+          onProvinceChange={handleProvinceChange} // Pass province change handler
+        />
+      )}
 
       <div className={loading ? `block text-yellow-400 text-3xl pb-12 italic ${gotham.className}` : "hidden"}>
           <h1>Please Wait Loading........</h1>

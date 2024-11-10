@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const Sortingtable = ({ filteredUniversitiesData }) => {
-  // Form state management
+const Sortingtable = ({ filteredUniversitiesData, cities, onProvinceChange }) => {
   const [formData, setFormData] = useState({
     province: "",
     city: "",
@@ -19,28 +18,24 @@ const Sortingtable = ({ filteredUniversitiesData }) => {
 
   const handleChange = (e) => {
     const { name, type, value, checked } = e.target;
-
-    if (type === "checkbox") {
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        programs: {
-          ...prevFormData.programs,
-          [name]: checked, // Update the specific program checkbox
-        },
-      }));
-    } else {
+    if (name === "province") {
+      setFormData({ ...formData, province: value, city: "" }); // Reset city when province changes
+      onProvinceChange(value); // Notify parent of province change
+    } else if (type === "checkbox") {
       setFormData({
         ...formData,
-        [name]: value, // Update regular text/select inputs
+        programs: {
+          ...formData.programs,
+          [name]: checked,
+        },
       });
+    } else {
+      setFormData({ ...formData, [name]: value });
     }
-   
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Organized object containing all form data in the desired format
     const organizedData = {
       city: formData.city,
       province: formData.province,
@@ -52,43 +47,33 @@ const Sortingtable = ({ filteredUniversitiesData }) => {
       Diploma: formData.programs.Diploma,
       Bs5th: formData.programs.Bs5th,
     };
-
     filteredUniversitiesData(organizedData);
   };
 
   const reSetvalues = () => {
-      setFormData({
-          province: "",
-          city: "",
-          sector: "",
-          programs: {
-            Bs: false,
-            Mphil: false,
-            Phd: false,
-            Adp: false,
-            Diploma: false,
-            Bs5th: false,
-          },
-      })
-  }
+    setFormData({
+      province: "",
+      city: "",
+      sector: "",
+      programs: {
+        Bs: false,
+        Mphil: false,
+        Phd: false,
+        Adp: false,
+        Diploma: false,
+        Bs5th: false,
+      },
+    });
+    onProvinceChange(""); // Reset province in parent component
+  };
 
   return (
-    <form
-      className="p-6 space-y-6 bg-zinc-900 text-white dark:bg-neutral-100 dark:shadow-black dark:shadow-md dark:text-black shadow-md rounded-lg w-full max-w-4xl  mt-16 mb-16"
-      onSubmit={handleSubmit}
-    >
-      <h1 className="text-lg  sm:text-2xl font-bold text-center mb-6 dark:text-black dark:simple-shadow">
+    <form onSubmit={handleSubmit}className="p-6 space-y-6 bg-zinc-900 text-white dark:bg-neutral-100 dark:shadow-black dark:shadow-md dark:text-black shadow-md rounded-lg w-full max-w-4xl  mt-16 mb-16">
+       <h1 className="text-lg  sm:text-2xl font-bold text-center mb-6 dark:text-black dark:simple-shadow">
       Filter University Admissions
       </h1>
-
-      {/* Province */}
       <div>
-        <label
-          className="block  font-semibold mb-2 dark:text-black" 
-          htmlFor="province"
-        >
-          Select Province:
-        </label>
+        <label htmlFor="province" className="block  font-semibold mb-2 dark:text-black" >Select Province:</label>
         <select
           id="province"
           name="province"
@@ -105,80 +90,22 @@ const Sortingtable = ({ filteredUniversitiesData }) => {
         </select>
       </div>
 
-      {/* City */}
       <div>
-        <label className="block text-white dark:text-black   font-semibold mb-2" htmlFor="city">
-          Select City:
-        </label>
-
+        <label htmlFor="city">Select City:</label>
         <select
           id="city"
           name="city"
           value={formData.city}
           onChange={handleChange}
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-cyan-300 text-black"
+          disabled={!formData.province}
+           className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-cyan-300 text-black"
         >
           <option value="">None</option>
-          {formData.province == "Punjab" && (
-            <>
-              <option value="Rawalpindi">Rawalpindi</option>
-              <option value="Islamabad">Islamabad</option>
-              <option value="Lahore">Lahore</option>
-              <option value="Attock">Attock</option>
-              <option value="Chakwal">Chakwal</option>
-              <option value="Multan">Multan</option>
-              <option value="Gujrat">Gujrat</option>
-              <option value="Bahawalpur">Bahawalpur</option>
-              <option value="Jhelum">Jhelum</option>
-              <option value="Faisalabad">Faisalabad</option>
-            </>
-          )}
-
-          {formData.province == "Sindh" && (
-            <>
-              <option value="Karachi">Karachi</option>
-              <option value="Orangi">Orangi</option>
-              <option value="Korangi">Korangi</option>
-              <option value="Malir">Malir</option>
-              <option value="Keamari">Keamari</option>
-              <option value="Nazimabad">Nazimabad</option>
-              <option value="Gulshan">Gulshan</option>
-            </>
-          )}
-          {formData.province === "KPK" && (
-            <>
-              <option value="Abbottabad">Abbottabad </option>
-              <option value="Batagram">Batagram</option>
-              <option value="Haripur">Haripur </option>
-              <option value="Lower Kohistan ">Lower Kohistan</option>
-              <option value="Mansehra">Mansehra </option>
-              <option value="Bannu">Bannu</option>
-              <option value="Dera Ismail Khan">Dera Ismail Khan</option>
-              <option value="Hazara">Hazara</option>
-              <option value="Kohat">Kohat</option>
-              <option value="Malakand">Malakand</option>
-              <option value="Mardan">Mardan</option>
-              <option value="Peshawar">Peshawar</option>
-            </>
-          )}
-           {formData.province === "AJK" && (
-            <>
-              <option value="Muzaffarabad">Muzaffarabad</option>
-              <option value="Neelum">Neelum</option>
-              <option value="Mirpur">Mirpur</option>
-              <option value="Kotli">Kotli</option>
-              <option value="Hattian Bala">Hattian Bala</option>
-            </>
-          )}
-           {formData.province === "Balochistan" && (
-            <>
-              <option value="Kalat">Kalat</option>
-              <option value="Quetta">Quetta</option>
-              <option value="Zhob">Zhob</option>
-              <option value="Sibi">Sibi</option>
-              <option value="Makran">Makran</option>
-            </>
-          )}
+          {cities.map((city) => (
+            <option key={city} value={city}>
+              {city}
+            </option>
+          ))}
         </select>
       </div>
 

@@ -8,12 +8,9 @@ export const dynamic = "force-dynamic";
 export async function GET({}) {
   try {
     await connectToDatabase();
-    const universities_data = await Universitymodel.find({
-      "admissionDates.deadlineDate": { $ne: null } // Ensure deadlineDate exists
-    })
-    .sort({ "admissionDates.deadlineDate": -1 }) // Sort by deadlineDate in descending order
-    .lean() 
-    .exec();
+    const universities_data  = await Universitymodel.find({
+      "location.province": "Punjab"
+    });
     return NextResponse.json(universities_data);
     
   } catch (error) {
@@ -29,3 +26,12 @@ export async function GET({}) {
 //   { universityAdmissionExpired: { $exists: false } },  // Target documents without the field
 //   { $set: { universityAdmissionExpired: false } }      // Set the new field to its default
 // );
+
+
+
+// const universities_data = await Universitymodel.find({
+//   "admissionDates.deadlineDate": { $ne: null } // Ensure deadlineDate exists
+// })
+// .sort({ "admissionDates.deadlineDate": -1 }) // Sort by deadlineDate in descending order
+// .lean() 
+// .exec();

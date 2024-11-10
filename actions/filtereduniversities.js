@@ -1,3 +1,4 @@
+
 "use server";
 
 import { connectToDatabase } from "@/db/connectDB"; // Assuming this connects to your MongoDB
@@ -8,7 +9,7 @@ async function buildQuery(data) {
     const { city, province, sector, Bs, Mphil, Phd, Adp, Diploma, Bs5th } = data;
   
     // Initialize an empty query object
-    let query = {};
+    let query = { universityAdmissionExpired: false }; // Add condition here
 
     // Add location-based filters if they are provided
     if (city) {
