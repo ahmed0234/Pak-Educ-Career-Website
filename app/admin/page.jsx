@@ -56,20 +56,20 @@ const Page = () => {
   return (
   <div className="min-h-screen">
     <Auth authenticator={authenticator}/>
-    <div className={`${showme? "block" : "hidden"} first-line:hidden bg-background py-10 px-4 bg-[#0a0a0a]`}>
+    <div className={`${showme? "block" : "hidden"} first-line:hidden bg-background py-10 px-4 `}>
   
         <Miscellaneous />
         <div className="container mb-4">
           <h1 className={`${gotham.className} text-2xl border-b inline-block text-orange-500 border-orange-500`}>Universities Details Add Portal</h1>
         </div>
-      <div className="max-w-4xl mx-auto bg-zinc-900 p-8 rounded-lg shadow-lg text-white ">
-        <h2 className="text-2xl font-bold mb-6 text-center">
+      <div className="max-w-4xl mx-auto bg-primary p-8 rounded-lg shadow-lg">
+        <h2 className="text-2xl font-bold mb-6 text-center text-secondary">
           Add University Details
         </h2>
         <form className="space-y-6 " onSubmit={handleSubmit}>
           {/* University Name */}
           <div className="flex flex-col">
-            <label htmlFor="university_name" className="mb-2 font-semibold">
+            <label htmlFor="university_name" className="mb-2 font-semibold text-secondary">
               University Name
             </label>
             <input
@@ -77,13 +77,13 @@ const Page = () => {
               id="university_name"
               name="university_name"
               required
-              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-gray-300 text-primary font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
           {/* Location Province*/}
           <div className="flex flex-col">
-            <label htmlFor="location_province" className="mb-2 font-semibold">
+            <label htmlFor="location_province" className="mb-2 font-semibold text-secondary">
               Location (Province)
             </label>
             <input
@@ -91,14 +91,14 @@ const Page = () => {
               id="location_province"
               name="location_province"
               required
-              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-gray-300 text-primary font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           {/* Location Province*/}
 
           {/* Location City*/}
           <div className="flex flex-col">
-            <label htmlFor="location_city" className="mb-2 font-semibold">
+            <label htmlFor="location_city" className="mb-2 font-semibold text-secondary">
               Location (City)
             </label>
             <input
@@ -106,7 +106,7 @@ const Page = () => {
               id="location_city"
               name="location_city"
               required
-              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-gray-300 text-primary font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           {/* Location City*/}
@@ -121,7 +121,7 @@ const Page = () => {
                 name="affiliation"
                 className="focus:ring-2 focus:ring-blue-500"
               />
-              <label htmlFor="affiliation" className="font-semibold">
+              <label htmlFor="affiliation" className="font-semibold text-secondary">
                 Affiliation
               </label>
             </div>
@@ -131,20 +131,20 @@ const Page = () => {
               id="affiliation_name"
               name="affiliation_name"
               placeholder="Affiliation University Name"
-              className="border text-black border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border text-primary border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           {/* Affiliation if have End*/}
 
           {/* Sector */}
           <div className="flex flex-col">
-            <label htmlFor="sector" className="mb-2 font-semibold">
+            <label htmlFor="sector" className="mb-2 font-semibold text-secondary">
               Sector
             </label>
             <select
               id="sector"
               name="sector"
-              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-gray-300 text-primary font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="Government">Government</option>
               <option value="Semi Government">Semi Government</option>
@@ -155,7 +155,7 @@ const Page = () => {
           {/* BS Programs */}
 
           <div className="flex flex-col">
-            <label htmlFor="bsPrograms" className="mb-2 font-semibold">
+            <label htmlFor="bsPrograms" className="mb-2 font-semibold text-secondary">
               BS Programs
             </label>
             <div className="flex items-center gap-2 mb-2">
@@ -165,7 +165,7 @@ const Page = () => {
                 name="bsProgramsOpen"
                 className="focus:ring-2 focus:ring-blue-500"
               />
-              <label htmlFor="bsOpen" className="font-semibold">
+              <label htmlFor="bsOpen" className="font-semibold text-secondary">
                 BS Admissions Open
               </label>
             </div>
@@ -175,7 +175,7 @@ const Page = () => {
               id="bsPrograms"
               name="bsPrograms"
               placeholder="Enter BS programs, separated by commas"
-              className="border text-black border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border text-primary border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
             {/* Additional Info */}
@@ -188,7 +188,7 @@ const Page = () => {
 
           {/* MPhil Programs */}
           <div className="flex flex-col">
-            <label htmlFor="MphilProgramsOpen" className="mb-2 font-semibold">
+            <label htmlFor="MphilProgramsOpen" className="mb-2 font-semibold text-secondary">
               MPhil Programs
             </label>
             <div className="flex items-center gap-2 mb-2">
@@ -198,7 +198,7 @@ const Page = () => {
                 name="MphilProgramsOpen"
                 className="focus:ring-2 focus:ring-blue-500"
               />
-              <label htmlFor="bsOpen" className="font-semibold">
+              <label htmlFor="bsOpen" className="font-semibold text-secondary">
                 MPhil Programs Open
               </label>
             </div>
@@ -208,7 +208,7 @@ const Page = () => {
               id="MphilPrograms"
               name="MphilPrograms"
               placeholder="Enter MPhil programs, separated by commas"
-              className="border text-black border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border text-primary border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
             {/* Additional Info */}
@@ -221,7 +221,7 @@ const Page = () => {
 
           {/* PhD Programs */}
           <div className="flex flex-col">
-            <label htmlFor="PhDprogramopen" className="mb-2 font-semibold">
+            <label htmlFor="PhDprogramopen" className="mb-2 font-semibold text-secondary">
               PhD Programs
             </label>
             <div className="flex items-center gap-2 mb-2">
@@ -231,7 +231,7 @@ const Page = () => {
                 name="PhDprogramsopen"
                 className="focus:ring-2 focus:ring-blue-500"
               />
-              <label htmlFor="PhDprogramsopen" className="font-semibold">
+              <label htmlFor="PhDprogramsopen" className="font-semibold text-secondary">
                 PhD Programs Open
               </label>
             </div>
@@ -241,7 +241,7 @@ const Page = () => {
               id="PhDprograms"
               name="PhDprograms"
               placeholder="Enter PhD programs, separated by commas"
-              className="border text-black border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border text-primary border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
             {/* Additional Info */}
@@ -253,7 +253,7 @@ const Page = () => {
 
           {/* ADP Programs */}
           <div className="flex flex-col">
-            <label htmlFor="ADP_programs" className="mb-2 font-semibold">
+            <label htmlFor="ADP_programs" className="mb-2 font-semibold text-secondary">
               ADP Programs
             </label>
             <div className="flex items-center gap-2 mb-2">
@@ -263,7 +263,7 @@ const Page = () => {
                 name="ADP_programs_open"
                 className="focus:ring-2 focus:ring-blue-500"
               />
-              <label htmlFor="adp_programs_open" className="font-semibold">
+              <label htmlFor="adp_programs_open" className="font-semibold text-secondary">
                 ADP Programs Open
               </label>
             </div>
@@ -273,7 +273,7 @@ const Page = () => {
               id="adp_programs"
               name="adp_programs"
               placeholder="Enter ADP programs, separated by commas"
-              className="border text-black border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border text-primary border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
             {/* Additional Info */}
@@ -286,7 +286,7 @@ const Page = () => {
 
           {/* BS 5th Semester */}
           <div className="flex flex-col">
-            <label htmlFor="bs5th_programs_open" className="mb-2 font-semibold">
+            <label htmlFor="bs5th_programs_open" className="mb-2 font-semibold text-secondary">
               BS 5th Semester Programs
             </label>
             <div className="flex items-center gap-2 mb-2">
@@ -296,7 +296,7 @@ const Page = () => {
                 name="bs5th_programs_open"
                 className="focus:ring-2 focus:ring-blue-500"
               />
-              <label htmlFor="bs5th_programs_open" className="font-semibold">
+              <label htmlFor="bs5th_programs_open" className="font-semibold text-secondary">
                 BS 5th Semester Programs Open
               </label>
             </div>
@@ -306,7 +306,7 @@ const Page = () => {
               id="bs5th_programs"
               name="bs5th_programs"
               placeholder="Enter BS 5th Semester programs, separated by commas"
-              className="border text-black border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border text-primary border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
             {/* Additional Info */}
@@ -319,7 +319,7 @@ const Page = () => {
 
           {/* Diploma  */}
           <div className="flex flex-col">
-            <label htmlFor="Diploma" className="mb-2 font-semibold">
+            <label htmlFor="Diploma" className="mb-2 font-semibold text-secondary">
               Diploma Programs
             </label>
             <div className="flex items-center gap-2 mb-2">
@@ -329,7 +329,7 @@ const Page = () => {
                 name="Diplomaopen"
                 className="focus:ring-2 focus:ring-blue-500"
               />
-              <label htmlFor="diploma_programs_open" className="font-semibold">
+              <label htmlFor="diploma_programs_open" className="font-semibold text-secondary">
                 Diploma Programs
               </label>
             </div>
@@ -339,7 +339,7 @@ const Page = () => {
               id="diploma_programs"
               name="Diplomaprograms"
               placeholder="Enter Diploma  programs, separated by commas"
-              className="border text-black border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border text-primary border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
             {/* Additional Info */}
@@ -352,7 +352,7 @@ const Page = () => {
               
                       {/* University Description */}
           <div className="flex flex-col">
-            <label htmlFor="universityDescription" className="mb-2 font-semibold">
+            <label htmlFor="universityDescription" className="mb-2 font-semibold text-secondary">
               University Description
             </label>
             <textarea
@@ -360,19 +360,19 @@ const Page = () => {
               type="text"
               id="universityDescription"
               name="universityDescription"
-              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-gray-300 text-primary font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
           {/* ImportantAdmission or Not */}
           <div className="flex flex-col">
-            <label htmlFor="admissionStatus" className="mb-2 font-semibold">
+            <label htmlFor="admissionStatus" className="mb-2 font-semibold text-secondary">
               Important Admission
             </label>
             <select
               id="admissionStatus"
               name="importantadmission"
-              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-gray-300 text-primary font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="false">No</option>
               <option value="true">Yes</option>
@@ -382,14 +382,14 @@ const Page = () => {
 
           {/*  Priority of Important Admission */}
           <div className="flex flex-col">
-            <label htmlFor="priority" className="mb-2 font-semibold">
+            <label htmlFor="priority" className="mb-2 font-semibold text-secondary">
               Priority of Important Admission
             </label>
             <input
               type="number"
               id="priority"
               name="priority"
-              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-gray-300 text-primary font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
               {/*  Priority of Important Admission */}
@@ -398,28 +398,28 @@ const Page = () => {
 
           {/* DeadLine Date S*/}
           <div className="flex flex-col">
-            <label htmlFor="deadlinedate" className="mb-2 font-semibold">
+            <label htmlFor="deadlinedate" className="mb-2 font-semibold text-secondary">
               Deadline Date
             </label>
             <input
               type="date"
               id="deadlinedate"
               name="deadlinedate"
-              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-gray-300 text-primary font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           {/* DeadLine Date E*/}
 
           {/* Test Date */}
           <div className="flex flex-col">
-            <label htmlFor="testDate" className="mb-2 font-semibold">
+            <label htmlFor="testDate" className="mb-2 font-semibold text-secondary">
               Test Dates
             </label>
             <input
               type="text"
               id="testDate"
               name="testDate"
-              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-gray-300 text-primary font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <p className="text-sm text-rose-500 mt-2">
@@ -430,14 +430,14 @@ const Page = () => {
 
           {/* University Website*/}
           <div className="flex flex-col">
-            <label htmlFor="testDate" className="mb-2 font-semibold">
+            <label htmlFor="testDate" className="mb-2 font-semibold text-secondary">
               University Website To Apply Online
             </label>
             <input
               type="text"
               id="universitywebsite"
               name="universitywebsite"
-              className="border border-gray-300 text-black font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-gray-300 text-primary font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           {/* University Website*/}
@@ -458,7 +458,7 @@ const Page = () => {
 
             <div className=" h-fit w-fit flex gap-6  ">
               <div className="border h-fit px-6 flex flex-col gap-6 w-fit rounded-2xl text-center py-6">
-                <h1>HR NOTICE IMAGE UPLOAD</h1>
+                <h1 className="text-secondary">HR NOTICE IMAGE UPLOAD</h1>
                 <UploadButton
                     endpoint="imageUploader"
                     onClientUploadComplete={(res) => {

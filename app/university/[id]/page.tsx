@@ -120,28 +120,28 @@ const Page = async ({ params }: { params: { id: string } }) => {
       <div className="lg:container px-4 w-full lg:grid lg:grid-cols-12">
 
           <div className="University_Data lg:col-span-9  mt-12 flex flex-col gap-8 mb-12">
-              <h1 className="text-base sm:text-2xl md:text-3xl lg:text-4xl text-center font-bold text-teal-400 dark:simple-shadow">{university.name} Admissions Open</h1>
+              <h1 className="text-base sm:text-2xl md:text-3xl lg:text-4xl text-center font-bold text-primary">{university.name} Admissions Open</h1>
                     
               <div className="w-[320px] sm:w-[600px] md:w-[650px] xl:w-[800px] border mx-auto">
-                <table className="min-w-full border-collapse border border-gray-400 dark:border-black text-white dark:text-black">
+                <table className="min-w-full border-collapse border border-primary text-primary font-semibold">
                   <tbody>
                     <tr>
-                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-gray-400 dark:border-black text-center text-xs md:text-base lg:text-lg">Location</td>
-                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-gray-400 dark:border-black text-center text-xs md:text-base lg:text-lg">{university.location.city}, {university.location.province}</td>
+                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-primary text-center text-xs md:text-base lg:text-lg">Location</td>
+                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-primary text-center text-xs md:text-base lg:text-lg">{university.location.city}, {university.location.province}</td>
                     </tr>
                     <tr>
-                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-gray-400 dark:border-black text-center text-xs md:text-base lg:text-lg">Sector</td>
-                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-gray-400 dark:border-black text-center text-xs md:text-base lg:text-lg">{university.sector === "Government" && "Govt"} {university.sector === "Semi Government" && "Semi Govt"} {university.sector === "Private" && "Private"}</td>
+                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-primary text-center text-xs md:text-base lg:text-lg">Sector</td>
+                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-primary text-center text-xs md:text-base lg:text-lg">{university.sector === "Government" && "Govt"} {university.sector === "Semi Government" && "Semi Govt"} {university.sector === "Private" && "Private"}</td>
                     </tr>
                     {university.affiliation.isOpen && (
                       <tr>
-                        <td className="px-4 py-2 md:py-3 xl:py-4 border border-gray-400 dark:border-black text-center text-xs md:text-base lg:text-lg">Affiliation</td>
-                        <td className="px-4 py-2 md:py-3 xl:py-4 border border-gray-400 dark:border-black text-center text-xs md:text-base lg:text-lg">{university.affiliation.name}</td>
+                        <td className="px-4 py-2 md:py-3 xl:py-4 border border-primary text-center text-xs md:text-base lg:text-lg">Affiliation</td>
+                        <td className="px-4 py-2 md:py-3 xl:py-4 border border-primary text-center text-xs md:text-base lg:text-lg">{university.affiliation.name}</td>
                       </tr>
                     )}
                     <tr>
-                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-gray-400 dark:border-black text-center text-xs md:text-base lg:text-lg">Deadline to Apply</td>
-                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-gray-400 dark:border-black text-center text-xs md:text-base lg:text-lg text-red-600 font-semibold">
+                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-primary text-center text-xs md:text-base lg:text-lg">Deadline to Apply</td>
+                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-primary text-center text-xs md:text-base lg:text-lg text-red-600 font-semibold">
                         {new Date(university.admissionDates.deadlineDate).toLocaleDateString('en-GB', {
                           day: 'numeric',
                           month: 'long',
@@ -167,7 +167,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
 
               <div className="University_Programs">
-                    <h1 className="text-center  text-3xl md:text-4xl 2xl:text-5xl text-orange-400 font-semibold dark:simple-shadow">Offered Programs</h1>
+                    <h1 className="text-center  text-3xl md:text-4xl 2xl:text-5xl text-orange-400 font-semibold">Offered Programs</h1>
 
                     <Programinfo university={university} program={"bsPrograms"}/>
                     <Programinfo university={university} program={"mphilPrograms"}/>
@@ -185,13 +185,13 @@ const Page = async ({ params }: { params: { id: string } }) => {
                     </div>
                     <div>
                     <a href={university.hrAdmissionNotice} target="_blank">
-                          <button className="px-10 py-3 bg-red-600 font-bold text-lg rounded-full">Large Size View</button>
+                          <button className="px-10 py-3 bg-primary font-bold text-lg rounded-full text-secondary">Large Size View</button>
                         </a>
                     </div>
               </div>
 
               <div className="HOW_TO_APPLY? text-center flex flex-col gap-8">
-                      <h1 className="text-lg md:text-xl text-yellow-500 font-semibold w-[80%] mx-auto">Click the below link to Apply for Admission in {university.name}</h1>
+                      <h1 className="text-lg md:text-xl text-primary font-semibold w-[80%] mx-auto">Click the below link to Apply for Admission in {university.name}</h1>
                       <div className="chicken w-fit h-fit mx-auto">
                         <Link href={`${university.universityWebsite}`} target="_blank">
                           <button className="chicken2">Apply Now</button>

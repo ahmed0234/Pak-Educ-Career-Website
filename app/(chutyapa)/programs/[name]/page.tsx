@@ -94,9 +94,9 @@ const Page = async ({params}: ParamPageProps) => {
   const universities = transformUniversityData(data)
   return (
     <div className="mt-8 overflow-x-auto container min-h-[75vh]">
-             <table className="min-w-full table-auto bg-zinc-950 dark:bg-neutral-100 dark:text-black border border-gray-300 dark:border-black rounded-lg">
+             <table className="min-w-full table-auto  rounded-lg border border-primary border-collapse">
                 <thead>
-                  <tr className="bg-zinc-800 dark:bg-slate-900 text-white dark:text-white uppercase text-xs md:text-sm leading-normal">
+                  <tr className="bg-primary text-secondary uppercase text-xs md:text-sm leading-normal ">
                     <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left hidden md:table-cell">Sr.</th>
                     <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left">University</th>
                     <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left">Programs</th>
@@ -104,25 +104,25 @@ const Page = async ({params}: ParamPageProps) => {
                     <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left whitespace-nowrap">Deadline</th>
                   </tr>
                 </thead>
-                <tbody className="text-white dark:text-black  text-xs md:text-sm font-light">
+                <tbody className="  text-xs md:text-sm font-light ">
                   {universities.map((university, idx) => (
                     <tr
                       key={university.id}
-                      className="border-b border-gray-700 dark:border-black hover:bg-zinc-900 dark:hover:bg-slate-900 dark:hover:text-white transition duration-300"
+                      className="border-b border-primary  hover:bg-primary hover:text-secondary  transition duration-200"
                     >
                       {/* Row separator line */}
                       <td className="py-3 px-4 md:px-6 relative hidden md:table-cell">
-                        <div className="absolute inset-y-0 left-0 w-px bg-white" /> {/* Separator */}
+                        <div className="absolute inset-y-0 left-0 w-px " /> {/* Separator */}
                         <h1>{idx + 1}</h1>
                       </td>
 
                       <td className="py-3 px-4 md:px-6 relative">
-                        <div className="absolute inset-y-0 left-0 w-px bg-white dark:bg-black" /> {/* Separator */}
+                        <div className="absolute inset-y-0 left-0 w-px border border-primary" /> {/* Separator */}
                         <Link href={`/university/${university.id}`} className="max-[340px]:text-[0.7rem] sm:text-xs block  md:text-sm">{university.name}</Link>
                       </td>
 
                       <td className="py-3 px-4 md:px-6 relative">
-                                <div className="absolute inset-y-0 left-0 w-px bg-white dark:bg-black" /> {/* Separator */}
+                                <div className="absolute inset-y-0 left-0 w-px border border-primary" /> {/* Separator */}
                                 <ul className="flex flex-wrap gap-1  md:gap-1">
                                   {university.programs.map((program, idx) => (
                                     <li key={idx} className="inline w-fit text-xs md:text-sm">
@@ -134,7 +134,7 @@ const Page = async ({params}: ParamPageProps) => {
 
 
                       <td className="py-3 px-4 md:px-6 relative hidden md:table-cell">
-                        <div className="absolute inset-y-0 left-0 w-px bg-white dark:bg-black" /> {/* Separator */}
+                        <div className="absolute inset-y-0 left-0 w-px border border-primary" /> {/* Separator */}
                         <h1>
                           {university.sector === 'Government' && 'Govt' }
                           {university.sector === 'Semi Government' && 'Semi Govt' }
@@ -143,7 +143,7 @@ const Page = async ({params}: ParamPageProps) => {
                       </td>
 
                       <td className="py-3 px-4 md:px-6 relative text-red-500 font-semibold sm:whitespace-nowrap">
-                        <div className="absolute inset-y-0 left-0 w-px bg-white dark:bg-black" /> {/* Separator */}
+                        <div className="absolute inset-y-0 left-0 w-px border border-primary" /> {/* Separator */}
                         <h1 className="max-[340px]:text-[0.65rem] text-xs md:text-sm">{university.deadline}</h1>
                       </td>
                     </tr>

@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/navigation'
-import Themetoggle from '../Toggler'
+import { ModeToggle } from '../theme-toggle'
 
 interface DropdownItem {
   name: string
@@ -104,20 +104,20 @@ export default function HamburgerSidebar() {
             exit="closed"
             variants={sidebarVariants}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-40 overflow-y-auto"
+            className="fixed top-0 left-0 h-full w-64 bg-primary text-secondary shadow-lg z-40 overflow-y-auto"
           >
             <nav className="p-4">
-              <h2 className="text-2xl font-bold mb-6 text-gray-800">Menu</h2>
+              <h2 className="text-2xl font-bold mb-6 text-secondary">Menu</h2>
               <ul className="space-y-2">
                 {navItems.map((item, index) => (
                   <li key={index}>
                     <button
                       onClick={() => toggleDropdown(item.name)}
-                      className="w-full flex items-center justify-between text-gray-700 hover:text-blue-500 transition-colors duration-200 py-2"
+                      className="w-full flex items-center justify-between text-secondary transition-colors duration-200 py-2"
                     >
-                      <span className="text-lg">{item.name}</span>
+                      <span className="text-lg text-secondary">{item.name}</span>
                       <svg
-                        className={`w-4 h-4 transition-transform duration-200 ${
+                        className={`w-4 h-4 transition-transform duration-200 text-secondary ${
                           openDropdown === item.name ? 'transform rotate-180' : ''
                         }`}
                         fill="none"
@@ -134,7 +134,7 @@ export default function HamburgerSidebar() {
                           animate={{ opacity: 1, height: 'auto' }}
                           exit={{ opacity: 0, height: 0 }}
                           transition={{ duration: 0.2 }}
-                          className="ml-4 mt-2 space-y-2"
+                          className="ml-4 mt-2 space-y-2 text-secondary"
                         >
                           {item.dropdownItems.map((subItem, subIndex) => (
                             <motion.li
@@ -145,7 +145,7 @@ export default function HamburgerSidebar() {
                             >
                               <button
                                 onClick={() => handleItemClick(subItem.link)}
-                                className="block w-full text-left text-gray-600 hover:text-blue-500 transition-colors duration-200"
+                                className="block w-full text-left text-secondary transition-colors duration-200"
                               >
                                 {subItem.name}
                               </button>
@@ -159,7 +159,9 @@ export default function HamburgerSidebar() {
               </ul>
             </nav>
             <div className='w-fit mx-auto mt-3 pt-6'>
-            <Themetoggle mobileshow={true}/>
+              <div className='bg-secondary text-primary'>
+                <ModeToggle mobileshow={true}/>
+              </div>
             </div>
           </motion.div>
         )}

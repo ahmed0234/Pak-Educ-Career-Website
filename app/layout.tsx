@@ -1,9 +1,9 @@
 import Naavbar from "@/app/Navbar";
 import Footer from "@/components/Footer";
-import localFont from 'next/font/local'
 import "@uploadthing/react/styles.css";
+import localFont from "next/font/local";
 import "./globals.css";
-
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,7 +17,6 @@ const geistSans = localFont({
 //   weight: "100 900",
 // });
 
-
 export const gotham = localFont({
   src: "./fonts/Gotham_Black.otf",
   variable: "--font-gotham-black",
@@ -27,32 +26,28 @@ export const gotham = localFont({
 export const DharmaGothicRegular = localFont({
   src: [
     {
-      path: '/fonts/DharmaGothicERegular.woff2',
-      weight: '400',
-      style: 'normal',
+      path: "/fonts/DharmaGothicERegular.woff2",
+      weight: "400",
+      style: "normal",
     },
     {
-      path: '/fonts/DharmaGothicERegularItalic.woff2',
-      weight: '400',
-      style: 'italic',
+      path: "/fonts/DharmaGothicERegularItalic.woff2",
+      weight: "400",
+      style: "italic",
     },
     {
-      path: '/fonts/DharmaGothicELight.woff2',
-      weight: '300',
-      style: 'normal',
+      path: "/fonts/DharmaGothicELight.woff2",
+      weight: "300",
+      style: "normal",
     },
     {
-      path: '/fonts/DharmaGothicEHeavy.woff2',
-      weight: '700',
-      style: 'normal',
+      path: "/fonts/DharmaGothicEHeavy.woff2",
+      weight: "700",
+      style: "normal",
     },
   ],
-  variable: '--font-dharma-gothic', // Create a CSS variable for the font
+  variable: "--font-dharma-gothic", // Create a CSS variable for the font
 });
-
-
-
-
 
 export default function RootLayout({
   children,
@@ -62,13 +57,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` ${geistSans.className}  antialiased bg-zinc-950 dark:bg-neutral-100`}
+        className={` ${geistSans.className}  antialiased `}
       >
-        <div >
-        <Naavbar />
-        </div>
-        {children}
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+          themes={["lightRose","darkYellow","light", "dark", "lightOrange", "lightViolet"]}
+        >
+          <div>
+            <Naavbar />
+          </div>
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import "./components.css"
 import HamburgerSidebar from "@/components/client/Hamburger";
-import Themetoggle from "@/components/Toggler";
+import { ModeToggle } from "@/components/theme-toggle";
 
 
 const Naavbar = () => {
@@ -22,9 +22,9 @@ const Naavbar = () => {
 
          <div className=" gap-4 lg:flex hidden"> 
 
-        <div className="1 dropdown z-40">
-          <button className="dropbtn text-sm">Cities</button>
-          <div className="dropdown-content text-xs bg-neutral-100">
+        <div className="1 dropdown z-40 bg-primary text-secondary rounded-xl">
+          <button className="dropbtn text-sm text-secondary">Cities</button>
+          <div className="dropdown-content text-xs bg-primary text-secondary">
               <Link href={`/city/Islamabad`}>Islamabad</Link>
               <Link href={`/city/Rawalpindi`}>Rawalpindi</Link>
               <Link href={`/city/Lahore`}>Lahore</Link>
@@ -36,9 +36,9 @@ const Naavbar = () => {
         </div>
 
 
-        <div className="2 dropdown z-40">
-          <button className="dropbtn text-sm">Programs</button>
-          <div className="dropdown-content text-sm bg-neutral-100">
+        <div className="2 dropdown z-40 bg-primary text-secondary rounded-xl">
+          <button className="dropbtn text-sm text-secondary">Programs</button>
+          <div className="dropdown-content text-sm bg-primary text-secondary">
               <Link href={`/programs/bsPrograms`}>BS</Link>
               <Link href={`/programs/bs5thPrograms`}>BS 5th Semester</Link>
               <Link href={`/programs/adpPrograms`}>ADP</Link>
@@ -48,18 +48,18 @@ const Naavbar = () => {
           </div>
         </div>
 
-        <div className="2 dropdown z-40">
-          <button className="dropbtn text-sm">Sector</button>
-          <div className="dropdown-content text-sm bg-neutral-100">
+        <div className="2 dropdown z-40 bg-primary text-secondary rounded-xl">
+          <button className="dropbtn text-sm text-secondary">Sector</button>
+          <div className="dropdown-content text-sm bg-primary text-secondary">
               <Link href={`/sector/Government`}>Govt</Link>
               <Link href={`/sector/Semi Government`}>Semi Govt</Link>
               <Link href={`/sector/Private`}>Private</Link>
           </div>
         </div>
 
-        <div className="2 dropdown z-40">
-          <button className="dropbtn text-sm">Province</button>
-          <div className="dropdown-content text-sm bg-neutral-100">
+        <div className="2 dropdown z-40 bg-primary text-secondary rounded-xl">
+          <button className="dropbtn text-sm text-secondary">Province</button>
+          <div className="dropdown-content text-sm bg-primary text-secondary">
               <Link href={`/province/Punjab`}>Punjab</Link>
               <Link href={`/province/Sindh`}>Sindh</Link>
               <Link href={`/province/KPK`}>KPK</Link>
@@ -71,7 +71,7 @@ const Naavbar = () => {
 
         </div>
 
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center justify-center">
 
 
           <Link href={`/contact`}>
@@ -88,7 +88,10 @@ const Naavbar = () => {
                 </button>
           </Link>
 
-          <Themetoggle mobileshow={false}/>
+
+          <ModeToggle mobileshow={false}/>
+
+          {/* <Themetoggle mobileshow={false}/> */}
 
         </div>
 

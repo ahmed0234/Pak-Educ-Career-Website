@@ -14,9 +14,9 @@ export const Programinfo = ({ university, program }) => {
             {program === `diplomaPrograms` && "Diploma "}
             Programs
           </h1>
-          <div className="pl-2">
+          <div className="pl-2 flex flex-col gap-1">
             {selectedProgram.list.map((programName, idx) => (
-              <h1 key={programName} className="pl-4 text-sm md:text-base lg:text-lg text-white dark:text-black">
+              <h1 key={programName} className="pl-4 text-sm md:text-base lg:text-lg text-primary font-semibold">
                 {idx + 1}. {programName}
               </h1>
             ))}
