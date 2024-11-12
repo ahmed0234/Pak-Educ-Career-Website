@@ -64,7 +64,7 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-          themes={["lightRose","darkYellow","light", "dark", "lightOrange", "lightViolet"]}
+          themes={["lightRose","darkYellow","light", "dark", "balanced"]}
         >
           <div>
             <Naavbar />

@@ -30,16 +30,12 @@ export function ModeToggle({mobileshow}) {
         <DropdownMenuItem  onClick={() => setTheme("light")}>
           Light
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("lightOrange")}>
-          Light Orange
-        </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("lightRose")}>
           Light Rose
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("lightViolet")}>
-          Light Violet
-        </DropdownMenuItem>
- 
+        </DropdownMenuItem> 
+        <DropdownMenuItem onClick={() => setTheme("balanced")}>
+          Balanced
+        </DropdownMenuItem> 
         <DropdownMenuItem onClick={() => setTheme("dark")}>
           Dark
         </DropdownMenuItem>

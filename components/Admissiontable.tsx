@@ -8,6 +8,7 @@ import { findFilteredUniversities } from "@/actions/filtereduniversities";
 import { DharmaGothicRegular, gotham } from "@/app/layout";
 import Image from "next/image";
 import { Filter } from 'lucide-react';
+import { SkeletonUI } from "./SkeletonUI";
 
 const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
 
@@ -129,7 +130,7 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
       )}
 
       <div className={loading ? `block text-yellow-400 text-3xl pb-12 italic ${gotham.className}` : "hidden"}>
-          <h1 className="text-primary">Please Wait Loading........</h1>
+          <SkeletonUI />
       </div>
 
       <h1
@@ -141,7 +142,7 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
 
         <div className="MainContaineroftable_and_Advertisement flex gap-6 flex-wrap lg:flex-nowrap max-[768px]:flex-col">
 
-            <div className="mt-8 overflow-x-auto w-full">
+            <div className={loading ?  "hidden": `mt-8 overflow-x-auto w-full`}>
               <table className="min-w-full table-auto  rounded-lg border border-primary border-collapse">
                 <thead>
                   <tr className="bg-primary text-secondary uppercase text-xs md:text-sm leading-normal ">
@@ -202,7 +203,7 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
 
 
 
-              <div className="mt-6 sm:mt-8 flex flex-wrap justify-center lg:justify-start gap-3 lg:flex-col">
+              <div className={loading ? "hidden" : "mt-6 sm:mt-8 flex flex-wrap justify-center lg:justify-start gap-3 lg:flex-col"}>
                         {advertisementData.map((ad) => (
                           <Link href={`/advertisement/${ad._id}`} key={ad._id}>
                             <div className="w-[180px] h-[180px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] xl:w-[280px] xl:h-[280px] 2xl:w-[320px] 2xl:h-[320px] relative top-0 left-0 fancy">
@@ -215,7 +216,7 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
                             </div>
                           </Link>
                         ))}
-                </div>
+              </div>
         </div>
 
 
