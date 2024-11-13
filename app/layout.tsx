@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import "@uploadthing/react/styles.css";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Analytics } from '@vercel/analytics/next';
 import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = localFont({
@@ -70,6 +71,7 @@ export default function RootLayout({
             <Naavbar />
           </div>
           {children}
+          <Analytics />
           <Footer />
         </ThemeProvider>
       </body>
