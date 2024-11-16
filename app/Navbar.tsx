@@ -20,7 +20,7 @@ const Naavbar = () => {
           </Link>
 
 
-         <div className=" gap-4 lg:flex hidden"> 
+         <div className="max-lg:hidden gap-4 lg:flex"> 
 
         <div className="1 dropdown z-40 bg-primary text-secondary rounded-xl">
           <button className="dropbtn text-sm text-secondary">Cities</button>
@@ -71,11 +71,11 @@ const Naavbar = () => {
 
         </div>
 
-        <div className="flex gap-4 items-center justify-center">
+        <div className="flex gap-4 items-center justify-center ">
 
 
           <Link href={`/contact`}>
-                <button type="button" className="Navbtn hidden lg:block">
+                <button type="button" className="Navbtn max-lg:hidden lg:block">
                     <strong>Contact Us</strong>
                     <div id="container-stars">
                       <div id="stars"></div>

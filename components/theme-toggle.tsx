@@ -16,7 +16,7 @@ export function ModeToggle({mobileshow}) {
   const { setTheme } = useTheme()
 
   return (
-    <div className={`${mobileshow ? "flex" : "hidden"} lg:flex`}>
+    <div className={`${mobileshow ? "flex" : "max-lg:hidden"} lg:flex`}>
 
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

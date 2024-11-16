@@ -120,28 +120,28 @@ const Page = async ({ params }: { params: { id: string } }) => {
       <div className="lg:container px-4 w-full lg:grid lg:grid-cols-12">
 
           <div className="University_Data lg:col-span-9  mt-12 flex flex-col gap-8 mb-12">
-              <h1 className="text-base sm:text-2xl md:text-3xl lg:text-4xl text-center font-bold text-primary">{university.name} Admissions Open</h1>
+              <h1 className="max-sm:text-base sm:text-2xl md:text-3xl lg:text-4xl text-center font-bold text-primary">{university.name} Admissions Open</h1>
                     
               <div className="w-[320px] sm:w-[600px] md:w-[650px] xl:w-[800px] border mx-auto">
                 <table className="min-w-full border-collapse border border-primary text-primary font-semibold">
                   <tbody>
                     <tr>
-                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-primary text-center text-xs md:text-base lg:text-lg">Location</td>
-                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-primary text-center text-xs md:text-base lg:text-lg">{university.location.city}, {university.location.province}</td>
+                      <td className="px-4 max-sm:py-2 md:py-3 xl:py-4 border border-primary text-center max-sm:text-xs md:text-base lg:text-lg">Location</td>
+                      <td className="px-4 max-sm:py-2 md:py-3 xl:py-4 border border-primary text-center max-sm:text-xs md:text-base lg:text-lg">{university.location.city}, {university.location.province}</td>
                     </tr>
                     <tr>
-                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-primary text-center text-xs md:text-base lg:text-lg">Sector</td>
-                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-primary text-center text-xs md:text-base lg:text-lg">{university.sector === "Government" && "Govt"} {university.sector === "Semi Government" && "Semi Govt"} {university.sector === "Private" && "Private"}</td>
+                      <td className="px-4 max-sm:py-2 md:py-3 xl:py-4 border border-primary text-center max-sm:text-xs md:text-base lg:text-lg">Sector</td>
+                      <td className="px-4 max-sm:py-2 md:py-3 xl:py-4 border border-primary text-center max-sm:text-xs md:text-base lg:text-lg">{university.sector === "Government" && "Govt"} {university.sector === "Semi Government" && "Semi Govt"} {university.sector === "Private" && "Private"}</td>
                     </tr>
                     {university.affiliation.isOpen && (
                       <tr>
-                        <td className="px-4 py-2 md:py-3 xl:py-4 border border-primary text-center text-xs md:text-base lg:text-lg">Affiliation</td>
-                        <td className="px-4 py-2 md:py-3 xl:py-4 border border-primary text-center text-xs md:text-base lg:text-lg">{university.affiliation.name}</td>
+                        <td className="px-4 max-sm:py-2 md:py-3 xl:py-4 border border-primary text-center max-sm:text-xs md:text-base lg:text-lg">Affiliation</td>
+                        <td className="px-4 max-sm:py-2 md:py-3 xl:py-4 border border-primary text-center max-sm:text-xs md:text-base lg:text-lg">{university.affiliation.name}</td>
                       </tr>
                     )}
                     <tr>
-                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-primary text-center text-xs md:text-base lg:text-lg">Deadline to Apply</td>
-                      <td className="px-4 py-2 md:py-3 xl:py-4 border border-primary text-center text-xs md:text-base lg:text-lg text-red-600 font-semibold">
+                      <td className="px-4 max-sm:py-2 md:py-3 xl:py-4 border border-primary text-center max-sm:text-xs md:text-base lg:text-lg">Deadline to Apply</td>
+                      <td className="px-4 max-sm:py-2 md:py-3 xl:py-4 border border-primary text-center max-sm:text-xs md:text-base lg:text-lg text-red-600 font-semibold">
                         {new Date(university.admissionDates.deadlineDate).toLocaleDateString('en-GB', {
                           day: 'numeric',
                           month: 'long',
@@ -152,8 +152,8 @@ const Page = async ({ params }: { params: { id: string } }) => {
                    
                     {university.admissionDates.testDate && (
                       <tr>
-                        <td className="px-4 py-2 md:py-3 xl:py-4 border border-gray-400 dark:border-black  text-center text-xs md:text-base lg:text-lg">Test Dates</td>
-                        <td className="px-4 py-2 md:py-3 xl:py-4 border border-gray-400 dark:border-black  text-center text-xs md:text-base lg:text-lg">{university.admissionDates.testDate}</td>
+                        <td className="px-4 max-sm:py-2 md:py-3 xl:py-4 border border-gray-400 dark:border-black  text-center max-sm:text-xs md:text-base lg:text-lg">Test Dates</td>
+                        <td className="px-4 max-sm:py-2 md:py-3 xl:py-4 border border-gray-400 dark:border-black  text-center max-sm:text-xs md:text-base lg:text-lg">{university.admissionDates.testDate}</td>
                       </tr>
                     )}
                   </tbody>
@@ -162,12 +162,12 @@ const Page = async ({ params }: { params: { id: string } }) => {
            
 
                     <div className="University_Description text-center w-[95%]">
-                        <h1 className="text-xs leading-relaxed text-amber-400 font-semibold  lg:text-lg ">{university.universityDescription}</h1>
+                        <h1 className="max-lg:text-xs leading-relaxed text-amber-400 font-semibold  lg:text-lg ">{university.universityDescription}</h1>
                     </div>
 
 
               <div className="University_Programs">
-                    <h1 className="text-center  text-3xl md:text-4xl 2xl:text-5xl text-orange-400 font-semibold">Offered Programs</h1>
+                    <h1 className="text-center  max-sm:text-3xl md:text-4xl 2xl:text-5xl text-orange-400 font-semibold">Offered Programs</h1>
 
                     <Programinfo university={university} program={"bsPrograms"}/>
                     <Programinfo university={university} program={"mphilPrograms"}/>

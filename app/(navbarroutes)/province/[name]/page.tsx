@@ -24,7 +24,7 @@ async function fetchUniversity(name: string) {
     cityData = await Universitymodel.find({ "location.province":  "AJK", universityAdmissionExpired: false});
   } else if (name === "Balochistan") {
     // Fetch universities with MPhil programs
-    cityData = await Universitymodel.find({ "location.province":  "Balochistan"});
+    cityData = await Universitymodel.find({ "location.province":  "Balochistan", universityAdmissionExpired: false});
   }
 
   

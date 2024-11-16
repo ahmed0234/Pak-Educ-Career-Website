@@ -1,10 +1,11 @@
 import Naavbar from "@/app/Navbar";
 import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/components/theme-provider";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "@uploadthing/react/styles.css";
+import { Analytics } from "@vercel/analytics/next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Analytics } from '@vercel/analytics/next';
-import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -57,15 +58,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={` ${geistSans.className}  antialiased `}
-      >
+      <body className={` ${geistSans.className}  antialiased `}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-          themes={["lightRose","darkYellow","light", "dark", "balanced"]}
+          themes={["lightRose", "darkYellow", "light", "dark", "balanced"]}
         >
           <div>
             <Naavbar />
@@ -75,6 +74,7 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId="G-H5PR95RQBJ" />
     </html>
   );
 }

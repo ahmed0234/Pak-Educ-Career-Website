@@ -5,7 +5,7 @@ export const Programinfo = ({ university, program }) => {
     <div className="BS_Programs pl-2 mt-8">
       {selectedProgram?.isOpen && (
         <div>
-          <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-cyan-500 underline mb-4">
+          <h1 className="font-bold max-md:text-xl md:text-2xl lg:text-3xl text-cyan-500 underline mb-4">
             {program === `bsPrograms` && "BS "}
             {program === `bs5thPrograms` && "BS 5th Semester "}
             {program === `adpPrograms` && "ADP "}
@@ -16,7 +16,7 @@ export const Programinfo = ({ university, program }) => {
           </h1>
           <div className="pl-2 flex flex-col gap-1">
             {selectedProgram.list.map((programName, idx) => (
-              <h1 key={programName} className="pl-4 text-sm md:text-base lg:text-lg text-primary font-semibold">
+              <h1 key={programName} className="pl-4 max-md:text-sm md:text-base lg:text-lg text-primary font-semibold">
                 {idx + 1}. {programName}
               </h1>
             ))}
