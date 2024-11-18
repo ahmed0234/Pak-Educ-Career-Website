@@ -77,10 +77,10 @@ const Page = async ({params}: ParamPageProps) => {
                 <table className="min-w-full table-auto  rounded-lg border border-primary border-collapse">
                 <thead>
                   <tr className="bg-primary text-secondary uppercase text-xs md:text-sm leading-normal ">
-                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left hidden md:table-cell">Sr.</th>
+                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left max-md:hidden md:table-cell">Sr.</th>
                     <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left">University</th>
                     <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left">Programs</th>
-                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left hidden md:table-cell">Sector</th>
+                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left max-md:hidden md:table-cell">Sector</th>
                     <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left whitespace-nowrap">Deadline</th>
                   </tr>
                 </thead>
@@ -91,7 +91,7 @@ const Page = async ({params}: ParamPageProps) => {
                       className="border-b border-primary  hover:bg-primary hover:text-secondary  transition duration-200"
                     >
                       {/* Row separator line */}
-                      <td className="py-3 px-4 md:px-6 relative hidden md:table-cell">
+                      <td className="py-3 px-4 md:px-6 relative max-md:hidden md:table-cell">
                         <div className="absolute inset-y-0 left-0 w-px " /> {/* Separator */}
                         <h1>{idx + 1}</h1>
                       </td>
@@ -113,7 +113,7 @@ const Page = async ({params}: ParamPageProps) => {
                               </td>
 
 
-                      <td className="py-3 px-4 md:px-6 relative hidden md:table-cell">
+                      <td className="py-3 px-4 md:px-6 relative max-md:hidden md:table-cell">
                         <div className="absolute inset-y-0 left-0 w-px border border-primary" /> {/* Separator */}
                         <h1>
                           {university.sector === 'Government' && 'Govt' }
