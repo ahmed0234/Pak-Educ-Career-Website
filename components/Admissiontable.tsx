@@ -236,7 +236,7 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
                     <div className="absolute inset-y-0 left-0 w-px border border-primary" />
                     <ul className="flex flex-wrap gap-1 md:gap-1">
                       {university.programs.map((program, idx) => (
-                        <li key={idx} className="inline w-fit max-md:text-xs md:text-sm">
+                        <li key={idx} className="inline w-fit text-xs md:text-sm">
                           {program}{idx < university.programs.length - 1 && ","} 
                         </li>
                       ))}

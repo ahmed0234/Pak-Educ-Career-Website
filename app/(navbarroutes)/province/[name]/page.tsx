@@ -92,62 +92,53 @@ const Page = async ({params}: ParamPageProps) => {
   const universities = transformUniversityData(data)
   return (
     <div className="mt-8 overflow-x-auto container min-h-[75vh]">
-           <table className="min-w-full table-auto  rounded-lg border border-primary border-collapse">
-                <thead>
-                  <tr className="bg-primary text-secondary uppercase text-xs md:text-sm leading-normal ">
-                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left max-md:hidden md:table-cell">Sr.</th>
-                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left">University</th>
-                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left">Programs</th>
-                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left max-md:hidden md:table-cell">Sector</th>
-                    <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left whitespace-nowrap">Deadline</th>
-                  </tr>
-                </thead>
-                <tbody className="  text-xs md:text-sm font-light ">
-                  {universities.map((university, idx) => (
-                    <tr
-                      key={university.id}
-                      className="border-b border-primary  hover:bg-primary hover:text-secondary  transition duration-200"
-                    >
-                      {/* Row separator line */}
-                      <td className="py-3 px-4 md:px-6 relative max-md:hidden md:table-cell">
-                        <div className="absolute inset-y-0 left-0 w-px " /> {/* Separator */}
-                        <h1>{idx + 1}</h1>
-                      </td>
-
-                      <td className="py-3 px-4 md:px-6 relative">
-                        <div className="absolute inset-y-0 left-0 w-px border border-primary" /> {/* Separator */}
-                        <Link href={`/university/${university.id}`} className="max-[340px]:text-[0.7rem] sm:text-xs block  md:text-sm">{university.name}</Link>
-                      </td>
-
-                      <td className="py-3 px-4 md:px-6 relative">
-                                <div className="absolute inset-y-0 left-0 w-px border border-primary" /> {/* Separator */}
-                                <ul className="flex flex-wrap gap-1  md:gap-1">
-                                  {university.programs.map((program, idx) => (
-                                    <li key={idx} className="inline w-fit text-xs md:text-sm">
-                                      {program}{idx < university.programs.length - 1 && ","} 
-                                    </li>
-                                  ))}
-                                </ul>
-                              </td>
-
-
-                      <td className="py-3 px-4 md:px-6 relative max-md:hidden md:table-cell">
-                        <div className="absolute inset-y-0 left-0 w-px border border-primary" /> {/* Separator */}
-                        <h1>
-                          {university.sector === 'Government' && 'Govt' }
-                          {university.sector === 'Semi Government' && 'Semi Govt' }
-                          {university.sector === 'Private' && 'Private' }
-                        </h1>
-                      </td>
-
-                      <td className="py-3 px-4 md:px-6 relative text-red-500 font-semibold sm:whitespace-nowrap">
-                        <div className="absolute inset-y-0 left-0 w-px border border-primary" /> {/* Separator */}
-                        <h1 className="max-[340px]:text-[0.65rem] text-xs md:text-sm">{university.deadline}</h1>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+      <table className="min-w-full table-auto rounded-lg border border-primary border-collapse">
+            <thead>
+              <tr className="bg-primary text-secondary uppercase text-xs md:text-sm leading-normal">
+                <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left max-md:hidden md:table-cell">Sr.</th>
+                <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left">University</th>
+                <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left">Programs</th>
+                <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left max-md:hidden md:table-cell">Sector</th>
+                <th className="max-[350px]:text-[0.6rem] py-3 px-4 md:px-6 text-left whitespace-nowrap">Deadline</th>
+              </tr>
+            </thead>
+            <tbody className="text-xs md:text-sm font-light">
+              {universities.map((university, idx) => (
+                <tr key={university.id} className="border-b border-primary hover:bg-primary hover:text-secondary transition duration-200">
+                  <td className="py-3 max-md:px-4 md:px-6 relative max-md:hidden md:table-cell">
+                    <div className="absolute inset-y-0 left-0 w-px" />
+                    <h1 className="max-md:text-xs md:text-sm">{idx + 1}</h1>
+                  </td>
+                  <td className="py-3 max-md:px-4 md:px-6 relative">
+                    <div className="absolute inset-y-0 left-0 w-px border border-primary" />
+                    <Link href={`/university/${university.id}`} className="max-[340px]:text-[0.7rem] sm:text-xs block md:text-sm">{university.name}</Link>
+                  </td>
+                  <td className="py-3 max-md:px-4 md:px-6 relative">
+                    <div className="absolute inset-y-0 left-0 w-px border border-primary" />
+                    <ul className="flex flex-wrap gap-1 md:gap-1">
+                      {university.programs.map((program, idx) => (
+                        <li key={idx} className="inline w-fit text-xs md:text-sm">
+                          {program}{idx < university.programs.length - 1 && ","} 
+                        </li>
+                      ))}
+                    </ul>
+                  </td>
+                  <td className="py-3 max-md:px-4 md:px-6 relative max-md:hidden md:table-cell">
+                    <div className="absolute inset-y-0 left-0 w-px border border-primary max-md:text-xs md:text-sm" />
+                    <h1 className="max-md:text-xs md:text-sm">
+                      {university.sector === 'Government' && 'Govt'}
+                      {university.sector === 'Semi Government' && 'Semi Govt'}
+                      {university.sector === 'Private' && 'Private'}
+                    </h1>
+                  </td>
+                  <td className="py-3 max-md:px-4 md:px-6 relative text-red-500 font-semibold sm:whitespace-nowrap">
+                    <div className="absolute inset-y-0 left-0 w-px border border-primary" />
+                    <h1 className="max-[340px]:text-[0.65rem] max-md:text-xs md:text-sm">{university.deadline}</h1>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
     </div>
   )
 }
