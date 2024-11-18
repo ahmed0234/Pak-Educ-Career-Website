@@ -151,12 +151,10 @@ const UniversitySchema = new mongoose.Schema(
       default: null,
     },
 
-    
     universityAdmissionExpired: {
       type: Boolean,
       default: false,
     },
-
 
     // HR Admission Notice Link
     hrAdmissionNotice: {
@@ -184,6 +182,10 @@ UniversitySchema.index({
 });
 UniversitySchema.index({ sector: 1, "programs.phdPrograms.isOpen": 1 });
 UniversitySchema.index({ priority: 1, importantAdmission: 1 });
+UniversitySchema.index(
+  { "admissionDates.deadlineDate": -1, createdAt: 1 },
+  { background: true }
+);
 
 const University =
   mongoose.models.Universities ||

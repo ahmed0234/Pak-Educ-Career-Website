@@ -24,6 +24,45 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
   const [itemsPerPage, setItemsPerPage] = useState(50);
   const [totalPages, setTotalPages] = useState(1);
 
+
+  
+  function transformUniversityData(data) {
+    const today = new Date();
+    const transformedData = data.map((university) => {
+      const programs = [];
+      if (university.programs.bsPrograms.isOpen) programs.push("BS");
+      if (university.programs.mphilPrograms.isOpen) programs.push("MPhil");
+      if (university.programs.phdPrograms.isOpen) programs.push("PhD");
+      if (university.programs.adpPrograms.isOpen) programs.push("ADP");
+      if (university.programs.bs5thPrograms.isOpen) programs.push("BS 5th Semester");
+      if (university.programs.diplomaPrograms.isOpen) programs.push("Diploma");
+
+      return {
+        id: university._id,
+        name: university.name,
+        programs: programs,
+        sector: university.sector,
+        deadline: new Date(university.admissionDates.deadlineDate),
+        province: university.location.province // Add province for filtering
+      };
+    });
+
+    const sortedUniversities = transformedData.sort((a, b) => {
+      const timeDiffA = a.deadline.getTime() - today.getTime();
+      const timeDiffB = b.deadline.getTime() - today.getTime();
+      return timeDiffA - timeDiffB;
+    });
+
+    return sortedUniversities.map((university) => ({
+      ...university,
+      deadline: university.deadline.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }),
+    }));
+  }
+
   useEffect(() => {
     if (university_raw_data) {
       const transformedData = transformUniversityData(university_raw_data);
@@ -62,42 +101,6 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
     setCurrentPage(1);
   };
 
-  function transformUniversityData(data) {
-    const today = new Date();
-    const transformedData = data.map((university) => {
-      const programs = [];
-      if (university.programs.bsPrograms.isOpen) programs.push("BS");
-      if (university.programs.mphilPrograms.isOpen) programs.push("MPhil");
-      if (university.programs.phdPrograms.isOpen) programs.push("PhD");
-      if (university.programs.adpPrograms.isOpen) programs.push("ADP");
-      if (university.programs.bs5thPrograms.isOpen) programs.push("BS 5th Semester");
-      if (university.programs.diplomaPrograms.isOpen) programs.push("Diploma");
-
-      return {
-        id: university._id,
-        name: university.name,
-        programs: programs,
-        sector: university.sector,
-        deadline: new Date(university.admissionDates.deadlineDate),
-        province: university.location.province // Add province for filtering
-      };
-    });
-
-    const sortedUniversities = transformedData.sort((a, b) => {
-      const timeDiffA = a.deadline.getTime() - today.getTime();
-      const timeDiffB = b.deadline.getTime() - today.getTime();
-      return timeDiffA - timeDiffB;
-    });
-
-    return sortedUniversities.map((university) => ({
-      ...university,
-      deadline: university.deadline.toLocaleDateString("en-GB", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      }),
-    }));
-  }
 
   async function filteredUniversitiesData(data) {
     setLoading(true);

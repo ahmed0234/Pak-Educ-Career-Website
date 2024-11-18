@@ -8,10 +8,7 @@ export const dynamic = "force-dynamic";
 export async function GET({}) {
   try {
     await connectToDatabase();
-    const universities_data  = await Universitymodel.find({
-      "location.province": "Punjab"
-    });
-    return NextResponse.json(universities_data);
+    return NextResponse.json(`aa`);
     
   } catch (error) {
     console.log(error.message);
