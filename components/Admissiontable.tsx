@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import Sortingtable from "./Sortingtable";
 import { findFilteredUniversities } from "@/actions/filtereduniversities";
 import { DharmaGothicRegular, gotham } from "@/app/layout";
-import Image from "next/image";
 import { Filter } from "lucide-react";
 import { SkeletonUI } from "./SkeletonUI";
 
