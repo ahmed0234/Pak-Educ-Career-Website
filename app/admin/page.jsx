@@ -351,28 +351,28 @@ const Page = () => {
           {/* Diploma  */}
 
 
-          {/* FCPS Programs */}
+          {/* fcps/mcps Programs */}
 
           <div className="flex flex-col">
-            <label htmlFor="fcpsPrograms" className="mb-2 font-semibold text-secondary">
-            FCPS Programs
+            <label htmlFor="fcpsmcpsProgramsOpen" className="mb-2 font-semibold text-secondary">
+            FCPS/MCPS Programs
             </label>
             <div className="flex items-center gap-2 mb-2">
               <input
                 type="checkbox"
-                id="fcpsOpen"
-                name="fcpsProgramsOpen"
+                id="fcpsmcpsProgramsOpen"
+                name="fcpsmcpsProgramsOpen"
                 className="focus:ring-2 focus:ring-blue-500"
               />
-              <label htmlFor="fcpsOpen" className="font-semibold text-secondary">
-              FCPS Admissions Open
+              <label htmlFor="fcpsmcpsProgramsOpen" className="font-semibold text-secondary">
+              FCPS/MCPS Admissions Open
               </label>
             </div>
 
             {/* Textarea for Adding Programs */}
             <textarea
-              id="fcpsPrograms"
-              name="fcpsPrograms"
+              id="fcpsmcpsPrograms"
+              name="fcpsmcpsPrograms"
               placeholder="Enter FCPS programs, separated by commas"
               className="border text-primary border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -383,42 +383,10 @@ const Page = () => {
               Agriculture, Business Administration).
             </p>
           </div>
-          {/* FCPS Programs */}
+          {/* fcps/mcps Programs */}
 
 
-          {/* MSPS Programs */}
-
-          <div className="flex flex-col">
-            <label htmlFor="mspsPrograms" className="mb-2 font-semibold text-secondary">
-            MSPS Programs
-            </label>
-            <div className="flex items-center gap-2 mb-2">
-              <input
-                type="checkbox"
-                id="mspsOpen"
-                name="mspsProgramsOpen"
-                className="focus:ring-2 focus:ring-blue-500"
-              />
-              <label htmlFor="mspsOpen" className="font-semibold text-secondary">
-              MSPS Admissions Open
-              </label>
-            </div>
-
-            {/* Textarea for Adding Programs */}
-            <textarea
-              id="mspsPrograms"
-              name="mspsPrograms"
-              placeholder="Enter MSPS programs, separated by commas"
-              className="border text-primary border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-
-            {/* Additional Info */}
-            <p className="text-sm text-rose-500 mt-2">
-              Separate each program with a comma (e.g. Computer Science,
-              Agriculture, Business Administration).
-            </p>
-          </div>
-          {/* MSPS Programs */}
+          
               
                       {/* University Description */}
           <div className="flex flex-col">

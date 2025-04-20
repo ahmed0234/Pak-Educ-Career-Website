@@ -119,7 +119,7 @@ const UniversitySchema = new mongoose.Schema(
           default: [],
         },
       },
-      fcpsPrograms: {
+      fcpsmcpsPrograms: {
         isOpen: {
           type: Boolean,
           default: false,
@@ -131,17 +131,6 @@ const UniversitySchema = new mongoose.Schema(
         },
       },
 
-      mspsPrograms: {
-        isOpen: {
-          type: Boolean,
-          default: false,
-          index: true, // Search by FCPS program availability
-        },
-        list: {
-          type: [String], // List of Diploma programs
-          default: [],
-        },
-      },
     },
 
     // Admission Information
@@ -202,6 +191,7 @@ UniversitySchema.index({
   "programs.diplomaPrograms.isOpen": 1,
   "programs.bs5thPrograms.isOpen": 1,
   "programs.adpPrograms.isOpen": 1,
+  "programs.fcpsmcpsPrograms.isOpen": 1,
 });
 UniversitySchema.index({ sector: 1, "programs.phdPrograms.isOpen": 1 });
 UniversitySchema.index({ priority: 1, importantAdmission: 1 });

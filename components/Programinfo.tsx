@@ -10,8 +10,7 @@ export const Programinfo = ({ university, program }) => {
             {program === `bsPrograms` && "BS "}
             {program === `bs5thPrograms` && "BS 5th Semester "}
             {program === `mphilPrograms` && "MPhil "}
-            {program === `fcpsPrograms` && "FCPS "}
-            {program === `mspsPrograms` && "MSPS "}
+            {program === `fcpsmcpsPrograms` && "FCPS/MCPS"}
             {program === `phdPrograms` && "PhD "}
             {program === `diplomaPrograms` && "Diploma "}
             Programs
@@ -31,7 +30,6 @@ export const Programinfo = ({ university, program }) => {
     </div>
   );
 };
-
 
 // export const Programinfo = ({ university, program }) => {
 //   const selectedProgram = university.programs[program]; // Dynamically access the correct program

@@ -28,12 +28,9 @@ async function fetchUniversity(name: string) {
   } else if (name === "diplomaPrograms") {
     // Fetch universities with MPhil programs
     cityData = await Universitymodel.find({ "programs.diplomaPrograms.isOpen": true, universityAdmissionExpired: false });
-  } else if (name === "fcpsPrograms") {
+  } else if (name === "fcpsmcpsPrograms") {
     // Fetch universities with MPhil programs
-    cityData = await Universitymodel.find({ "programs.fcpsPrograms.isOpen": true, universityAdmissionExpired: false });
-  } else if (name === "mspsPrograms") {
-    // Fetch universities with MPhil programs
-    cityData = await Universitymodel.find({ "programs.mspsPrograms.isOpen": true, universityAdmissionExpired: false });
+    cityData = await Universitymodel.find({ "programs.fcpsmcpsPrograms.isOpen": true, universityAdmissionExpired: false });
   }
 
   return cityData;
@@ -65,6 +62,9 @@ const Page = async ({params}: ParamPageProps) => {
       }
       if (university.programs.diplomaPrograms.isOpen) {
         programs.push("Diploma");
+      }
+      if (university.programs.fcpsmcpsPrograms.isOpen) {
+        programs.push("FCPS/MCPS");
       }
 
       // Transform the data

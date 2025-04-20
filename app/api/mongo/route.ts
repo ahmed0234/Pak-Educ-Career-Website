@@ -8,10 +8,8 @@ export const dynamic = "force-dynamic";
 export async function GET({}) {
   try {
     await connectToDatabase();
-    const university = await Universitymodel.findOne({
-      name: "Shaheed Benazir Bhutto Dewan University, Karachi Admissions Open",
-    });
-    return NextResponse.json(university);
+    const university = await Universitymodel.syncIndexes();
+    return NextResponse.json({ message: university });
   } catch (error) {
     console.log(error.message);
     return NextResponse.json(error.message);

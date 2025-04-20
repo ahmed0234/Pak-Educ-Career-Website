@@ -43,8 +43,7 @@ const Naavbar = () => {
               <Link href={`/programs/bsPrograms`}>BS</Link>
               <Link href={`/programs/bs5thPrograms`}>BS 5th Semester</Link>
               <Link href={`/programs/mphilPrograms`}>MPhil</Link>
-              <Link href={`/programs/fcpsPrograms`}>FCPS</Link>
-              <Link href={`/programs/mspsPrograms`}>MSPS</Link>
+              <Link href={`/programs/fcpsmcpsPrograms`}>FCPS/MCPS</Link>
               <Link href={`/programs/phdPrograms`}>PhD</Link>
               <Link href={`/programs/diplomaPrograms`}>Diploma</Link>
           </div>
