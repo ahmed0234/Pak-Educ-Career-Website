@@ -39,10 +39,12 @@ const Naavbar = () => {
         <div className="2 dropdown z-40 bg-primary text-secondary rounded-xl">
           <button className="dropbtn text-sm text-secondary">Programs</button>
           <div className="dropdown-content text-sm bg-primary text-secondary">
+              <Link href={`/programs/adpPrograms`}>ADP</Link>
               <Link href={`/programs/bsPrograms`}>BS</Link>
               <Link href={`/programs/bs5thPrograms`}>BS 5th Semester</Link>
-              <Link href={`/programs/adpPrograms`}>ADP</Link>
               <Link href={`/programs/mphilPrograms`}>MPhil</Link>
+              <Link href={`/programs/fcpsPrograms`}>FCPS</Link>
+              <Link href={`/programs/mspsPrograms`}>MSPS</Link>
               <Link href={`/programs/phdPrograms`}>PhD</Link>
               <Link href={`/programs/diplomaPrograms`}>Diploma</Link>
           </div>

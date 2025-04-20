@@ -169,11 +169,13 @@ const Page = async ({ params }: { params: { id: string } }) => {
               <div className="University_Programs">
                     <h1 className="text-center  max-sm:text-3xl md:text-4xl 2xl:text-5xl text-orange-400 font-semibold">Offered Programs</h1>
 
-                    <Programinfo university={university} program={"bsPrograms"}/>
-                    <Programinfo university={university} program={"mphilPrograms"}/>
-                    <Programinfo university={university} program={"phdPrograms"}/>
                     <Programinfo university={university} program={"adpPrograms"}/>
+                    <Programinfo university={university} program={"bsPrograms"}/>
                     <Programinfo university={university} program={"bs5thPrograms"}/>
+                    <Programinfo university={university} program={"mphilPrograms"}/>
+                    <Programinfo university={university} program={"fcpsPrograms"}/>
+                    <Programinfo university={university} program={"mspsPrograms"}/>
+                    <Programinfo university={university} program={"phdPrograms"}/>
                     <Programinfo university={university} program={"diplomaPrograms"}/>
               </div>
 

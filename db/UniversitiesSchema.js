@@ -119,6 +119,29 @@ const UniversitySchema = new mongoose.Schema(
           default: [],
         },
       },
+      fcpsPrograms: {
+        isOpen: {
+          type: Boolean,
+          default: false,
+          index: true, // Search by FCPS program availability
+        },
+        list: {
+          type: [String], // List of Diploma programs
+          default: [],
+        },
+      },
+
+      mspsPrograms: {
+        isOpen: {
+          type: Boolean,
+          default: false,
+          index: true, // Search by FCPS program availability
+        },
+        list: {
+          type: [String], // List of Diploma programs
+          default: [],
+        },
+      },
     },
 
     // Admission Information

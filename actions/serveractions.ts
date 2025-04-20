@@ -204,6 +204,21 @@ export async function Create_University(data: FormData, hrimage: string) {
               ?.split(",")
               .map((p) => p.trim()) || [],
         },
+        fcpsPrograms: {
+          isOpen: data.get("fcpsOpen") === "on",
+          list:
+            (data.get("fcpsPrograms") as string)
+              ?.split(",")
+              .map((p) => p.trim()) || [],
+        },
+
+        mspsPrograms: {
+          isOpen: data.get("mspsOpen") === "on",
+          list:
+            (data.get("mspsPrograms") as string)
+              ?.split(",")
+              .map((p) => p.trim()) || [],
+        },
       },
     };
 

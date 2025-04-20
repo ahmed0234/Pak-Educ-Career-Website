@@ -349,6 +349,76 @@ const Page = () => {
             </p>
           </div>
           {/* Diploma  */}
+
+
+          {/* FCPS Programs */}
+
+          <div className="flex flex-col">
+            <label htmlFor="fcpsPrograms" className="mb-2 font-semibold text-secondary">
+            FCPS Programs
+            </label>
+            <div className="flex items-center gap-2 mb-2">
+              <input
+                type="checkbox"
+                id="fcpsOpen"
+                name="fcpsProgramsOpen"
+                className="focus:ring-2 focus:ring-blue-500"
+              />
+              <label htmlFor="fcpsOpen" className="font-semibold text-secondary">
+              FCPS Admissions Open
+              </label>
+            </div>
+
+            {/* Textarea for Adding Programs */}
+            <textarea
+              id="fcpsPrograms"
+              name="fcpsPrograms"
+              placeholder="Enter FCPS programs, separated by commas"
+              className="border text-primary border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+
+            {/* Additional Info */}
+            <p className="text-sm text-rose-500 mt-2">
+              Separate each program with a comma (e.g. Computer Science,
+              Agriculture, Business Administration).
+            </p>
+          </div>
+          {/* FCPS Programs */}
+
+
+          {/* MSPS Programs */}
+
+          <div className="flex flex-col">
+            <label htmlFor="mspsPrograms" className="mb-2 font-semibold text-secondary">
+            MSPS Programs
+            </label>
+            <div className="flex items-center gap-2 mb-2">
+              <input
+                type="checkbox"
+                id="mspsOpen"
+                name="mspsProgramsOpen"
+                className="focus:ring-2 focus:ring-blue-500"
+              />
+              <label htmlFor="mspsOpen" className="font-semibold text-secondary">
+              MSPS Admissions Open
+              </label>
+            </div>
+
+            {/* Textarea for Adding Programs */}
+            <textarea
+              id="mspsPrograms"
+              name="mspsPrograms"
+              placeholder="Enter MSPS programs, separated by commas"
+              className="border text-primary border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+
+            {/* Additional Info */}
+            <p className="text-sm text-rose-500 mt-2">
+              Separate each program with a comma (e.g. Computer Science,
+              Agriculture, Business Administration).
+            </p>
+          </div>
+          {/* MSPS Programs */}
               
                       {/* University Description */}
           <div className="flex flex-col">
@@ -363,6 +433,9 @@ const Page = () => {
               className="border border-gray-300 text-primary font-[family-name:var(--font-geist-sans)] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
+
+
+          
 
           {/* ImportantAdmission or Not */}
           <div className="flex flex-col">

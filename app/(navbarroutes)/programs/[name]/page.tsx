@@ -28,6 +28,12 @@ async function fetchUniversity(name: string) {
   } else if (name === "diplomaPrograms") {
     // Fetch universities with MPhil programs
     cityData = await Universitymodel.find({ "programs.diplomaPrograms.isOpen": true, universityAdmissionExpired: false });
+  } else if (name === "fcpsPrograms") {
+    // Fetch universities with MPhil programs
+    cityData = await Universitymodel.find({ "programs.fcpsPrograms.isOpen": true, universityAdmissionExpired: false });
+  } else if (name === "mspsPrograms") {
+    // Fetch universities with MPhil programs
+    cityData = await Universitymodel.find({ "programs.mspsPrograms.isOpen": true, universityAdmissionExpired: false });
   }
 
   return cityData;

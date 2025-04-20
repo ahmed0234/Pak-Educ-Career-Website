@@ -55,13 +55,13 @@ const Importantadmission2 = ({ data }) => {
           <SwiperSlide key={idx} className="">
             <Link href={`/university/${university._id}`}>
               <div className="flex flex-col gap-4 items-center justify-center pb-4 px-2 w-full rounded-xl">
-                <div className="h-[400px] w-[300px] relative">
+                <div className="h-[400px] w-[300px] lg:h-[420px] 2xl:h-[450px] 2xl:w-[330px] relative">
                   <img
                     src={university.hrAdmissionNotice}
                     alt="Picture"
-                    className="absolute top-0 left-0 w-full h-full object-cover box"
+                    className="absolute top-0 left-0 w-full h-full object-contain"
                     style={{
-                      objectPosition: "center center", // Explicitly set position
+                      objectPosition: "center center", // Explicitly set position`
                     }}
                   />
                 </div>
