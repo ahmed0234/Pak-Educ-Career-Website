@@ -26,7 +26,7 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
   function transformUniversityData(data) {
     const today = new Date();
     const transformedData = data.map((university) => {
-      const programs = [];
+      const programs: string[] = [];
       if (university.programs.bsPrograms.isOpen) programs.push("BS");
       if (university.programs.mphilPrograms.isOpen) programs.push("MPhil");
       if (university.programs.phdPrograms.isOpen) programs.push("PhD");
@@ -34,6 +34,8 @@ const AdmissionTableList = ({ university_raw_data, advertisementData }) => {
       if (university.programs.bs5thPrograms.isOpen)
         programs.push("BS 5th Semester");
       if (university.programs.diplomaPrograms.isOpen) programs.push("Diploma");
+      if (university.programs.fcpsmcpsPrograms?.isOpen)
+        programs.push("FCPS/MCPS");
 
       return {
         id: university._id,

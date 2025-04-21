@@ -10,7 +10,7 @@ export const Programinfo = ({ university, program }) => {
             {program === `bsPrograms` && "BS "}
             {program === `bs5thPrograms` && "BS 5th Semester "}
             {program === `mphilPrograms` && "MPhil "}
-            {program === `fcpsmcpsPrograms` && "FCPS/MCPS"}
+            {program === `fcpsmcpsPrograms` && "FCPS/MCPS "}
             {program === `phdPrograms` && "PhD "}
             {program === `diplomaPrograms` && "Diploma "}
             Programs
