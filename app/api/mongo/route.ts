@@ -8,8 +8,10 @@ export const dynamic = "force-dynamic";
 export async function GET({}) {
   try {
     await connectToDatabase();
-    const university = await Universitymodel.syncIndexes();
-    return NextResponse.json({ message: university });
+    const aridUni = await Universitymodel.find({
+      name: { $regex: "Arid", $options: "i" },
+    });
+    return NextResponse.json(aridUni);
   } catch (error) {
     console.log(error.message);
     return NextResponse.json(error.message);
